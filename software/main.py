@@ -2,7 +2,8 @@ from PySide6.QtWidgets import QApplication
 from software.TestWeb import WebWindow
 
 if __name__ == "__main__":
+
     app = QApplication()
-    pomodoroWindowGenerator = WebWindow()
-    pomodoroWindowGenerator.show()
+    Gui = WebWindow()
+    Gui.show()
     app.exec()
