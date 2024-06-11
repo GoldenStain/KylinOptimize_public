@@ -40,35 +40,35 @@ while True:
 		for k, v in send_bytes.items():
 			pid = k.value
 			bytes_sent = v.value
-			if pid == 0 or pid == t_pid:
+			if t_pid == 0 or pid == t_pid:
 				TCP_sent += bytes_sent
 			#print(f"Process {pid} sent {bytes_sent} bytes")
 		for k, v in recv_bytes.items():
 			pid = k.value
 			bytes_recv = v.value
-			if pid == 0 or pid == t_pid:
+			if t_pid == 0 or pid == t_pid:
 				TCP_recv += bytes_recv
 			#print(f"Process {pid} received {bytes_recv} bytes")
 		
 		for k, v, in disk_read_bytes.items():
 			pid = k.value
 			value = v.value
-			if pid == 0 or pid == t_pid:
+			if t_pid == 0 or pid == t_pid:
 				DISK_read += value
 		for k, v, in disk_write_bytes.items():
 			pid = k.value
 			value = v.value
-			if pid == 0 or pid == t_pid:
+			if t_pid == 0 or pid == t_pid:
 				DISK_write += value
 		for k, v, in disk_read_count.items():
 			pid = k.value
 			value = v.value
-			if pid == 0 or pid == t_pid:
+			if t_pid == 0 or pid == t_pid:
 				DISK_read_cnt += value
 		for k, v, in disk_write_count.items():
 			pid = k.value
 			value = v.value
-			if pid == 0 or pid == t_pid:
+			if t_pid == 0 or pid == t_pid:
 				DISK_write_cnt += value
 
 		send_bytes.clear()
