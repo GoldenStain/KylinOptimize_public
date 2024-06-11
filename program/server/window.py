@@ -12,14 +12,14 @@ class WebWindow(QMainWindow):
     def setUI(self):
         self.setWindowTitle('麒麟调优')
         self.setGeometry(100, 100, 1050, 600)
-        # 添加Icon
+       		# 添加Icon
         icon = QIcon()
-        icon.addFile(u"Picture/Ubuntu_Kylin_logo.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile("./icon.jpeg", QSize(), QIcon.Normal, QIcon.Off)
         self.setWindowIcon(icon)
-        # 创建Web视图
+        	# 创建Web视图
         self.webView = QWebEngineView()
         self.setCentralWidget(self.webView)
 
-        # 加载网页
+        	# 加载网页
         self.webView.setUrl('http://127.0.0.1:5000')
 
