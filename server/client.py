@@ -1,8 +1,4 @@
-from PySide6.QtWidgets import QApplication
-from server.window import WebWindow
+import webbrowser
 
-def start():
-    app = QApplication()
-    pomodoroWindowGenerator = WebWindow()
-    pomodoroWindowGenerator.show()
-    app.exec()
+if __name__ == "__main__":
+    webbrowser.open("http://127.0.0.1:5000")

@@ -1,14 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
 
-@app.route("/lei/")
-def say_hello():
-    return "<p>Hello, lei!</p>"
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-def start():
-		app.run(port=5000)
+
+if __name__ == '__main__':
+    app.run()
