@@ -1,11 +1,16 @@
-#!/usr/bin/python
+#!/usr/bin/python3.7m
 # encoding=utf-8
 
 from bcc import BPF
 import ctypes
 import time
+import argparse
 
-t_pid = int(input('输入对应的进程PID（0代表所有进程）：'))
+parser = argparse.ArgumentParser(description="eBPF data collector")
+parser.add_argument('-p', '--pid', type=int, default=0, help='target process PID')
+args = parser.parse_args()
+
+t_pid = args.pid
 
 csv = open("output.csv", "w")
 headers = ["TCP_sent", "TCP_recv", "DISK_read", "DISK_write", "DISK_read_cnt", "DISK_write_cnt"]
