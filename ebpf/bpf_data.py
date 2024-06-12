@@ -15,6 +15,7 @@ csv.write(','.join(headers) + '\n')
 bpf = BPF(src_file="bpf_data.c")
 bpf.attach_kprobe(event="tcp_sendmsg", fn_name="trace_tcp_sendmsg")
 bpf.attach_kprobe(event="tcp_recvmsg", fn_name="trace_tcp_recvmsg")
+bpf.attach_kprobe(event="blk_account_io_start", fn_name="trace_block_rq_insert")
 
 send_bytes = bpf["send_bytes"]
 recv_bytes = bpf["recv_bytes"]
@@ -78,8 +79,12 @@ while True:
 		disk_write_bytes.clear()
 		disk_read_count.clear()
 		disk_write_count.clear()
+		
+		line = ','.join(map(str, [TCP_sent, TCP_recv, DISK_read, DISK_write, DISK_read_cnt, DISK_write_cnt]))
+		csv.write(line + '\n')
 
-		csv.write(','.join(map(str, [TCP_sent, TCP_recv, DISK_read, DISK_write, DISK_read_cnt, DISK_write_cnt])) + '\n')
+		print(line)
+
 	except KeyboardInterrupt:
 		print('数据采集结束')
 		exit()
