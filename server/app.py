@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import json
 import globals
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect('/static/index.html', code=302, Response=None)
 
 @app.route('/api/perf')
 def api_perf():
@@ -15,7 +15,9 @@ def api_perf():
         "cpu": globals.CPU_USAGE,
         "memory": globals.MEMORY_USAGE,
         "block_io": globals.BLOCK_IO_USAGE,
-        "net_io": globals.NET_IO_USAGE
+        "block_io_cnt": globals.BLOCK_IO_CNT,
+        "net_io": globals.NET_IO_USAGE,
+        "net_io_cnt": globals.NET_IO_CNT
     }
     return json.dumps(data)
 
