@@ -7,6 +7,8 @@
 // TCP IO量
 BPF_HASH(sent_bytes, u32, u64);
 BPF_HASH(recv_bytes, u32, u64);
+BPF_HASH(sent_count, u32, u64);
+BPF_HASH(recv_count, u32, u64);
 
 int trace_tcp_sendmsg(struct pt_regs *ctx, struct sock *sk, struct msghdr *msg, size_t size) {
 	u32 pid = bpf_get_current_pid_tgid() >> 32;
@@ -14,6 +16,10 @@ int trace_tcp_sendmsg(struct pt_regs *ctx, struct sock *sk, struct msghdr *msg, 
 	val = sent_bytes.lookup_or_try_init(&pid, &zero);
 	if (val){
 		(*val) += size;
+	}
+	val = sent_count.lookup_or_try_init(&pid, &zero);
+	if (val){
+		(*val)++;
 	}
 	return 0;
 }
@@ -24,6 +30,10 @@ int trace_tcp_recvmsg(struct pt_regs *ctx, struct sock *sk, struct msghdr *msg, 
 	val = recv_bytes.lookup_or_try_init(&pid, &zero);
 	if (val){
 		(*val) += size;
+	}
+	val = recv_count.lookup_or_try_init(&pid, &zero);
+	if (val){
+		(*val)++;
 	}
 	return 0;
 }

@@ -6,7 +6,7 @@ import argparse
 import time
 
 parser = argparse.ArgumentParser(description="eBPF based Database System Optimizer")
-parser.add_argument('-p', '--port', type=int, default=5000, help='local HTTP server port')
+parser.add_argument('-p', '--port', type=int, default=6000, help='local HTTP server port')
 args = parser.parse_args()
 
 port = args.port

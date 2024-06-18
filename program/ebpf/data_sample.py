@@ -3,6 +3,7 @@ import time
 from bcc import BPF
 from ..server import globals
 import psutil
+from collections import defaultdict
 
 def read_bpf_data(bpf, t_pid=0):
     send_bytes = bpf["send_bytes"]
@@ -100,7 +101,7 @@ def start():
     bpf.attach_kprobe(event="blk_mq_complete_request", fn_name="trace_disk_read")
     bpf.attach_kprobe(event="finish_task_switch", fn_name="kprobe__finish_task_switch")
 
-    dict_name = ["sent_bytes", "recv_bytes", "disk_read_bytes", "disk_write_bytes", "disk_read_count", "disk_write_count", "cpu_usage"]
+    dict_name = ["sent_bytes", "recv_bytes", "sent_count", "recv_count", "disk_read_bytes", "disk_write_bytes", "disk_read_count", "disk_write_count", "cpu_usage"]
     dict_data = {}
     for name in dict_name:
         dict_data[name] = bpf[name]
@@ -108,17 +109,19 @@ def start():
     while True:
         time.sleep(1.0)
 
-        pid_dict = {}
+        def create_default():
+            d = {}
+            for name in dict_name:
+                d[name] = 0.0
+            return d
+
+        pid_dict = defaultdict(create_default)
         sum = {}
         for name, data in dict_data.items():
             sum[name] = 0.0
             for k, v in data.items():
                 pid = str(k.value)
                 val = v.value
-                if not pid_dict.__contains__(pid):
-                    pid_dict[pid] = {}
-                    for name2 in dict_name:
-                        pid_dict[pid][name2] = 0.0
                 pid_dict[pid][name] = val
                 sum[name] += val
         
