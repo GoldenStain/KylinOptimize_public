@@ -1,3 +1,8 @@
 {
-    "cmake.configureOnOpen": true
+    "files.associations": {
+        "bitset": "c",
+        "chrono": "c",
+        "algorithm": "c",
+        "*.inc": "c"
+    }
 }

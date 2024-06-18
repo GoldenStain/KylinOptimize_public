@@ -5,15 +5,21 @@
 #include <bcc/proto.h>
 
 // TCP IO量
-BPF_HASH(send_bytes, u32, u64);
+BPF_HASH(sent_bytes, u32, u64);
 BPF_HASH(recv_bytes, u32, u64);
+BPF_HASH(sent_count, u32, u64);
+BPF_HASH(recv_count, u32, u64);
 
 int trace_tcp_sendmsg(struct pt_regs *ctx, struct sock *sk, struct msghdr *msg, size_t size) {
 	u32 pid = bpf_get_current_pid_tgid() >> 32;
 	u64 *val, zero = 0;
-	val = send_bytes.lookup_or_try_init(&pid, &zero);
+	val = sent_bytes.lookup_or_try_init(&pid, &zero);
 	if (val){
 		(*val) += size;
+	}
+	val = sent_count.lookup_or_try_init(&pid, &zero);
+	if (val){
+		(*val)++;
 	}
 	return 0;
 }
@@ -24,6 +30,10 @@ int trace_tcp_recvmsg(struct pt_regs *ctx, struct sock *sk, struct msghdr *msg, 
 	val = recv_bytes.lookup_or_try_init(&pid, &zero);
 	if (val){
 		(*val) += size;
+	}
+	val = recv_count.lookup_or_try_init(&pid, &zero);
+	if (val){
+		(*val)++;
 	}
 	return 0;
 }
@@ -61,7 +71,7 @@ int trace_disk_read(struct pt_regs *ctx, struct request *req){
 // CPU、内存使用
 BPF_HASH(start_times, u32, u64);
 BPF_HASH(cpu_usage, u32, u64);
-BPF_HASH(mem_usage, u32, long);
+BPF_HASH(mem_usage, u32, u64);
 
 int kprobe__finish_task_switch(struct pt_regs *ctx){
 	u32 pid = bpf_get_current_pid_tgid() >> 32;
