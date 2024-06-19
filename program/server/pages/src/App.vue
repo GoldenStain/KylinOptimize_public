@@ -91,20 +91,29 @@ export default {
         console.error('Error:', error); // 捕获并打印错误信息  
       }
     },
-  },
-  async mounted() {
-    setInterval(() => {
-
-    }, 1000);
-    // 每隔一段时间执行某个方法 
-    this.pollingTimer = setInterval(async function(){
+    async function(){
       this.fetchData();
       // 调用需要轮询的方法 
       this.tableData = await this.fetchData('/api/proc');
       var data = await this.fetchData('/api/perf');
       this.perfData = data;
-    }, 1000); // 1秒为例，可以根据需求调整时间间隔 
+    },
   },
+  async mounted() {
+  //   setInterval(() => {
+
+  //   }, 1000);
+  //   // 每隔一段时间执行某个方法 
+  //   this.pollingTimer = setInterval(async function(){
+  //     this.fetchData();
+  //     // 调用需要轮询的方法 
+  //     this.tableData = await this.fetchData('/api/proc');
+  //     var data = await this.fetchData('/api/perf');
+  //     this.perfData = data;
+  //   }, 1000); // 1秒为例，可以根据需求调整时间间隔 
+  // },
+  this.function();
+  }
 }
 </script>
 
