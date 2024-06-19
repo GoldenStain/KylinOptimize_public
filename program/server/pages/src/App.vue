@@ -92,18 +92,15 @@ export default {
       }
     },
     async function(){
-      this.fetchData();
       // 调用需要轮询的方法 
       var data = await this.fetchData('/api/proc');
-
       this.tableData = data;
       this.tableData.forEach(function(element){
         element.disk_read_bytes=this.convert(element.disk_read_bytes);
         element.disk_write_bytes=this.convert(element.disk_write_bytes);
         element.sent_bytes=this.convert(element.sent_bytes);
         element.recv_bytes=this.convert(element.recv_bytes);
-      }
-    );
+      });
       data = await this.fetchData('/api/perf');
 
       this.perfData = data;
