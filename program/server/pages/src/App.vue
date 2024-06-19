@@ -120,8 +120,8 @@ export default {
         element.sent_bytes=this.convert(element.sent_bytes);
         element.recv_bytes=this.convert(element.recv_bytes);
       });
-      data = await this.fetchData('/api/perf');
 
+      data = await this.fetchData('/api/perf');
       this.perfData = data;
       this.perfData.disk_read_bytes=this.convert(this.perfData.disk_read_bytes);
       this.perfData.disk_write_bytes=this.convert(this.perfData.disk_write_bytes);
@@ -139,7 +139,7 @@ export default {
         return bytes.toFixed(2)+'B'
     }
   },
-  mounted() {
+  async mounted() {
     //   setInterval(() => {
 
     //   }, 1000);
@@ -156,7 +156,7 @@ export default {
       this.function();
     }, 1000);
     // this.function();
-    this.url=this.fetchgraph('/api/flame_graph');
+    this.url = await this.fetchgraph('/api/flame_graph');
 
   },
   beforeUnmount(){
