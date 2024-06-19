@@ -112,7 +112,10 @@ export default {
   //     this.perfData = data;
   //   }, 1000); // 1秒为例，可以根据需求调整时间间隔 
   // },
-  this.function();
+  setInterval(() => {
+    this.function();
+  }, 1000);
+  // this.function();
   }
 }
 </script>
