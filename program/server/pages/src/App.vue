@@ -1,5 +1,7 @@
 <template>
-  <div>
+   <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+    <el-tab-pane label="性能数据" name="first">
+      <div>
     <div class="container1">
       <div style="background-color:#b2e1f8;" class="card">
         <div>
@@ -56,13 +58,23 @@
       </el-table-column>
     </el-table>
   </div>
+    </el-tab-pane>
+    <el-tab-pane label="--" name="second">
+      <img :src="url">
+    </el-tab-pane>
+  </el-tabs>
+  
 </template>
 
 <script>
-import { ElTable, ElTableColumn } from 'element-plus';
+import { ElTable, ElTableColumn, ElTabs, ElTabPane } from 'element-plus';
+import { ref } from 'vue';
 
+const handleClick = (tab , event) => {
+  console.log(tab, event)
+}
 export default {
-  components: { ElTable, ElTableColumn },
+  components: { ElTable, ElTableColumn, ElTabs, ElTabPane },
   data() {
     return {
       tableData: [],
@@ -76,7 +88,10 @@ export default {
         disk_read_count: '--',
         disk_write_count: '--',
         cpu_usage: '--'
-      }
+      },
+      timer: null,
+      activeName: ref('first'),
+      url: '',
     };
   },
   methods: {
@@ -90,6 +105,10 @@ export default {
       } catch (error) {
         console.error('Error:', error); // 捕获并打印错误信息  
       }
+    },
+    async fetchgraph(url) {
+      const response = await fetch(url);
+      return response.url;
     },
     async function(){
       // 调用需要轮询的方法 
@@ -120,24 +139,30 @@ export default {
         return bytes.toFixed(2)+'B'
     }
   },
-  async mounted() {
-  //   setInterval(() => {
+  mounted() {
+    //   setInterval(() => {
 
-  //   }, 1000);
-  //   // 每隔一段时间执行某个方法 
-  //   this.pollingTimer = setInterval(async function(){
-  //     this.fetchData();
-  //     // 调用需要轮询的方法 cd
-  //     this.tableData = await this.fetchData('/api/proc');
-  //     var data = await this.fetchData('/api/perf');
-  //     this.perfData = data;
-  //   }, 1000); // 1秒为例，可以根据需求调整时间间隔 
-  // },
-  setInterval(() => {
-    this.function();
-  }, 1000);
-  // this.function();
-  }
+    //   }, 1000);
+    //   // 每隔一段时间执行某个方法 
+    //   this.pollingTimer = setInterval(async function(){
+    //     this.fetchData();
+    //     // 调用需要轮询的方法 cd
+    //     this.tableData = await this.fetchData('/api/proc');
+    //     var data = await this.fetchData('/api/perf');
+    //     this.perfData = data;
+    //   }, 1000); // 1秒为例，可以根据需求调整时间间隔 
+    // },
+    this.timer = setInterval(() => {
+      this.function();
+    }, 1000);
+    // this.function();
+    this.url=this.fetchgraph('/api/flame_graph');
+
+  },
+  beforeUnmount(){
+    clearInterval(this.timer);
+    this.timer = null;
+  },
 }
 </script>
 
@@ -167,5 +192,11 @@ export default {
 
 h4 {
   size: 200px;
+}
+.demo-tabs > .el-tabs__content {
+  padding: 32px;
+  color: #6b778c;
+  font-size: 32px;
+  font-weight: 600;
 }
 </style>
