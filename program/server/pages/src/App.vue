@@ -40,19 +40,19 @@
 
   <div>
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="pid" label="pid" width="380">
+      <el-table-column prop="pid" label="pid" width="280">
       </el-table-column>
-      <el-table-column prop="name" label="进程" width="380">
+      <el-table-column prop="name" label="进程" width="280">
       </el-table-column>
-      <el-table-column prop="disk_read_bytes" label="磁盘读写量" width="380">
+      <el-table-column prop="disk_read_bytes" label="磁盘读写量" width="280">
       </el-table-column>
-      <el-table-column prop="disk_write_bytes" label=" " width="380">
+      <el-table-column prop="disk_write_bytes" label=" " width="280">
       </el-table-column>
-      <el-table-column prop="sent_bytes" label="网络I/O量">
+      <el-table-column prop="sent_bytes" label="网络I/O量" width="280">
       </el-table-column>
-      <el-table-column prop="recv_bytes" label=" ">
+      <el-table-column prop="recv_bytes" label=" " width="280">
       </el-table-column>
-      <el-table-column prop="cpu_usage" label="cpu使用量">
+      <el-table-column prop="cpu_usage" label="cpu使用量" width="280">
       </el-table-column>
     </el-table>
   </div>
@@ -94,10 +94,34 @@ export default {
     async function(){
       this.fetchData();
       // 调用需要轮询的方法 
-      this.tableData = await this.fetchData('/api/proc');
-      var data = await this.fetchData('/api/perf');
+      var data = await this.fetchData('/api/proc');
+
+      this.tableData = data;
+      this.tableData.forEach(function(element){
+        element.disk_read_bytes=this.convert(element.disk_read_bytes);
+        element.disk_write_bytes=this.convert(element.disk_write_bytes);
+        element.sent_bytes=this.convert(element.sent_bytes);
+        element.recv_bytes=this.convert(element.recv_bytes);
+      }
+    );
+      data = await this.fetchData('/api/perf');
+
       this.perfData = data;
+      this.perfData.disk_read_bytes=this.convert(this.perfData.disk_read_bytes);
+      this.perfData.disk_write_bytes=this.convert(this.perfData.disk_write_bytes);
+      this.perfData.recv_bytes=this.convert(this.perfData.recv_bytes);
+      this.perfData.sent_bytes=this.convert(this.perfData.sent_bytes);
     },
+    convert(bytes){
+      if(bytes>1e9)
+        return bytes/1e9+'GB'
+      else if(bytes>1e6)
+        return bytes/1e6+'MB'
+      else if(bytes>1e3)
+        return bytes/1e3+'KB'
+      else
+        return bytes+'B'
+    }
   },
   async mounted() {
   //   setInterval(() => {
