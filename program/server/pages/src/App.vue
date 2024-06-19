@@ -40,19 +40,19 @@
 
   <div>
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="pid" label="pid" width="280">
+      <el-table-column prop="pid" label="pid" width="200">
       </el-table-column>
-      <el-table-column prop="name" label="进程" width="280">
+      <el-table-column prop="name" label="进程" width="200">
       </el-table-column>
-      <el-table-column prop="disk_read_bytes" label="磁盘读写量" width="280">
+      <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="200">
       </el-table-column>
-      <el-table-column prop="disk_write_bytes" label=" " width="280">
+      <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="200">
       </el-table-column>
-      <el-table-column prop="sent_bytes" label="网络I/O量" width="280">
+      <el-table-column prop="sent_bytes" label="网络发送量" width="200">
       </el-table-column>
-      <el-table-column prop="recv_bytes" label=" " width="280">
+      <el-table-column prop="recv_bytes" label="网络接受量" width="200">
       </el-table-column>
-      <el-table-column prop="cpu_usage" label="cpu使用量" width="280">
+      <el-table-column prop="cpu_usage" label="CPU使用量" width="200">
       </el-table-column>
     </el-table>
   </div>
@@ -111,13 +111,13 @@ export default {
     },
     convert(bytes){
       if(bytes>1e9)
-        return bytes/1e9+'GB'
+        return (bytes/1e9).toFixed(2)+'GB'
       else if(bytes>1e6)
-        return bytes/1e6+'MB'
+        return (bytes/1e6).toFixed(2)+'MB'
       else if(bytes>1e3)
-        return bytes/1e3+'KB'
+        return (bytes/1e3).toFixed(2)+'KB'
       else
-        return bytes+'B'
+        return bytes.toFixed(2)+'B'
     }
   },
   async mounted() {
