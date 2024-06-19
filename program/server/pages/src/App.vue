@@ -106,7 +106,7 @@ export default {
   //   // 每隔一段时间执行某个方法 
   //   this.pollingTimer = setInterval(async function(){
   //     this.fetchData();
-  //     // 调用需要轮询的方法 
+  //     // 调用需要轮询的方法 cd
   //     this.tableData = await this.fetchData('/api/proc');
   //     var data = await this.fetchData('/api/perf');
   //     this.perfData = data;
