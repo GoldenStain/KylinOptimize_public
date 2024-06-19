@@ -59,7 +59,7 @@
     </el-table>
   </div>
     </el-tab-pane>
-    <el-tab-pane label="--" name="second">
+    <el-tab-pane label="性能火焰图" name="second">
       <img :src="url">
     </el-tab-pane>
   </el-tabs>
@@ -91,7 +91,7 @@ export default {
       },
       timer: null,
       activeName: ref('first'),
-      url: '',
+      url: '/static/flame_graph.svg',
     };
   },
   methods: {
@@ -156,8 +156,7 @@ export default {
       this.function();
     }, 1000);
     // this.function();
-    this.url = await this.fetchgraph('/api/flame_graph');
-
+    await this.fetchgraph('/api/flame_graph');
   },
   beforeUnmount(){
     clearInterval(this.timer);
