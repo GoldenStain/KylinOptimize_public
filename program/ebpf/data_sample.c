@@ -87,6 +87,9 @@ BPF_HASH(start_times, u32, u64);
 BPF_HASH(cpu_usage, u32, u64);
 BPF_HASH(mem_usage, u32, u64);
 
+BPF_HASH(task_nvcsw, u32, u64);
+BPF_HASH(task_nivcsw, u32, u64);
+
 int kprobe__finish_task_switch(struct pt_regs *ctx, struct task_struct *prev, struct task_struct *next){
 	u32 prev_pid = prev->pid;
 	u32 next_pid = next->pid;
@@ -97,11 +100,16 @@ int kprobe__finish_task_switch(struct pt_regs *ctx, struct task_struct *prev, st
 	val = start_times.lookup(&prev_pid);
 	if (val) {
 		u64 delta = bpf_ktime_get_ns() - *val;
-
-		u64 *cpu_time = cpu_usage.lookup_or_init(&prev_pid, &zero);
-		*cpu_time += delta;
+		*(cpu_usage.lookup_or_init(&prev_pid, &zero)) += delta;
 	}
 	start_times.update(&next_pid, &start_time);
+
+	*(task_nvcsw.lookup_or_init(&prev_pid, &zero)) += prev->nvcsw;
+	*(task_nivcsw.lookup_or_init(&prev_pid, &zero)) += prev->nivcsw;
+
+	u64 total_vm = prev->mm->total_vm;
+	mem_usage.update(&prev_pid, &total_vm);
+
 	return 0;
 }
 
