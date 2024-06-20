@@ -1,0 +1,758 @@
+Xorg;[unknown];[unknown];writev;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_writev_[k];vfs_writev_[k];do_iter_write_[k];do_iter_readv_writev_[k];sock_write_iter_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+code;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+MainThread;[unknown];mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+Web Content;[unknown];[unknown] 1
+vmtoolsd;times;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_times_[k];do_sys_times_[k];thread_group_cputime_adjusted_[k];thread_group_cputime_[k];task_sched_runtime_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;recvmsg;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_recvmsg_[k];___sys_recvmsg_[k];____sys_recvmsg_[k];unix_stream_recvmsg_[k];unix_stream_read_generic_[k];unix_stream_read_generic_[k] 1
+Web Content;[unknown];[unknown] 1
+JS Helper;[unknown];[unknown];[unknown];madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+MainThread;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+StyleThread#1;[unknown];[unknown];__pthread_mutex_lock 1
+cpuUsage.sh;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];blk_finish_plug_[k];blk_flush_plug_list_[k];blk_mq_flush_plug_list_[k];blk_mq_sched_insert_requests_[k];blk_mq_run_hw_queue_[k];__blk_mq_delay_run_hw_queue_[k];__blk_mq_run_hw_queue_[k];blk_mq_sched_dispatch_requests_[k];__blk_mq_sched_dispatch_requests_[k];blk_mq_do_dispatch_sched_[k];blk_mq_dispatch_rq_list_[k];scsi_queue_rq_[k];mptscsih_qcmd_[k];mpt_put_msg_frame_[k];mpt_put_msg_frame_[k] 1
+gdbus;[unknown];sendmsg;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_sendmsg_[k];___sys_sendmsg_[k];____sys_sendmsg_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[Missed Kernel Stack] 1
+python3;[unknown];__open64;[Missed Kernel Stack] 1
+Cache2 I/O;[unknown];[unknown] 1
+Web Content;[unknown] 1
+Socket Thread;[unknown];__clock_gettime 1
+Web Content;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Socket Thread;[unknown];__connect;[Missed Kernel Stack] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+JS Helper;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+kswapd0;ret_from_fork_[k];kthread_[k];kswapd_[k];shrink_node_[k];shrink_node_memcg_[k];shrink_inactive_list_[k];shrink_page_list_[k];pageout.isra.60_[k];__swap_writepage_[k];submit_bio_[k];generic_make_request_no_check_[k];blk_mq_make_request_[k];blk_flush_plug_list_[k];blk_mq_flush_plug_list_[k];blk_mq_sched_insert_requests_[k];blk_mq_run_hw_queue_[k];__blk_mq_delay_run_hw_queue_[k];__blk_mq_run_hw_queue_[k];blk_mq_sched_dispatch_requests_[k];__blk_mq_sched_dispatch_requests_[k];blk_mq_do_dispatch_sched_[k];blk_mq_dispatch_rq_list_[k];scsi_queue_rq_[k];mptscsih_qcmd_[k];mpt_put_msg_frame_[k];mpt_put_msg_frame_[k] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown] 1
+ThreadPoolForeg;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Compositor;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+marco;[unknown];[unknown];writev;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_writev_[k];vfs_writev_[k];do_iter_write_[k];do_iter_readv_writev_[k];sock_write_iter_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Compositor;free 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+python3;[unknown];ascii_decode 1
+code;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];futex_wait_queue_me_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+ksoftirqd/3;ret_from_fork_[k];kthread_[k];smpboot_thread_fn_[k];run_ksoftirqd_[k];run_ksoftirqd_[k] 1
+JS Helper;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];apic_timer_interrupt_[k];smp_apic_timer_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];__softirqentry_text_start_[k] 1
+StyleThread#2;[unknown];[unknown] 1
+JS Helper;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown] 1
+Cache2 I/O;[unknown];[unknown];[unknown];ftruncate64;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_sys_ftruncate_[k];do_truncate_[k];notify_change_[k];xfs_vn_setattr_[k];xfs_setattr_size_[k];xfs_trans_alloc_[k];kmem_zone_alloc_[k];kmem_cache_alloc_[k];_cond_resched_[k];__sched_text_start_[k];finish_task_switch_[k];ret_from_intr_[k];do_IRQ_[k];irq_exit_[k];__softirqentry_text_start_[k];__softirqentry_text_start_[k] 1
+Compositor;[unknown];[unknown] 1
+StreamT~ns #648;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+StyleThread#4;[unknown];[unknown];[unknown] 1
+Compositor;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+cpuUsage.sh;[unknown];-;ret_from_fork_[k];schedule_tail_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];apic_timer_interrupt_[k];smp_apic_timer_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];run_rebalance_domains_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+mate-indicators;[unknown];[unknown];[unknown] 1
+python3;_PyObject_Realloc 1
+Web Content;[unknown];[unknown];[unknown] 1
+python3;[unknown];__close;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_close_[k];filp_close_[k];fput_[k];task_work_add_[k];kick_process_[k];kick_process_[k] 1
+Compositor;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+MainThread;madvise 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+rcu_sched;[Missed Kernel Stack] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_mmap_pgoff_[k];vm_mmap_pgoff_[k];do_mmap_[k];mmap_region_[k];vma_link_[k];__vma_link_rb_[k];__vma_link_rb_[k] 1
+Web Content;[unknown] 1
+MainThread;[unknown] 1
+Xorg;miSpriteTrace 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_read_[k];vfs_read_[k];new_sync_read_[k];pipe_read_[k];copy_page_to_iter_[k];copyout_[k];copy_user_generic_unrolled_[k];copy_user_generic_unrolled_[k] 1
+Chrome_ChildIOT;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+python3;[unknown];__open64;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_sys_open_[k];do_filp_open_[k];path_openat_[k];lookup_fast_[k];__d_lookup_[k];__d_lookup_[k] 1
+MainThread;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];_copy_from_user_[k];_copy_from_user_[k] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown];g_private_get 1
+vmtoolsd;[unknown];times 1
+Web Content;[unknown];[Missed Kernel Stack] 1
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Socket Thread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+StyleThread#3;[Missed User Stack] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+sh;[unknown] 1
+Web Content;[unknown] 1
+kworker/7:1H;[Missed Kernel Stack] 1
+MainThread;[unknown];gtk_widget_get_parent 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+ThreadPoolForeg;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+Socket Thread;[unknown];__clock_gettime;[unknown] 1
+MainThread;[unknown] 1
+gdbus;syscall;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+nm-applet;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];blk_finish_plug_[k];blk_flush_plug_list_[k];blk_mq_flush_plug_list_[k];blk_mq_sched_insert_requests_[k];blk_mq_run_hw_queue_[k];__blk_mq_delay_run_hw_queue_[k];__blk_mq_run_hw_queue_[k];blk_mq_sched_dispatch_requests_[k];__blk_mq_sched_dispatch_requests_[k];blk_mq_do_dispatch_sched_[k];blk_mq_dispatch_rq_list_[k];scsi_queue_rq_[k];mptscsih_qcmd_[k];mpt_put_msg_frame_[k];mpt_put_msg_frame_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+kworker/7:8;ret_from_fork_[k];kthread_[k];worker_thread_[k];process_one_work_[k];e1000_watchdog_[k];e1000_watchdog_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+python3;select;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_select_[k];kern_select_[k];core_sys_select_[k];do_select_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Xorg;[unknown] 1
+Web Content;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];generic_exec_single_[k];x2apic_send_IPI_[k];native_write_msr_[k];native_write_msr_[k] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_anonymous_page_[k];__lru_cache_add_[k];pagevec_lru_move_fn_[k];release_pages_[k];free_unref_page_list_[k];free_unref_page_prepare.part.71_[k];free_unref_page_prepare.part.71_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+JS Helper;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+MainThread;[unknown] 1
+MainThread;[unknown];[unknown] 1
+JS Helper;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 1
+Softwar~cThread;[unknown];[unknown];[unknown];[unknown] 1
+Xorg;[unknown];[unknown];[unknown] 1
+StyleThread#4;[unknown];sched_yield;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sched_yield_[k];schedule_[k];__sched_text_start_[k];__sched_text_start_[k] 1
+cpuUsage.sh;[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_wp_page_[k];wp_page_copy_[k];copy_user_highpage.isra.72_[k];copy_page_[k];copy_page_[k] 1
+code;_IO_link_in;[Missed Kernel Stack] 1
+MainThread;[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+Chrome_IOThread;[unknown];write;[Missed Kernel Stack] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[Missed Kernel Stack] 1
+Web Content;[unknown];[unknown];[unknown];-;ret_from_fork_[k];schedule_tail_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Compositor;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+MainThread;[unknown];[unknown] 1
+python3.7m;[unknown];object_vacall 1
+MainThread;[unknown];mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];down_write_killable_[k];call_rwsem_down_write_failed_killable_[k];rwsem_down_write_failed_killable_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+kworker/6:2;[Missed Kernel Stack] 1
+python3;[unknown];__read 1
+MainThread;[unknown];[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+MainThread;mozilla::detail::MutexImpl::unlock();__clock_gettime;[unknown] 1
+VizCompositorTh;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];poll_select_set_timeout_[k];ktime_get_ts64_[k];read_tsc_[k];read_tsc_[k] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+vmtoolsd;[unknown];[unknown] 1
+HangDetector;syscall;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];ktime_get_[k];read_tsc_[k];read_tsc_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+StyleThread#3;[unknown];syscall;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown] 1
+Web Content;[unknown] 1
+cpuUsage.sh;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__do_sys_wait4_[k];kernel_wait4_[k];do_wait_[k];wait_consider_task_[k];release_task_[k];release_task_[k] 1
+StreamT~ns #134;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Softwar~cThread;[unknown];__clock_gettime;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown] 1
+MainThread;PR_Now;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Xorg;[unknown];input_lock;epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Compositor;[Missed User Stack];[Missed Kernel Stack] 1
+Web Content;[unknown] 1
+MainThread;[unknown];[unknown];[unknown] 1
+Socket Thread;[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown] 1
+MainThread;[unknown];[unknown];__clock_gettime;[unknown] 1
+code;[unknown];g_main_context_dispatch;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];iomap_readpages_[k];iomap_apply_[k];iomap_readpages_actor_[k];iomap_readpage_actor_[k];call_function_single_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];__softirqentry_text_start_[k] 1
+Web Content;[unknown] 1
+cat;[unknown] 1
+python3;[unknown];PyMember_GetOne 1
+xfsaild/dm-0;[Missed Kernel Stack] 1
+Web Content;[unknown];[unknown] 1
+python3;[unknown];__read;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+Compositor;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+code;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sendto_[k];__sys_sendto_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+python3;dict_dealloc 1
+python3;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__do_sys_bpf_[k];ns_capable_common_[k];security_capable_[k];security_capable_[k] 1
+MainThread;[unknown];[unknown] 1
+StyleThread#4;pthread_cond_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];apic_timer_interrupt_[k];smp_apic_timer_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];run_rebalance_domains_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+JS Helper;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown] 1
+Xorg;[unknown] 1
+MainThread;[unknown];[unknown] 1
+python3;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_read_[k];vfs_read_[k];seq_read_[k];proc_single_show_[k];do_task_stat_[k];seq_put_decimal_ll_[k];seq_put_decimal_ll_[k] 1
+MainThread;__pthread_getspecific 1
+Web Content;[unknown] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+ThreadPoolForeg;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+DOM Worker;pthread_cond_signal;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+dbus-daemon;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown] 1
+code;[Missed User Stack];page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_anonymous_page_[k];__lru_cache_add_[k];pagevec_lru_move_fn_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;[unknown] 1
+Cache2 I/O;[unknown];__read;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_read_[k];vfs_read_[k];seq_read_[k];show_mountinfo_[k];kernfs_sop_show_path_[k];kernfs_sop_show_path_[k] 1
+dconf worker;[Missed User Stack] 1
+MainThread;[unknown];mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+Web Content;[unknown] 1
+Web Content;[unknown] 1
+JS Helper;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];__pthread_mutex_lock 1
+MainThread;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Chrome_~dThread;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];apic_timer_interrupt_[k];smp_apic_timer_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];run_rebalance_domains_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;[unknown] 1
+marco;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_writev_[k];vfs_writev_[k];do_iter_write_[k];do_iter_readv_writev_[k];sock_write_iter_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+python3.7m;[Missed User Stack] 1
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+MainThread;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];find_vma_[k];vmacache_find_[k];vmacache_find_[k] 1
+Chrome_ChildIOT;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Timer;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+JS Helper;[unknown];[Missed Kernel Stack] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_anonymous_page_[k];alloc_pages_vma_[k];__alloc_pages_nodemask_[k];get_page_from_freelist_[k];get_page_from_freelist_[k] 1
+Compositor;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+JS Helper;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];unmap_page_range_[k];unmap_page_range_[k] 1
+MainThread;pthread_cond_broadcast;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];down_write_killable_[k];call_rwsem_down_write_failed_killable_[k];rwsem_down_write_failed_killable_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown] 1
+kswapd0;ret_from_fork_[k];kthread_[k];kswapd_[k];shrink_node_[k];shrink_node_memcg_[k];inactive_list_is_low_[k];inactive_list_is_low_[k] 1
+MainThread;[unknown] 1
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+StreamT~ns #642;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];syscall_trace_enter_[k];__seccomp_filter_[k];seccomp_run_filters_[k];seccomp_run_filters_[k] 1
+InputThread;[unknown];ioctl;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_ioctl_[k];ksys_ioctl_[k];do_vfs_ioctl_[k];vmw_generic_ioctl_[k];drm_ioctl_[k];drm_ioctl_kernel_[k];drm_mode_cursor_ioctl_[k];drm_mode_cursor_common_[k];__drm_mode_object_find_[k];__radix_tree_lookup_[k];__radix_tree_lookup_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+JS Helper;[unknown];[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+Web Content;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_recvmsg_[k];___sys_recvmsg_[k];recvmsg_copy_msghdr_[k];copy_msghdr_from_user_[k];import_iovec_[k];rw_copy_check_uvector_[k];rw_copy_check_uvector_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+MainThread;__tls_get_addr;__clock_gettime;[unknown] 1
+cat;[Missed User Stack];page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];filemap_map_pages_[k];alloc_set_pte_[k];page_add_file_rmap_[k];page_add_file_rmap_[k] 1
+python3;[unknown];[unknown];_PyObject_RealIsSubclass 1
+Softwar~cThread;[unknown];__clock_gettime;[unknown] 1
+Web Content;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];down_write_killable_[k];call_rwsem_down_write_failed_killable_[k];rwsem_down_write_failed_killable_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+StyleThread#3;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+kworker/6:2;ret_from_fork_[k];kthread_[k];worker_thread_[k];process_one_work_[k];disk_check_events_[k];sr_block_check_events_[k];cdrom_check_events_[k];sr_check_events_[k];__scsi_execute_[k];blk_execute_rq_[k];wait_for_completion_io_timeout_[k];io_schedule_timeout_[k];schedule_timeout_[k];schedule_[k];wq_worker_sleeping_[k];wq_worker_sleeping_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+StreamTrans #96;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+StyleThread#4;[unknown] 1
+ThreadPoolForeg;[Missed User Stack];page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_anonymous_page_[k];alloc_pages_vma_[k];__alloc_pages_nodemask_[k];get_page_from_freelist_[k];clear_page_erms_[k];clear_page_erms_[k] 1
+marco;[Missed User Stack] 1
+Web Content;[unknown] 1
+code;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_recvmsg_[k];___sys_recvmsg_[k];____sys_recvmsg_[k];unix_stream_recvmsg_[k];unix_stream_read_generic_[k];unix_stream_read_generic_[k] 1
+MainThread;__poll 1
+code;[Missed User Stack] 1
+Compositor;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown] 1
+Gecko_IOThread;[unknown];[unknown];[unknown];syscall;[Missed Kernel Stack] 1
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+VizCompositorTh;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+code;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];poll_select_set_timeout_[k];ktime_get_ts64_[k];read_tsc_[k];read_tsc_[k] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Xorg;[unknown];-;swapgs_restore_regs_and_return_to_usermode_[k];prepare_exit_to_usermode_[k];exit_to_usermode_loop_[k];exit_to_usermode_loop_[k] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+JS Helper;[unknown];[unknown] 1
+Compositor;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sendto_[k];__sys_sendto_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Socket Thread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+python3;[unknown];__read;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_read_[k];vfs_read_[k];seq_read_[k];_copy_to_user_[k];copy_user_enhanced_fast_string_[k];copy_user_enhanced_fast_string_[k] 1
+MainThread;mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+DOM Worker;[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+StreamT~ns #661;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+JS Helper;[unknown];[unknown];[unknown];madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];native_send_call_func_ipi_[k];alloc_cpumask_var_node_[k];__kmalloc_node_[k];kmalloc_slab_[k];kmalloc_slab_[k] 1
+Web Content;[unknown] 1
+JS Helper;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Cache2 I/O;[unknown];__clock_gettime;[unknown];-;call_function_single_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];__softirqentry_text_start_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+MainThread;[unknown] 1
+StreamT~ns #668;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];do_mprotect_pkey_[k] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+python2;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+DOM Worker;[unknown];[unknown];[unknown];madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];generic_exec_single_[k];x2apic_send_IPI_[k];native_write_msr_[k];native_write_msr_[k] 1
+cpuUsage.sh;[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];native_send_call_func_ipi_[k];__x2apic_send_IPI_mask_[k];__x2apic_send_IPI_mask_[k] 1
+MainThread;[unknown] 1
+Web Content;[unknown];[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown] 1
+ksoftirqd/5;ret_from_fork_[k];kthread_[k];smpboot_thread_fn_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+StyleThread#2;[unknown];[unknown];sched_yield;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sched_yield_[k];schedule_[k];__sched_text_start_[k];__sched_text_start_[k] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+MainThread;[unknown] 1
+MainThread;[unknown];mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Xorg;[unknown];input_lock;epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];ktime_get_ts64_[k];read_tsc_[k];read_tsc_[k] 1
+Web Content;[unknown] 1
+Chrome_ChildIOT;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+JS Helper;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+Xorg;[unknown];epoll_ctl;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_ctl_[k];do_epoll_ctl_[k];__fget_light_[k];__fget_light_[k] 1
+MainThread;[unknown];[unknown] 1
+StyleThread#1;[unknown];sched_yield;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sched_yield_[k];schedule_[k];__sched_text_start_[k];__sched_text_start_[k] 1
+Web Content;[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+StreamT~ns #645;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Xorg;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Xorg;[unknown] 1
+code;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sendto_[k];__sys_sendto_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Compositor;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown] 1
+MainThread;malloc 1
+dconf worker;[unknown];[unknown] 1
+Web Content;[unknown] 1
+JS Helper;[unknown] 1
+ps;[unknown];[Missed Kernel Stack] 1
+code;[unknown];__libc_start_main;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];v8::ValueDeserializer::ReadValue(v8::Local<v8::Context>);[unknown];[unknown];[unknown];[unknown] 1
+ksoftirqd/0;ret_from_fork_[k];kthread_[k];smpboot_thread_fn_[k];run_ksoftirqd_[k];__softirqentry_text_start_[k];__softirqentry_text_start_[k] 1
+Web Content;[unknown] 1
+StreamT~ns #663;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+URL Classifier;pthread_cond_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_setup_[k];futex_wait_setup_[k] 1
+MainThread;[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];blk_finish_plug_[k];blk_flush_plug_list_[k];blk_mq_flush_plug_list_[k];blk_mq_sched_insert_requests_[k];blk_mq_run_hw_queue_[k];__blk_mq_delay_run_hw_queue_[k];__blk_mq_run_hw_queue_[k];blk_mq_sched_dispatch_requests_[k];__blk_mq_sched_dispatch_requests_[k];blk_mq_do_dispatch_sched_[k];blk_mq_dispatch_rq_list_[k];scsi_queue_rq_[k];mptscsih_qcmd_[k];mpt_put_msg_frame_[k];call_function_single_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];__softirqentry_text_start_[k] 1
+MainThread;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];do_sys_poll_[k] 1
+Cache2 I/O;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;[unknown];[unknown] 1
+Cache2 I/O;__open 1
+Gecko_IOThread;recvmsg;[Missed Kernel Stack] 1
+Gecko_IOThread;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];flush_tlb_mm_range_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+Chrome_~dThread;[unknown];[Missed Kernel Stack] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+MainThread;[unknown];[unknown];[unknown] 1
+python3;[Missed User Stack];[Missed Kernel Stack] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+MainThread;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];iomap_readpages_[k];submit_bio_[k];generic_make_request_no_check_[k];blk_mq_make_request_[k];blk_mq_rq_ctx_init.isra.40_[k];ktime_get_[k];read_tsc_[k];call_function_single_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];blk_done_softirq_[k];scsi_io_completion_[k];scsi_end_request_[k];add_timer_randomness_[k];add_timer_randomness_[k] 1
+Web Content;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+python3;[unknown];[unknown];PyObject_GC_UnTrack 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];moz_xmalloc 1
+Softwar~cThread;[unknown];__clock_gettime;[unknown] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+HangDetector;syscall;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+python3;[unknown];_PyCFunction_FastCallKeywords 1
+Socket Thread;[unknown];__connect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_connect_[k];__sys_connect_[k];inet_stream_connect_[k];__inet_stream_connect_[k];tcp_v4_connect_[k];tcp_connect_[k];__tcp_transmit_skb_[k];__ip_queue_xmit_[k];ip_output_[k];ip_finish_output2_[k];__local_bh_enable_ip_[k];do_softirq.part.18_[k];do_softirq_own_stack_[k];__softirqentry_text_start_[k];__softirqentry_text_start_[k] 1
+kworker/6:1H;ret_from_fork_[k];kthread_[k];worker_thread_[k];process_one_work_[k];__blk_mq_run_hw_queue_[k];blk_mq_sched_dispatch_requests_[k];__blk_mq_sched_dispatch_requests_[k];blk_mq_do_dispatch_sched_[k];blk_mq_dispatch_rq_list_[k];scsi_queue_rq_[k];mptscsih_qcmd_[k];mpt_put_msg_frame_[k];mpt_put_msg_frame_[k] 1
+sh;[unknown];[unknown];[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];__do_page_fault_[k] 1
+Web Content;[unknown] 1
+MainThread;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+JS Helper;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+ksoftirqd/1;ret_from_fork_[k];kthread_[k];smpboot_thread_fn_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Compositor;free 1
+python3;[unknown];[unknown];tcgetattr;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+python3;[unknown];__read;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_read_[k];vfs_read_[k];seq_read_[k];seq_read_[k] 1
+code;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_execve_[k];__do_execve_file.isra.35_[k];search_binary_handler_[k];load_elf_binary_[k];flush_old_exec_[k];mmput_[k];exit_mmap_[k];unmap_vmas_[k];unmap_page_range_[k];unmap_page_range_[k] 1
+PaintThread;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown];[unknown] 1
+python3;[Missed User Stack] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];down_write_killable_[k];call_rwsem_down_write_failed_killable_[k];rwsem_down_write_failed_killable_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+MainThread;mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+Xorg;[unknown];epoll_wait;[Missed Kernel Stack] 1
+Compositor;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+kswapd0;ret_from_fork_[k];kthread_[k];kswapd_[k];inactive_list_is_low_[k];inactive_list_is_low_[k] 1
+python3;[unknown];syscall;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__do_sys_bpf_[k];memdup_user_[k];__check_object_size_[k];__virt_addr_valid_[k];__virt_addr_valid_[k] 1
+MainThread;[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+MainThread;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+MainThread;[unknown] 1
+Web Content;[unknown] 1
+VizCompositorTh;[unknown];g_main_context_dispatch;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Chrome_~dThread;[unknown] 1
+code;[unknown];[unknown];[unknown];-;swapgs_restore_regs_and_return_to_usermode_[k];prepare_exit_to_usermode_[k];exit_to_usermode_loop_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+ps;[unknown] 1
+python3;clone;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];_do_fork_[k];copy_process_[k];copy_process_[k] 1
+python3;[unknown];_PyEval_EvalFrameDefault 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+tuned;[unknown];__clock_gettime;[unknown] 1
+MainThread;[unknown] 1
+Web Content;[unknown] 1
+Compositor;[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+MainThread;[unknown] 1
+code;[unknown];__clock_gettime;[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown] 1
+code;[unknown];__libc_start_main;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];uv_run;[unknown];[unknown];[unknown];v8::Function::Call(v8::Local<v8::Context>, v8::Local<v8::Value>, int, v8::Local<v8::Value>*);[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+vmtoolsd;[unknown];g_main_loop_run;[unknown];[unknown];__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];poll_select_set_timeout_[k];ktime_get_ts64_[k];read_tsc_[k];read_tsc_[k] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+StyleThread#0;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sched_yield_[k];schedule_[k];__sched_text_start_[k];__sched_text_start_[k] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+python2;[unknown];[unknown] 1
+Gecko_IOThread;[Missed User Stack] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+MainThread;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+python3;[unknown];_Py_bytes_find 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+Cache2 I/O;[unknown];[unknown];[unknown];ftruncate64;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_sys_ftruncate_[k];do_truncate_[k];notify_change_[k];xfs_vn_setattr_[k];xfs_setattr_size_[k];xfs_itruncate_extents_flags_[k];xfs_defer_finish_[k];xfs_defer_trans_roll_[k];xfs_trans_roll_[k];__xfs_trans_commit_[k];xfs_log_commit_cil_[k];call_function_single_interrupt_[k];irq_exit_[k];__softirqentry_text_start_[k];blk_done_softirq_[k];scsi_io_completion_[k];scsi_end_request_[k];blk_update_request_[k];clone_endio_[k];dec_pending_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 1
+gdbus;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown] 1
+MainThread;__clock_gettime 1
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown];-;swapgs_restore_regs_and_return_to_usermode_[k];prepare_exit_to_usermode_[k];exit_to_usermode_loop_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+URL Classifier;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+python3;_PyFunction_FastCallKeywords 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+kworker/0:8;ret_from_fork_[k];kthread_[k];worker_thread_[k];process_one_work_[k];vmstat_shepherd_[k];queue_delayed_work_on_[k];queue_delayed_work_on_[k] 1
+python3;__libc_malloc 1
+DOM Worker;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[Missed Kernel Stack] 1
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+MainThread;[unknown];[unknown];-;swapgs_restore_regs_and_return_to_usermode_[k];prepare_exit_to_usermode_[k];exit_to_usermode_loop_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+MainThread;[unknown];[unknown];__clock_gettime;[unknown] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown] 1
+StreamT~ns #131;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];up_write_[k];call_rwsem_wake_[k];rwsem_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown] 1
+MainThread;[unknown] 1
+cpuUsage.sh;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_exit_group_[k];do_group_exit_[k];do_exit_[k];arch_local_irq_enable_[k];arch_local_irq_enable_[k] 1
+Web Content;[unknown] 1
+JS Helper;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];__do_page_fault_[k] 1
+Web Content;[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown] 1
+code;[unknown];__libc_start_main;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];uv_run;[unknown];[unknown];v8::Function::Call(v8::Local<v8::Context>, v8::Local<v8::Value>, int, v8::Local<v8::Value>*);[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];blk_finish_plug_[k];blk_flush_plug_list_[k];blk_mq_flush_plug_list_[k];blk_mq_sched_insert_requests_[k];blk_mq_run_hw_queue_[k];__blk_mq_delay_run_hw_queue_[k];__blk_mq_run_hw_queue_[k];blk_mq_sched_dispatch_requests_[k];__blk_mq_sched_dispatch_requests_[k];blk_mq_do_dispatch_sched_[k];blk_mq_dispatch_rq_list_[k];scsi_queue_rq_[k];mptscsih_qcmd_[k];mpt_put_msg_frame_[k];mpt_put_msg_frame_[k] 1
+migration/3;ret_from_fork_[k];kthread_[k];smpboot_thread_fn_[k];cpu_stopper_thread_[k];active_load_balance_cpu_stop_[k];active_load_balance_cpu_stop_[k] 1
+code;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];poll_select_set_timeout_[k];ktime_get_ts64_[k];read_tsc_[k];read_tsc_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Socket Thread;[unknown];__connect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_connect_[k];__sys_connect_[k];inet_stream_connect_[k];__inet_stream_connect_[k];tcp_v4_connect_[k];tcp_connect_[k];__tcp_transmit_skb_[k];__ip_queue_xmit_[k];ip_output_[k];ip_finish_output2_[k];__local_bh_enable_ip_[k];do_softirq.part.18_[k];do_softirq_own_stack_[k];__softirqentry_text_start_[k];net_rx_action_[k];__napi_poll_[k];process_backlog_[k];__netif_receive_skb_one_core_[k];ip_rcv_[k];ip_local_deliver_[k];ip_local_deliver_finish_[k];tcp_v4_rcv_[k];tcp_v4_do_rcv_[k];tcp_rcv_state_process_[k];tcp_conn_request_[k];tcp_v4_send_synack_[k];ip_output_[k];ip_finish_output2_[k];__dev_queue_xmit_[k];dev_hard_start_xmit_[k];loopback_xmit_[k];netif_rx_internal_[k];ktime_get_with_offset_[k];read_tsc_[k];read_tsc_[k] 1
+python3;[unknown];__read;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_read_[k];vfs_read_[k];seq_read_[k];proc_single_show_[k];do_task_stat_[k];do_task_stat_[k] 1
+Xorg;[unknown];[unknown] 1
+Web Content;[unknown] 1
+StreamT~ns #135;pthread_cond_signal;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Compositor;[unknown] 1
+VizCompositorTh;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];PR_IntervalNow 1
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 1
+python3;__send;[Missed Kernel Stack] 1
+MainThread;[unknown];g_private_get 1
+python3;[unknown];syscall;[Missed Kernel Stack] 1
+Web Content;[unknown];[unknown] 1
+VizCompositorTh;[unknown];g_main_context_dispatch;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Socket Thread;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+Chrome_~dThread;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_sendmsg_[k];___sys_sendmsg_[k];____sys_sendmsg_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];sock_def_readable_[k] 1
+JS Helper;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+sh;[unknown] 1
+mate-indicators;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+code;__send;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sendto_[k];__sys_sendto_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Timer;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+DOM Worker;[Missed User Stack] 1
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+MainThread;[unknown] 1
+Socket Thread;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+code;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_execve_[k];__do_execve_file.isra.35_[k];search_binary_handler_[k];load_elf_binary_[k];flush_old_exec_[k];mmput_[k];exit_mmap_[k];unmap_vmas_[k];unmap_page_range_[k];unmap_page_range_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+VizCompositorTh;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];_copy_from_user_[k];copy_user_generic_unrolled_[k];copy_user_generic_unrolled_[k] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];up_write_[k];call_rwsem_wake_[k];rwsem_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;pthread_cond_signal 1
+Web Content;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+MainThread;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+MainThread;recvmsg;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_recvmsg_[k];___sys_recvmsg_[k];____sys_recvmsg_[k];unix_stream_recvmsg_[k];unix_stream_read_generic_[k];kfree_skbmem_[k];kfree_skbmem_[k] 1
+Web Content;[unknown] 1
+vmtoolsd;[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+StyleThread#2;pthread_cond_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Web Content;[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];find_vma_[k];find_vma_[k] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+JS Helper;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+Cache2 I/O;[unknown];[unknown];[unknown];moz_xmalloc;__clock_gettime;[unknown] 1
+DOM Worker;[unknown];mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 1
+Web Content;[unknown] 1
+marco;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_recvmsg_[k];___sys_recvmsg_[k];____sys_recvmsg_[k];unix_stream_recvmsg_[k];unix_stream_read_generic_[k];consume_skb_[k];skb_release_all_[k];skb_release_head_state_[k];unix_destruct_scm_[k];sock_wfree_[k];unix_write_space_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Socket Thread;[unknown];__clock_gettime;[unknown] 1
+MainThread;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 1
+MainThread;[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_anonymous_page_[k];alloc_pages_vma_[k];__alloc_pages_nodemask_[k];get_page_from_freelist_[k];clear_page_erms_[k];clear_page_erms_[k] 1
+ukui-screensave;[unknown];QXcbConnection::xi2HandleEvent(xcb_ge_event_t*);-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];blk_finish_plug_[k];blk_flush_plug_list_[k];blk_mq_flush_plug_list_[k];blk_mq_sched_insert_requests_[k];blk_mq_run_hw_queue_[k];__blk_mq_delay_run_hw_queue_[k];__blk_mq_run_hw_queue_[k];blk_mq_sched_dispatch_requests_[k];__blk_mq_sched_dispatch_requests_[k];blk_mq_do_dispatch_sched_[k];blk_mq_dispatch_rq_list_[k];scsi_queue_rq_[k];mptscsih_qcmd_[k];mpt_put_msg_frame_[k];mpt_put_msg_frame_[k] 1
+StreamTrans #96;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+MainThread;[unknown];mprotect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];down_write_killable_[k];call_rwsem_down_write_failed_killable_[k];rwsem_down_write_failed_killable_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+ThreadPoolForeg;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Xorg;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];do_epoll_wait_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+JS Helper;[unknown] 1
+migration/4;ret_from_fork_[k];kthread_[k];smpboot_thread_fn_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+StreamT~ns #118;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown] 1
+Socket Thread;[unknown];__connect;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_connect_[k];__sys_connect_[k];inet_stream_connect_[k];release_sock_[k];__release_sock_[k];tcp_v4_do_rcv_[k];tcp_rcv_state_process_[k];__kfree_skb_[k];skb_release_data_[k];kfree_[k];kfree_[k] 1
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];generic_exec_single_[k];x2apic_send_IPI_[k];native_write_msr_[k];native_write_msr_[k] 1
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];native_send_call_func_ipi_[k];__x2apic_send_IPI_mask_[k];__x2apic_send_IPI_mask_[k] 1
+VizCompositorTh;g_poll 1
+Web Content;[unknown] 1
+Xorg;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_writev_[k];vfs_writev_[k];do_iter_write_[k];do_iter_readv_writev_[k];sock_write_iter_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+cat;[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown] 1
+JS Helper;[unknown];[unknown] 1
+Compositor;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown] 1
+Compositor;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_write_[k];__fdget_pos_[k];__fget_light_[k];__fget_light_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_mprotect_[k];do_mprotect_pkey_[k];mprotect_fixup_[k];change_protection_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 1
+MainThread;[unknown];[unknown];[unknown];[unknown] 1
+StyleThread#5;[unknown];sched_yield;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sched_yield_[k];schedule_[k];__sched_text_start_[k];__sched_text_start_[k] 1
+cat;[unknown];[unknown];[unknown] 1
+Socket Thread;__send;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_sendto_[k];__sys_sendto_[k];sock_sendmsg_[k];tcp_sendmsg_[k];tcp_sendmsg_locked_[k];__tcp_push_pending_frames_[k];tcp_write_xmit_[k];__tcp_transmit_skb_[k];__ip_queue_xmit_[k];ip_output_[k];ip_finish_output2_[k];__local_bh_enable_ip_[k];do_softirq.part.18_[k];do_softirq_own_stack_[k];__softirqentry_text_start_[k];net_rx_action_[k];__napi_poll_[k];process_backlog_[k];__netif_receive_skb_one_core_[k];ip_rcv_[k];ip_local_deliver_[k];ip_local_deliver_finish_[k];tcp_v4_rcv_[k];tcp_v4_do_rcv_[k];tcp_rcv_established_[k];tcp_data_queue_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+vmtoolsd;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];select_estimate_accuracy_[k];ktime_get_ts64_[k];read_tsc_[k];read_tsc_[k] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_fault_[k];__do_fault_[k];__xfs_filemap_fault_[k];filemap_fault_[k];__do_page_cache_readahead_[k];read_pages_[k];iomap_readpages_[k];iomap_apply_[k];iomap_readpages_actor_[k];add_to_page_cache_lru_[k];__add_to_page_cache_locked_[k];mem_cgroup_commit_charge_[k];mem_cgroup_commit_charge_[k] 1
+JS Helper;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_anonymous_page_[k];alloc_pages_vma_[k];__alloc_pages_nodemask_[k];get_page_from_freelist_[k];clear_page_erms_[k];clear_page_erms_[k] 1
+Web Content;[unknown];[unknown] 1
+StyleThread#5;[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+MainThread;[unknown] 1
+Xorg;[unknown];ioctl;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_ioctl_[k];ksys_ioctl_[k];do_vfs_ioctl_[k];vmw_generic_ioctl_[k];drm_ioctl_[k];drm_ioctl_kernel_[k];drm_mode_dirtyfb_ioctl_[k];vmw_framebuffer_surface_dirty_[k];vmw_kms_stdu_surface_dirty_[k];vmw_kms_helper_resource_finish_[k];vmw_kms_helper_buffer_finish_[k];vmw_execbuf_fence_commands_[k];vmw_fifo_send_fence_[k];vmw_cmdbuf_commit_[k];__vmw_cmdbuf_cur_flush_[k];vmw_cmdbuf_man_process_[k];vmw_cmdbuf_ctx_process_[k];vmw_cmdbuf_ctx_submit.isra.9_[k];vmw_cmdbuf_header_submit_[k];vmw_cmdbuf_header_submit_[k] 1
+code;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown] 1
+MainThread;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];sock_poll_[k];sock_poll_[k] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];handle_mm_fault_[k];__handle_mm_fault_[k];do_anonymous_page_[k];alloc_pages_vma_[k];__alloc_pages_nodemask_[k];get_page_from_freelist_[k];clear_page_erms_[k];clear_page_erms_[k] 1
+DOM Worker;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];[unknown];[unknown];__clock_gettime;[unknown] 1
+Socket Thread;[unknown];[unknown];[unknown];[unknown] 1
+Xorg;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Xorg;[unknown] 1
+Web Content;[unknown];[unknown] 1
+Softwar~cThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;__clock_gettime;[unknown] 1
+code;pthread_cond_broadcast;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 1
+Web Content;[unknown];[unknown] 1
+Compositor;[unknown];[unknown];[unknown];[unknown] 1
+MainThread;[unknown];__clock_gettime;[unknown] 1
+MainThread;[unknown] 1
+MainThread;[unknown] 1
+Web Content;[unknown] 1
+Compositor;[unknown] 1
+MainThread;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 1
+StreamT~ns #663;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_setup_[k];get_futex_key_[k];get_futex_key_[k] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Gecko_IOThread;[Missed User Stack];[Missed Kernel Stack] 1
+marco;[unknown];XDamageSubtract 1
+python3;[unknown];[unknown];tcgetattr;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_syscall_64_[k] 1
+kswapd0;ret_from_fork_[k];kthread_[k];kswapd_[k];shrink_node_[k];shrink_node_memcg_[k];shrink_active_list_[k];page_referenced_[k];rmap_walk_file_[k];page_referenced_one_[k];page_vma_mapped_walk_[k];page_vma_mapped_walk_[k] 1
+Web Content;[unknown] 1
+Web Content;[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+StreamT~ns #669;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_setup_[k];get_futex_key_[k];get_futex_key_[k] 1
+Web Content;[unknown];[unknown] 1
+Web Content;[unknown] 1
+JS Helper;[unknown];[unknown];[unknown] 1
+dbus-daemon;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 1
+JS Helper;[unknown];[unknown];[unknown];mozilla::detail::MutexImpl::unlock() 1
+Compositor;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown] 1
+Web Content;[unknown];[unknown];[unknown];[unknown] 1
+Gecko_IOThread;sendmsg;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_sendmsg_[k];___sys_sendmsg_[k];____sys_sendmsg_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 2
+Chrome_IOThread;[unknown];__clock_gettime;[unknown] 2
+Socket Thread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 2
+Softwar~cThread;pthread_cond_signal;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 2
+code;[unknown];__clock_gettime;[unknown] 2
+MainThread;[unknown];__clock_gettime;[unknown] 2
+JS Helper;pthread_cond_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+Web Content;[unknown];[unknown] 2
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+Web Content;[unknown];[unknown];[unknown];[unknown];[unknown] 2
+ThreadPoolForeg;[unknown];[unknown];[unknown] 2
+rcu_sched;ret_from_fork_[k];kthread_[k];rcu_gp_kthread_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+MainThread;[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+MainThread;[unknown];__clock_gettime;[unknown] 2
+Xorg;[Missed User Stack] 2
+Xorg;[unknown];[unknown];writev;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_writev_[k];vfs_writev_[k];do_iter_write_[k];do_iter_readv_writev_[k];sock_write_iter_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 2
+code;[unknown];__libc_start_main;[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];[unknown];sem_post;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 2
+JS Helper;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 2
+Softwar~cThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 2
+Xorg;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];ktime_get_ts64_[k];read_tsc_[k];read_tsc_[k] 2
+Gecko_IOThread;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+Web Content;[unknown];[unknown];[unknown] 2
+MainThread;pthread_cond_signal;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 2
+MainThread;[unknown];__clock_gettime;[unknown] 2
+MainThread;[unknown] 2
+Softwar~cThread;[unknown];__clock_gettime;[unknown] 2
+JS Helper;[Missed User Stack];entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 2
+JS Helper;[Missed User Stack] 2
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 2
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 2
+Timer;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+code;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+Web Content;[unknown];[unknown] 2
+JS Helper;[unknown];-;page_fault_[k];do_page_fault_[k];__do_page_fault_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+JS Helper;[Missed User Stack];page_fault_[k];do_page_fault_[k];__do_page_fault_[k];down_read_[k];call_rwsem_down_read_failed_[k];rwsem_down_read_failed_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+Web Content;[unknown] 2
+cpuUsage.sh;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];ksys_read_[k];vfs_read_[k];new_sync_read_[k];pipe_read_[k];pipe_wait_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 2
+Cache2 I/O;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 2
+MainThread;[unknown] 2
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 2
+Chrome_ChildIOT;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 3
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 3
+Cache2 I/O;pthread_cond_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 3
+JS Helper;madvise;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];generic_exec_single_[k];x2apic_send_IPI_[k];native_write_msr_[k];native_write_msr_[k] 3
+code;[unknown];__clock_gettime;[unknown] 3
+JS Helper;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_many_[k];smp_call_function_many_[k] 3
+Xorg;[unknown] 3
+IPDL Background;[Missed User Stack] 3
+kworker/4:0;[Missed Kernel Stack] 3
+code;[unknown];[unknown];[unknown] 3
+MainThread;[unknown];__clock_gettime;[unknown] 3
+IPDL Background;[unknown];write;[Missed Kernel Stack] 3
+JS Helper;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];generic_exec_single_[k];x2apic_send_IPI_[k];native_write_msr_[k];native_write_msr_[k] 3
+StreamT~ns #120;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 3
+Socket Thread;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 3
+python3;[Missed User Stack] 3
+JS Helper;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_madvise_[k];do_madvise_[k];zap_page_range_[k];tlb_finish_mmu_[k];arch_tlb_finish_mmu_[k];flush_tlb_mm_range_[k];smp_call_function_single_[k];smp_call_function_single_[k] 4
+marco;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 4
+code;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 4
+Compositor;[unknown] 4
+xfsaild/dm-0;ret_from_fork_[k];kthread_[k];xfsaild_[k];schedule_timeout_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 4
+Xorg;setitimer;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_setitimer_[k];do_setitimer_[k];do_setitimer_[k] 4
+Xorg;[unknown] 4
+MainThread;__clock_gettime;[unknown] 4
+Chrome_ChildIOT;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wake_[k];wake_up_q_[k];try_to_wake_up_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 4
+Web Content;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 4
+VizCompositorTh;[Missed User Stack] 4
+MainThread;[unknown];[unknown];[unknown];[unknown];__clock_gettime;[unknown] 5
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 5
+code;[Missed User Stack] 5
+MainThread;[unknown];[unknown];writev;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];do_writev_[k];vfs_writev_[k];do_iter_write_[k];do_iter_readv_writev_[k];sock_write_iter_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 5
+Chrome_~dThread;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__sys_sendmsg_[k];___sys_sendmsg_[k];____sys_sendmsg_[k];sock_sendmsg_[k];unix_stream_sendmsg_[k];sock_def_readable_[k];__wake_up_common_lock_[k];_raw_spin_unlock_irqrestore_[k];_raw_spin_unlock_irqrestore_[k] 5
+Xorg;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 5
+vmtoolsd;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 5
+JS Helper;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 5
+Compositor;[Missed User Stack] 5
+Compositor;pthread_cond_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 5
+code;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 5
+MainThread;[unknown];[unknown];__clock_gettime;[unknown] 6
+Xorg;[unknown];epoll_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 6
+Xorg;[unknown] 6
+Timer;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 6
+IPDL Background;pthread_cond_wait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 7
+Softwar~cThread;pthread_cond_timedwait;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 7
+code;[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_futex_[k];do_futex_[k];futex_wait_[k];futex_wait_queue_me_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 7
+Compositor;[unknown];[unknown];[unknown] 9
+Chrome_~dThread;[unknown];[unknown];[unknown];[unknown];-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 11
+MainThread;__poll;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_poll_[k];do_sys_poll_[k];poll_schedule_timeout.constprop.13_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 12
+Gecko_IOThread;[unknown];[unknown];[unknown];syscall;-;entry_SYSCALL_64_after_hwframe_[k];do_syscall_64_[k];__x64_sys_epoll_wait_[k];do_epoll_wait_[k];ep_poll_[k];schedule_hrtimeout_range_clock_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 13
+rcu_sched;ret_from_fork_[k];kthread_[k];rcu_gp_kthread_[k];schedule_timeout_[k];schedule_[k];__sched_text_start_[k];finish_task_switch_[k];finish_task_switch_[k] 21
+MainThread;[Missed User Stack] 28
+Web Content;[Missed User Stack] 65
