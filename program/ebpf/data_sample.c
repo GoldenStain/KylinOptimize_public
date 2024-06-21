@@ -2,6 +2,7 @@
 #include <linux/sched.h>
 #include <net/sock.h>
 #include <linux/blkdev.h>
+#include <linux/perf_event.h>
 #include <bcc/proto.h>
 
 // TCP IO量
@@ -113,4 +114,58 @@ int kprobe__finish_task_switch(struct pt_regs *ctx, struct task_struct *prev, st
 	return 0;
 }
 
+// 性能计数事件
+BPF_HASH(perf_hw_cpu_cycles, u32, u64);
 
+int trace_hw_cpu_cycles(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 *val, zero = 0;
+	val = perf_hw_cpu_cycles.lookup_or_try_init(&pid, &zero);
+	if (val){
+		(*val) += ctx->sample_period;
+	}
+	return 0;
+}
+
+BPF_HASH(perf_hw_ipc, u32, u64);
+
+int trace_ipc(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_hw_ipc.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+BPF_HASH(perf_cache_hits, u32, u64);
+BPF_HASH(perf_cache_misses, u32, u64);
+
+int trace_cache_hits(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_cache_hits.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+int trace_cache_misses(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_cache_misses.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+BPF_HASH(perf_branch_total, u32, u64);
+BPF_HASH(perf_branch_misses, u32, u64);
+
+int trace_branch_total(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_branch_total.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+int trace_branch_misses(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_branch_misses.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}

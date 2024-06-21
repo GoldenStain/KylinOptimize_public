@@ -1,6 +1,6 @@
 # encoding=utf-8
 import time
-from bcc import BPF
+from bcc import BPF, PerfType, PerfHWConfig
 from ..server import globals
 import psutil
 from collections import defaultdict
@@ -93,18 +93,29 @@ def read_bpf_data(bpf, t_pid=0):
         "CPU_usage": CPU_usage
     }
 
-def init_ebpf():
-    bpf = BPF(src_file="program/ebpf/data_sample.c")
+def init_ebpf(freq=49):
+    bpf = BPF(src_file="program/ebpf/data_sample.c", cflags=[])
+
     bpf.attach_kprobe(event="tcp_sendmsg", fn_name="trace_tcp_sendmsg")
     bpf.attach_kprobe(event="tcp_recvmsg", fn_name="trace_tcp_recvmsg")
     bpf.attach_kprobe(event="blk_account_io_start", fn_name="trace_block_rq_insert")
     bpf.attach_kprobe(event="blk_mq_complete_request", fn_name="trace_disk_read")
     bpf.attach_kprobe(event="finish_task_switch", fn_name="kprobe__finish_task_switch")
+
+    #bpf.attach_perf_event(ev_type=PerfType.HARDWARE, ev_config=PerfHWConfig.CPU_CYCLES, fn_name="trace_hw_cpu_cycles", sample_freq=freq, cpu=0)
+    #bpf.attach_perf_event(ev_type=PerfType.HARDWARE, ev_config=PerfHWConfig.INSTRUCTIONS, fn_name="trace_ipc", sample_freq=freq)
+    #bpf.attach_perf_event(ev_type=PerfType.HARDWARE, ev_config=PerfHWConfig.CACHE_REFERENCES, fn_name="trace_cache_hits", sample_freq=freq)
+    #bpf.attach_perf_event(ev_type=PerfType.HARDWARE, ev_config=PerfHWConfig.CACHE_MISSES, fn_name="trace_cache_misses", sample_freq=freq)
+    #bpf.attach_perf_event(ev_type=PerfType.HARDWARE, ev_config=PerfHWConfig.BRANCH_INSTRUCTIONS, fn_name="trace_branch_total", sample_freq=freq)
+    #bpf.attach_perf_event(ev_type=PerfType.HARDWARE, ev_config=PerfHWConfig.BRANCH_MISSES, fn_name="trace_branch_misses", sample_freq=freq)
+
     return bpf
 
 def get_dicts(bpf):
     dict_name = ["sent_bytes", "recv_bytes", "sent_count", "recv_count", "disk_read_bytes", "disk_write_bytes", "disk_read_count", "disk_write_count"
-                 , "cpu_usage", "disk_read_wait", "disk_write_wait", "mem_usage", "task_nvcsw", "task_nivcsw"]
+                , "cpu_usage", "disk_read_wait", "disk_write_wait", "mem_usage", "task_nvcsw", "task_nivcsw"
+                #, "perf_hw_ipc", "perf_hw_cpu_cycles", "perf_cache_hits", "perf_cache_misses", "perf_branch_total", "perf_branch_misses"
+                ]
     dict_data = {}
     for name in dict_name:
         dict_data[name] = bpf[name]
@@ -154,12 +165,6 @@ def start():
     dict_data = get_dicts(bpf)
     while True:
         time.sleep(1.0)
-
-        def create_default():
-            d = {}
-            for name in dict_data:
-                d[name] = 0.0
-            return d
 
         globals.SYSTEM_INFO = get_sum(dict_data)
         pid_dict = get_proc_sum(dict_data)
