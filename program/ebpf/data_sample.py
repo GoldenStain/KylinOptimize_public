@@ -40,7 +40,7 @@ def read_bpf_data(bpf, t_pid=0):
         #print(f"Process {pid} received {bytes_recv} bytes")
     
     for k, v, in disk_read_bytes.items():
-        pid = k.value
+        pid = k.valueget_pid_sum
         value = v.value
         if t_pid == 0 or pid == t_pid:
             DISK_read += value
@@ -136,18 +136,18 @@ def create_default(dicts):
         d[name] = 0.0
     return d
 
-def get_pid_sum(dicts, t_pid):
-    res = create_default()
+def get_pid_sum(dicts, pid_list):
+    res = create_default(dicts)
     for name, data in dicts.items():
         for k, v in data.items():
-            pid = str(k.value)
-            if pid == t_pid:
+            pid = int(k.value)
+            if pid in pid_list:
                 val = v.value
                 res[name] = val
     return res
 
 def get_proc_sum(dicts):
-    pid_dict = defaultdict(create_default)
+    pid_dict = defaultdict(lambda: create_default(dicts))
     for name, data in dicts.items():
         for k, v in data.items():
             pid = str(k.value)

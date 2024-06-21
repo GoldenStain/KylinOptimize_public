@@ -5,18 +5,23 @@ from program.ebpf import flame_graph, data_sample
 from program.tools import bpf_data
 import argparse
 import time
+import os
 
 parser = argparse.ArgumentParser(description="eBPF based Database System Optimizer")
 parser.add_argument('-d', '--data-sample', action='store_true', default=False, help='sample data only')
 parser.add_argument('-v', '--verbose', action='store_true', default=False, help='show more information')
 parser.add_argument('--flame-graph', action='store_true', default=False, help='generate performance flame graph')
 parser.add_argument('-p', '--port', type=int, default=80, help='local HTTP server port')
-parser.add_argument('--pid', type=int, default=0, help='target pid to sample data')
+parser.add_argument('--pid', type=str, default=None, help='target pid to sample data')
 args = parser.parse_args()
 
 is_verbose = args.verbose
 port = args.port
-pid = args.pid
+if args.pid:
+    pid = list(map(int, args.pid.split(',')))
+else:
+    pid = None
+
 
 if args.data_sample:
     bpf_data.start(t_pid=pid, verbose=is_verbose)
