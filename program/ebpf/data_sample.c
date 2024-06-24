@@ -2,6 +2,7 @@
 #include <linux/sched.h>
 #include <net/sock.h>
 #include <linux/blkdev.h>
+#include <linux/perf_event.h>
 #include <bcc/proto.h>
 
 // TCP IO量
@@ -44,10 +45,16 @@ BPF_HASH(disk_write_bytes, u32, u64);
 BPF_HASH(disk_read_count, u32, u64);
 BPF_HASH(disk_write_count, u32, u64);
 
+// IO等待时间
+BPF_HASH(disk_read_wait, u32, u64);
+BPF_HASH(disk_write_wait, u32, u64);
+
 int trace_block_rq_insert(struct pt_regs *ctx, struct request *req){
 	u32 pid = bpf_get_current_pid_tgid() >> 32;
 	u64 zero = 0;
-	if (req->cmd_flags & REQ_OP_WRITE){
+	if (req->cmd_flags & REQ_OP_READ){
+		// ...
+	} else if (req->cmd_flags & REQ_OP_WRITE){
 		u64 *bytes = disk_write_bytes.lookup_or_init(&pid, &zero);
 		*bytes += req->__data_len;
 		u64 *count = disk_write_count.lookup_or_init(&pid, &zero);
@@ -65,6 +72,14 @@ int trace_disk_read(struct pt_regs *ctx, struct request *req){
 	u64 *count = disk_read_count.lookup_or_init(&pid, &zero);
 	(*count)++;
 
+	if (req->cmd_flags & REQ_OP_READ){
+		u64 *time = disk_read_wait.lookup_or_init(&pid, &zero);
+		(*time) += bpf_ktime_get_ns() - req->start_time_ns;
+	} else if (req->cmd_flags & REQ_OP_WRITE){
+		u64 *time = disk_write_wait.lookup_or_init(&pid, &zero);
+		(*time) += bpf_ktime_get_ns() - req->start_time_ns;
+	}
+
 	return 0;
 }
 
@@ -73,27 +88,84 @@ BPF_HASH(start_times, u32, u64);
 BPF_HASH(cpu_usage, u32, u64);
 BPF_HASH(mem_usage, u32, u64);
 
-int kprobe__finish_task_switch(struct pt_regs *ctx){
-	u32 pid = bpf_get_current_pid_tgid() >> 32;
+BPF_HASH(task_nvcsw, u32, u64);
+BPF_HASH(task_nivcsw, u32, u64);
+
+int kprobe__finish_task_switch(struct pt_regs *ctx, struct task_struct *prev, struct task_struct *next){
+	u32 prev_pid = prev->pid;
+	u32 next_pid = next->pid;
 	u64 *val;
 	u64 zero = 0;
 
 	u64 start_time = bpf_ktime_get_ns();
-	val = start_times.lookup(&pid);
+	val = start_times.lookup(&prev_pid);
 	if (val) {
 		u64 delta = bpf_ktime_get_ns() - *val;
-
-		u64 *cpu_time = cpu_usage.lookup_or_init(&pid, &zero);
-		*cpu_time += delta;
+		*(cpu_usage.lookup_or_init(&prev_pid, &zero)) += delta;
 	}
-	start_times.update(&pid, &start_time);
+	start_times.update(&next_pid, &start_time);
 
-	// struct task_struct *task = (struct task_struct *)bpf_get_current_task();
-	// long rss = get_mm_rss(task->mm);
-	// mem_usage.update(&pid, &rss);
+	*(task_nvcsw.lookup_or_init(&prev_pid, &zero)) += prev->nvcsw;
+	*(task_nivcsw.lookup_or_init(&prev_pid, &zero)) += prev->nivcsw;
+
+	u64 total_vm = prev->mm->total_vm;
+	mem_usage.update(&prev_pid, &total_vm);
 
 	return 0;
 }
 
+// 性能计数事件
+BPF_HASH(perf_hw_cpu_cycles, u32, u64);
 
+int trace_hw_cpu_cycles(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 *val, zero = 0;
+	val = perf_hw_cpu_cycles.lookup_or_try_init(&pid, &zero);
+	if (val){
+		(*val) += ctx->sample_period;
+	}
+	return 0;
+}
 
+BPF_HASH(perf_hw_ipc, u32, u64);
+
+int trace_ipc(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_hw_ipc.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+BPF_HASH(perf_cache_hits, u32, u64);
+BPF_HASH(perf_cache_misses, u32, u64);
+
+int trace_cache_hits(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_cache_hits.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+int trace_cache_misses(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_cache_misses.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+BPF_HASH(perf_branch_total, u32, u64);
+BPF_HASH(perf_branch_misses, u32, u64);
+
+int trace_branch_total(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_branch_total.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
+
+int trace_branch_misses(struct bpf_perf_event_data *ctx){
+	u32 pid = bpf_get_current_pid_tgid() >> 32;
+	u64 zero = 0;
+	*(perf_branch_misses.lookup_or_init(&pid, &zero)) += ctx->sample_period;
+	return 0;
+}
