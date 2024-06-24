@@ -339,13 +339,17 @@ export default {
     myChart3.setOption(this.echartsOption3)   // echarts设置选项
     let myChart4 = echarts.init(document.getElementById("myChart4"), 'dark'); // 初始化echarts, theme为dark
     myChart4.setOption(this.echartsOption4)   // echarts设置选项
+
     setInterval(() => {
-      this.perfData = this.fetchData('/api/perf');
+      var data = this.fetchData('/api/perf');
+      
+      this.perfData = data;
       for(var i=0;i<this.convertname.length;i++){
-        this.perfData[this.convertname[i]] = this.convert(this.perfData[this.convertname[i]]);
+        this.perfData[this.convertname[i]] = this.convert(data[this.convertname[i]]);
       }
-      for(var i=1;i<5;i++){
-        this.replace(`echartsOption${i}`, this.perfData[this.perfname[i-1][0]], this.perfData[this.perfname[i-1][1]]);
+
+      for (var i=0;i<this.perfname.length;i++){
+        this.replace(`echartsOption${i+1}`, data[this.perfname[i][0]], data[this.perfname[i][1]]);
       }
    }, 1000);
   },
