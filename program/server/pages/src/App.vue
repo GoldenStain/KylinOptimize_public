@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import * as echarts from 'echarts'
+import * as echarts from 'echarts';
 import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar } from 'element-plus';
 // import { ref } from 'vue';
 
@@ -341,10 +341,10 @@ export default {
     myChart4.setOption(this.echartsOption4)   // echarts设置选项
     setInterval(() => {
       this.perfData = this.fetchData('/api/perf');
-      for(i=0;i<this.convertname.length;i++){
+      for(var i=0;i<this.convertname.length;i++){
         this.perfData[this.convertname[i]] = this.convert(this.perfData[this.convertname[i]]);
       }
-      for(i=1;i<5;i++){
+      for(var i=1;i<5;i++){
         this.replace(`echartsOption${i}`, this.perfData[this.perfname[i-1][0]], this.perfData[this.perfname[i-1][1]]);
       }
    }, 1000);
