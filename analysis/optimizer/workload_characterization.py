@@ -28,24 +28,10 @@ class WorkloadCharacterization:
         self.tencoder = LabelEncoder()
         self.aencoder = LabelEncoder()
         self.dataset = None
-        self.data_features = ['CPU.STAT.usr', 'CPU.STAT.nice', 'CPU.STAT.sys', 'CPU.STAT.iowait',
-                              'CPU.STAT.irq', 'CPU.STAT.soft', 'CPU.STAT.steal', 'CPU.STAT.guest',
-                              'CPU.STAT.util', 'CPU.STAT.cutil', 'STORAGE.STAT.rs',
-                              'STORAGE.STAT.ws', 'STORAGE.STAT.rMBs', 'STORAGE.STAT.wMBs',
-                              'STORAGE.STAT.rrqm', 'STORAGE.STAT.wrqm', 'STORAGE.STAT.rareq-sz',
-                              'STORAGE.STAT.wareq-sz', 'STORAGE.STAT.r_await',
-                              'STORAGE.STAT.w_await', 'STORAGE.STAT.util', 'STORAGE.STAT.aqu-sz',
-                              'NET.STAT.rxkBs', 'NET.STAT.txkBs', 'NET.STAT.rxpcks',
-                              'NET.STAT.txpcks', 'NET.STAT.ifutil', 'NET.ESTAT.errs',
-                              'NET.ESTAT.util', 'MEM.BANDWIDTH.Total_Util', 'PERF.STAT.IPC',
-                              'PERF.STAT.CACHE-MISS-RATIO', 'PERF.STAT.MPKI',
-                              'PERF.STAT.ITLB-LOAD-MISS-RATIO', 'PERF.STAT.DTLB-LOAD-MISS-RATIO',
-                              'PERF.STAT.SBPI', 'PERF.STAT.SBPC', 'MEM.VMSTAT.procs.b',
-                              'MEM.VMSTAT.io.bo', 'MEM.VMSTAT.system.in', 'MEM.VMSTAT.system.cs',
-                              'MEM.VMSTAT.util.swap', 'MEM.VMSTAT.util.cpu', 'MEM.VMSTAT.procs.r',
-                              'SYS.TASKS.procs', 'SYS.TASKS.cswchs', 'SYS.LDAVG.runq-sz',
-                              'SYS.LDAVG.plist-sz', 'SYS.LDAVG.ldavg-1', 'SYS.LDAVG.ldavg-5',
-                              'SYS.FDUTIL.fd-util']
+        self.data_features = ['cpu_usage', 'disk_read_bytes', 'disk_write_bytes',
+                              'disk_read_count', 'disk_write_count', 'disk_read_wait',
+                              'disk_write_wait', 'mem_usage', 'task_nvcsw', 'task_nivcsw',
+                              'sent_bytes', 'recv_bytes', 'sent_count', 'recv_count']
 
     @staticmethod
     def abnormal_detection(x_axis):
@@ -73,6 +59,7 @@ class WorkloadCharacterization:
         for csv in csvfiles:
             data = pd.read_csv(csv, index_col=None, header=header, usecols=selected_cols)
             data[self.data_features] = self.abnormal_detection(data[self.data_features])
+
             # 删除含有NaN值的行，并将处理后的数据帧添加到列表中
             df_content.append(data.dropna(axis=0))
             # 将所有处理后的数据帧合并为一个数据集
@@ -197,7 +184,7 @@ class WorkloadCharacterization:
 
         self.parsing(data_path)
 
-        x_type = self.dataset.iloc[:, :-2]  # 提取特征数据 x_type，排除最后两列（类型和应用名）。
+        x_type = self.dataset.iloc[:, :-2].copy()  # 提取特征数据 x_type，排除最后两列（类型和应用名）。
         self.scaler.fit_transform(x_type)
         y_type = self.tencoder.fit_transform(self.dataset.iloc[:, -2])
         y_app = self.aencoder.fit_transform(self.dataset.iloc[:, -1])
@@ -207,12 +194,13 @@ class WorkloadCharacterization:
 
         if feature_selection:
             x_type = self.feature_selection(x_type, y_type, type_feature)
+            x_type = self.scaler.transform(x_type)  # 特征选择后重新缩放
 
         self.rf_clf(x_type, y_type, clfpath=type_clf, search=search)
         print("The overall classifier has been generated.")
 
         for workload, group in self.dataset.groupby('workload.type'):
-            x_app = self.scaler.transform(group.iloc[:, :-2])
+            x_app = self.scaler.transform(group.iloc[:, :-2].copy())
             y_app = self.aencoder.transform(group.iloc[:, -1])
 
             clf_name = workload + "_clf.m"
@@ -270,6 +258,11 @@ class WorkloadCharacterization:
         print("Current workload:", workload)
         prediction = collections.Counter(workload).most_common(1)[0]
         confidence = prediction[1] / len(workload)
+
+        if confidence < 0.5:
+            resourcelimit = 'default'
+            return resourcelimit, "default", confidence
+
         if confidence < 0.5:
             resourcelimit = 'default'
             return resourcelimit, "default", confidence
@@ -283,13 +276,16 @@ class WorkloadCharacterization:
             if feature_selection:
                 data = df_data
             result = df_clf.predict(data)
+            result = df_clf.predict(data)
 
         result = self.aencoder.inverse_transform(result)
         print(result)
         prediction = collections.Counter(result).most_common(1)[0]
         confidence = prediction[1] / len(result)
+
         if confidence > 0.5:
             return resourcelimit, prediction[0], confidence
+
         return resourcelimit, "default", confidence
 
     def retrain(self, data_path, custom_path):
@@ -336,6 +332,8 @@ class WorkloadCharacterization:
 
         prediction = collections.Counter(result).most_common(1)[0]
         confidence = prediction[1] / len(result)
+
         if confidence > 0.5:
             return prediction[0], confidence
+
         return "default", confidence

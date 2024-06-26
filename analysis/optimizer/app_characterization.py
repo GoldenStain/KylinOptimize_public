@@ -29,9 +29,11 @@ class AppCharacterization(WorkloadCharacterization):
     def __init__(self, model_path, mode="all"):
         super().__init__(model_path)
 
-        self.perf_indicator = ['PERF.STAT.IPC', 'PERF.STAT.CACHE-MISS-RATIO', 'PERF.STAT.MPKI',
-                               'PERF.STAT.ITLB-LOAD-MISS-RATIO', 'PERF.STAT.DTLB-LOAD-MISS-RATIO',
-                               'PERF.STAT.SBPI', 'PERF.STAT.SBPC', ]
+        self.perf_indicator = [
+            'cpu_usage', 'mem_usage', 'disk_read_bytes', 'disk_write_bytes',
+            'disk_read_count', 'disk_write_count', 'disk_read_wait', 'disk_write_wait',
+            'task_nvcsw', 'task_nivcsw', 'sent_bytes', 'recv_bytes', 'sent_count', 'recv_count'
+        ]
 
         self.consider_perf = self.consider_perf_detection()
 
@@ -285,12 +287,3 @@ class AppCharacterization(WorkloadCharacterization):
         if confidence > 0.5:
             return bottleneck_binary, prediction[0], confidence
         return bottleneck_binary, "default", confidence
-
-
-model_path = 'models/'
-data_path = 'dataset/'
-
-app_char = AppCharacterization(model_path)
-
-# 进行模型训练
-app_char.train(data_path,feature_selection=True,search=True,model='drf')
