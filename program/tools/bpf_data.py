@@ -14,6 +14,8 @@ def start(t_pid, verbose=False):
 	dicts = data_sample.get_dicts(bpf)
 
 	headers = [k for k in dicts]
+	if t_pid == 0:
+		headers.append("procs")
 	csv.write(','.join(headers) + '\n')
 
 	print('数据采集开始，输入Ctrl+C结束')
@@ -33,6 +35,10 @@ def start(t_pid, verbose=False):
 				data = data_sample.get_pid_sum(dicts, t_pid)
 				for k in dicts:
 					data_list.append(data[k]) 
+				
+			if t_pid == 0:
+				# 这里活跃进程为持续时间大于1秒的进程数
+				data_list.append(len(dicts))
 
 			data_sample.clear_dicts(bpf, dicts)
 			csv.write(','.join(map(str, data_list)) + '\n')
