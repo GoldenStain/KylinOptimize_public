@@ -147,7 +147,7 @@ def get_pid_sum(dicts, t_pid):
     return res
 
 def get_proc_sum(dicts):
-    pid_dict = defaultdict(create_default)
+    pid_dict = defaultdict(lambda: create_default(dicts))
     for name, data in dicts.items():
         for k, v in data.items():
             pid = str(k.value)

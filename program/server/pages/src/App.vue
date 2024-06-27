@@ -71,7 +71,7 @@
     <div class="back">
       <div class="wrap" style="margin-top: 20px;">
         <div class="board">
-          <div id="myChart1" style="width:250px;height:200px;"></div>
+          <div id="myChart1" style="width:20vw;height:300px;"></div>
           <div class="show">
             <img src="../src/assets/planet.png">
             <div class="text">磁盘读取量:</div>
@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="board">
-          <div id="myChart2" style="width:250px;height:200px;"></div>
+          <div id="myChart2" style="width:20vw;height:300px;"></div>
           <div class="show">
             <img src="../src/assets/planet.png">
             <div class="text">网络发送量:</div>
@@ -99,7 +99,7 @@
       </div>
       <div class="wrap">
         <div class="board">
-          <div id="myChart3" style="width:250px;height:200px;"></div>
+          <div id="myChart3" style="width:20vw;height:300px;"></div>
           <div class="show">
             <img src="../src/assets/planet.png">
             <div class="text">磁盘读取次数:</div>
@@ -112,7 +112,7 @@
           </div>
         </div>
         <div class="board">
-          <div id="myChart4" style="width:250px;height:200px;"></div>
+          <div id="myChart4" style="width:20vw;height:300px;"></div>
           <div class="show">
             <img src="../src/assets/planet.png">
             <div class="text">网络发送次数:</div>
@@ -126,28 +126,29 @@
         </div>
       </div>
     </div>
-    <!--
+
   <div class="table-wrap">
     <el-scrollbar class="scrollbar-wrapper">
-      <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="pid" label="pid" width="200">
+      <el-table :data="tableData" style="width: 100%" 
+      :header-cell-style="{background:'#100c2a30',color:'#C0C2C6'}">
+      <el-table-column prop="pid" label="pid" width="160">
       </el-table-column>
-      <el-table-column prop="name" label="进程" width="200">
+      <el-table-column prop="name" label="进程" width="160">
       </el-table-column>
-      <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="200">
+      <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160">
       </el-table-column>
-      <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="200">
+      <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160">
       </el-table-column>
-      <el-table-column prop="sent_bytes" label="网络发送量" width="200">
+      <el-table-column prop="sent_bytes" label="网络发送量" width="160">
       </el-table-column>
-      <el-table-column prop="recv_bytes" label="网络接受量" width="200">
+      <el-table-column prop="recv_bytes" label="网络接受量" width="160">
       </el-table-column>
-      <el-table-column prop="cpu_usage" label="CPU使用量" width="200">
+      <el-table-column prop="cpu_usage" label="CPU使用量" width="160">
       </el-table-column>
     </el-table>
     </el-scrollbar>
   </div>
-  -->
+
 
   </div>
 </template>
@@ -156,6 +157,8 @@
 import * as echarts from 'echarts';
 import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar } from 'element-plus';
 // import { ref } from 'vue';
+
+const DATA_LENGTH = 7;
 
 export default {
   components: {
@@ -166,16 +169,18 @@ export default {
   name: 'LineChart',
   data() {
     return {
-      tableData: [],
+      tableData: [
+      ],
       perfname:[['disk_write_bytes','disk_read_bytes'],['sent_bytes','recv_bytes'],['disk_write_count','disk_read_count'],['sent_count','recv_count']],
       convertname:['disk_write_bytes','disk_read_bytes','sent_bytes','recv_bytes'],
       echartsOption1: {    // echarts选项，所有绘图数据和样式都在这里设置
         legend: {   //图表上方的图例
           data: ['磁盘写入量', '磁盘输出量']
         },
+        animation: false,
         xAxis: {
           type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
+          data: [...Array(DATA_LENGTH)].map((v, idx) => idx + 1),   // x轴数据
           name: '',   // x轴名称
           nameTextStyle: {    // x轴名称样式
             fontWeight: 400,
@@ -210,6 +215,7 @@ export default {
         legend: {   //图表上方的图例
           data: ['网络发送量', '网络接收量']
         },
+        animation: false,
         xAxis: {
           type: 'category',
           data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
@@ -247,6 +253,7 @@ export default {
         legend: {   //图表上方的图例
           data: ['磁盘写入次数', '磁盘读入次数']
         },
+        animation: false,
         xAxis: {
           type: 'category',
           data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
@@ -284,6 +291,7 @@ export default {
         legend: {   //图表上方的图例
           data: ['网络发送次数', '网络接收次数']
         },
+        animation: false,
         xAxis: {
           type: 'category',
           data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
@@ -340,17 +348,22 @@ export default {
     let myChart4 = echarts.init(document.getElementById("myChart4"), 'dark'); // 初始化echarts, theme为dark
     myChart4.setOption(this.echartsOption4)   // echarts设置选项
 
-    setInterval(() => {
-      var data = this.fetchData('/api/perf');
-      
-      this.perfData = data;
+    setInterval(async() => {
+      var data = await this.fetchData('/api/perf');
+      this.tableData = await this.fetchData('/api/proc');
+      Object.assign(this.perfData, data);
       for(var i=0;i<this.convertname.length;i++){
         this.perfData[this.convertname[i]] = this.convert(data[this.convertname[i]]);
       }
 
+      //console.log(this.echartsOption2.series[0].data);
       for (var i=0;i<this.perfname.length;i++){
         this.replace(`echartsOption${i+1}`, data[this.perfname[i][0]], data[this.perfname[i][1]]);
       }
+      myChart1.setOption(this.echartsOption1);
+      myChart2.setOption(this.echartsOption2);
+      myChart3.setOption(this.echartsOption3);
+      myChart4.setOption(this.echartsOption4);
    }, 1000);
   },
   methods: {
@@ -359,7 +372,7 @@ export default {
       try {
         const response = await fetch(url); // 等待fetch完成并返回结果  
         const data = await response.json(); // 等待解析响应数据并返回结果  
-        console.log(data); // 打印解析后的数据
+        //console.log(data); // 打印解析后的数据
         return data;
       } catch (error) {
         console.error('Error:', error); // 捕获并打印错误信息  
@@ -385,11 +398,20 @@ export default {
         element.sent_bytes = this.convert(element.sent_bytes);
         element.recv_bytes = this.convert(element.recv_bytes);
       });
-
     },
     replace(name, data1, data2){
-      this[name].series[0].data = this[name].series[0].data.slice(1)+[data1];
-      this[name].series[1].data = this[name].series[1].data.slice(1)+[data2];
+      //this[name].series[0].data = this[name].series[0].data.slice(1).concat([data1]);
+      //this[name].series[1].data = this[name].series[1].data.slice(1).concat([data2]);
+      
+      for (var t in [0,1]){
+        var arr = this[name].series[t].data;
+        var temp = [];
+        for (var i = 1; i < arr.length; i++){
+          temp.push(arr[i]);
+        }
+        temp.push([data1, data2][t]);
+        this[name].series[t].data = temp;
+      }
     },
     convert(bytes){
       if(bytes>1e9)
@@ -609,13 +631,17 @@ hr {
   background-size: cover;
   /* 背景图片覆盖整个div */
   background-position: center;
-  width: 590px;
+  width: 45vw;
   border-radius: 30px;
+  padding-top: 10px;
+  border-color: #1f3779;
+  border-width: 2px;
+  box-shadow: 1px 1px 1px 1px #5080FF;
   /* 背景图片居中 */
 }
 
 .scrollbar-wrapper {
-  height: 400px;
+  height: 790px;
   /* 设置你希望的滑动区域的高度 */
 }
 
@@ -627,7 +653,36 @@ hr {
   background-position: center;
   border-radius: 30px;
   position: fixed;
-  top: 0;
+  top: 100px;
   right: 0;
+  padding: 30px;
+  box-shadow: 1px 1px 1px 1px #5080FF;
+}
+ /* 修改头部背景 */
+::v-deep .el-table th{
+    background-color: rgba(0.06, 0.05, 0.2, 0.2);
+}
+/* 修改行背景 */
+::v-deep .el-table tr{
+    background: radial-gradient(#20306F, #101c7a);
+}
+/* 修改行内文字居中 */
+::v-deep .el-table td, .el-table th {
+    text-align: center;
+    color: #fff;
+ }
+ /* 修改行内线 */
+::v-deep .el-table td,.building-top .el-table th.is-leaf {
+    border-bottom: 1px solid #007ACC;
+  }
+.el-table th.el-table__cell {
+  color: #fff;
+}
+.el-table-border .el-table__header-wrapper tr {
+  border-bottom: 1px solid #ff0000; /* 设置行线颜色为红色 */
+}
+.el-table {
+  --el-table-border: 1px solid #007ACC !important;
+  --el-table-row-hover-bg-color: rgb(2, 2, 189) !important;
 }
 </style>

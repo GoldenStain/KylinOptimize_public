@@ -1,4 +1,5 @@
 #!/usr/bin/python3.7m
+# encoding=utf-8
 from program.server import app, client
 import threading
 from program.ebpf import flame_graph, data_sample
