@@ -73,20 +73,22 @@ class EngineConfig:
 
         # bottleneck
         # computing
-        EngineConfig.cpu_stat_util = get_or_default(config, 'bottleneck', 'cpu_stat_util', '80')
-        EngineConfig.cpu_stat_cutil = get_or_default(config, 'bottleneck', 'cpu_stat_cutil', '80')
-        EngineConfig.perf_stat_ipc = get_or_default(config, 'bottleneck', 'perf_stat_ipc', '1')
+        EngineConfig.cpu_usage = get_or_default(config, 'bottleneck', 'cpu_usage', '50')
+        EngineConfig.task_nvcsw = get_or_default(config, 'bottleneck', 'task_nvcsw', '100')
+        EngineConfig.task_nivcsw = get_or_default(config, 'bottleneck', 'task_nivcsw', '10')
         # memory
-        EngineConfig.mem_bandwidth_total_util = get_or_default(config, 'bottleneck', 'mem_bandwidth_total_util', '70')
-        EngineConfig.mem_vmstat_util_swap = get_or_default(config, 'bottleneck', 'mem_vmstat_util_swap', '70')
-        EngineConfig.mem_vmstat_util_cpu = get_or_default(config, 'bottleneck', 'mem_vmstat_util_cpu', '70')
+        EngineConfig.mem_usage = get_or_default(config, 'bottleneck', 'mem_usage', '60')        # network
         # network
-        EngineConfig.net_stat_ifutil = get_or_default(config, 'bottleneck', 'net_stat_ifutil', '70')
-        EngineConfig.net_estat_errs = get_or_default(config, 'bottleneck', 'net_estat_errs', '1')
-        # network I/O
-        EngineConfig.net_stat_rxkbs = get_or_default(config, 'bottleneck', 'net_stat_rxkbs', '70')
-        EngineConfig.net_stat_txkbs = get_or_default(config, 'bottleneck', 'net_stat_txkbs', '70')
-        # disk I/OF
-        EngineConfig.storage_stat_util = get_or_default(config, 'bottleneck', 'storage_stat_util', '70')
+        EngineConfig.sent_bytes = get_or_default(config, 'bottleneck', 'sent_bytes', '1000')
+        EngineConfig.recv_bytes = get_or_default(config, 'bottleneck', 'recv_bytes', '800')
+        EngineConfig.sent_count = get_or_default(config, 'bottleneck', 'sent_count', '50')
+        EngineConfig.recv_count = get_or_default(config, 'bottleneck', 'recv_count', '30')
+        # disk I/O
+        EngineConfig.disk_read_bytes = get_or_default(config, 'bottleneck', 'disk_read_bytes', '500')
+        EngineConfig.disk_write_bytes = get_or_default(config, 'bottleneck', 'disk_write_bytes', '300')
+        EngineConfig.disk_read_count = get_or_default(config, 'bottleneck', 'disk_read_count', '200')
+        EngineConfig.disk_write_count = get_or_default(config, 'bottleneck', 'disk_write_count', '150')
+        EngineConfig.disk_read_wait = get_or_default(config, 'bottleneck', 'disk_read_wait', '5')
+        EngineConfig.disk_write_wait = get_or_default(config, 'bottleneck', 'disk_write_wait', '3')
 
         return True
