@@ -153,21 +153,42 @@ class WorkloadCharacterization:
         """
         from xgboost import XGBClassifier
         x_train, x_test, y_train, y_test = tts(x_axis, y_axis, test_size=0.3)
-        weights = list(
-            class_weight.compute_class_weight(class_weight='balanced', classes=np.unique(y_train), y=y_train))
+        
+        # 计算类别权重
+        weights = list(class_weight.compute_class_weight(class_weight='balanced', classes=np.unique(y_train), y=y_train))
         class_weights = dict(zip(np.unique(y_train), weights))
         w_array = np.ones(y_train.shape[0], dtype='float')
         for i, val in enumerate(y_train):
             w_array[i] = class_weights[val]
-        model = XGBClassifier(learning_rate=0.1, n_estimators=400, max_depth=6,
-                              min_child_weight=0.5, gamma=0.01, subsample=1, colsample_btree=1,
-                              scale_pos_weight=1, random_state=27, slient=0, alpha=100)
+        
+        # 创建和训练模型
+        model = XGBClassifier(
+            learning_rate=0.1, 
+            n_estimators=400, 
+            max_depth=6,
+            min_child_weight=0.5, 
+            gamma=0.01, 
+            subsample=1, 
+            colsample_bytree=1,  # 修正为正确的参数名 colsample_bytree
+            scale_pos_weight=1, 
+            random_state=27, 
+            use_label_encoder=False,  # 避免标签编码器警告
+            alpha=100,
+            eval_metric='error'
+        )
+        
         model.fit(x_train, y_train, sample_weight=w_array)
         y_pred = model.predict(x_test)
+        
+        # 输出准确率
         print(f"the accuracy of xgboost classifier is {accuracy_score(y_test, y_pred)}")
+        
+        # 如果指定了 clfpath，则保存模型
         if clfpath is not None:
             joblib.dump(model, clfpath)
+        
         return model
+
 
     def train(self, data_path, feature_selection=False, search=False):
         """

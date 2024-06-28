@@ -46,3 +46,5 @@ class CascadeForestClassifier:
             probas = estimator.predict_proba(X)
             features.extend(np.transpose(probas))
         return np.column_stack(features)
+
+

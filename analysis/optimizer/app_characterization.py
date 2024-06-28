@@ -20,6 +20,11 @@ from analysis.optimizer.bottleneck_characterization import BottleneckCharacteriz
 from analysis.optimizer.deepforest import CascadeForestClassifier
 import logging
 
+import warnings
+from sklearn.exceptions import UndefinedMetricWarning
+
+warnings.filterwarnings("ignore", category=UndefinedMetricWarning)
+
 LOGGER = logging.getLogger(__name__)
 
 
@@ -81,18 +86,21 @@ class AppCharacterization(WorkloadCharacterization):
         :param x_axis, y_axis:  orginal input and output data
         :returns selected_x:  selected input data
         """
-        lasso = Lasso(alpha=0.01).fit(x_axis, y_axis)
+        lasso = Lasso(alpha=0.01, max_iter=100000000).fit(x_axis, y_axis)
         importance = lasso.coef_.tolist()
         featureimportance = sorted(zip(data_features, importance), key=lambda x: -np.abs(x[1]))
         result = ", ".join(f"{label}: {round(coef, 3)}" for label, coef in featureimportance)
         LOGGER.info('Feature selection result of current classifier: %s', result)
 
         # Store selected column names into a list and return it as output
-        self.selected_columns = [feat[0] for feat in featureimportance if abs(feat[1]) > 0.001]
+        self.selected_columns = [feat[0] for feat in featureimportance if abs(feat[1]) > 0.000001]
         LOGGER.info('selected_columns: %s', self.selected_columns)
+        
+        print("Selected columns after feature selection:", self.selected_columns)
 
-        feature_model = SelectFromModel(lasso, threshold=0.001)
+        feature_model = SelectFromModel(lasso, threshold=0.0001)
         selected_x = feature_model.fit_transform(x_axis, y_axis)
+
         if clfpath is not None:
             joblib.dump(feature_model, clfpath)
         return selected_x
@@ -108,11 +116,12 @@ class AppCharacterization(WorkloadCharacterization):
         model.fit(x_train, y_train)
         y_pred = model.predict(x_test)
         accuracy = accuracy_score(y_test, y_pred)
-        recall = recall_score(y_test, y_pred, average='macro')
+        recall = recall_score(y_test, y_pred, average='macro', zero_division=1)
         report = classification_report(y_test, y_pred)
-        LOGGER.info('the accuracy of svc classifier is: %s', accuracy)
+        LOGGER.info('the accuracy of drf classifier is: %s', accuracy)
         LOGGER.info('the recall of deep-rf classifier is: %s', recall)
         LOGGER.info('Classification report: \n%s', report)
+        print('the accuracy of drf classifier is: %s', accuracy)
         if clfpath is not None:
             joblib.dump(model, clfpath)
         return model
@@ -124,7 +133,7 @@ class AppCharacterization(WorkloadCharacterization):
             data_features = self.data_features
         return data_features
 
-    def train(self, data_path, feature_selection=False, search=False, model='drf', consider_perf=None):
+    def train(self, data_path, feature_selection=False, search=False, model='svm', consider_perf=None):
         """
         train the data from csv
         :param data_path:  the data path
@@ -142,14 +151,14 @@ class AppCharacterization(WorkloadCharacterization):
         aencoder_path = os.path.join(self.model_path, "aencoder.pkl")
         scaler_path = os.path.join(self.model_path, "scaler.pkl")
         data_path = os.path.join(data_path, "*.csv")
-
+        
         type_model_clf = os.path.join(self.model_path, 'type_' + model + "_clf.m")
         app_model_clf = os.path.join(self.model_path, 'app_' + model + "_clf.m")
         type_feature = os.path.join(self.model_path, "type_feature.m")
         app_feature = os.path.join(self.model_path, "app_feature.m")
 
         self.parsing(data_path, data_features)
-
+        
         x = self.dataset.iloc[:, :-2]
         self.scaler.fit_transform(x)
 
@@ -159,7 +168,7 @@ class AppCharacterization(WorkloadCharacterization):
         joblib.dump(self.tencoder, tencoder_path)
         joblib.dump(self.aencoder, aencoder_path)
         joblib.dump(self.scaler, scaler_path)
-
+        
         if feature_selection:
             type_x = self.feature_selection(x, type_y, data_features, type_feature)
             app_x = self.feature_selection(x, app_y, data_features, app_feature)
@@ -196,14 +205,13 @@ class AppCharacterization(WorkloadCharacterization):
         :param feature_selection:  whether to perform feature extraction
         :param consider_perf: whether to consider perf indicators
         """
-        if consider_perf is None:
+        if consider_perf == None:
             consider_perf = self.consider_perf
-
+            
         data_features = self.get_consider_perf(consider_perf)
-
+        
         cpu_exist, mem_exist, net_quality_exist, net_io_exist, disk_io_exist = self.bottleneck.search_bottleneck(data)
-        bottleneck_binary = (int(cpu_exist) << 4) | (int(mem_exist) << 3) | (int(net_quality_exist) << 2) | (
-                int(net_io_exist) << 1) | int(disk_io_exist)
+        bottleneck_binary = (int(cpu_exist) << 4) | (int(mem_exist) << 3) | (int(net_quality_exist) << 2) | (int(net_io_exist) << 1) | int(disk_io_exist)
 
         data = data[data_features]
 
@@ -226,39 +234,39 @@ class AppCharacterization(WorkloadCharacterization):
         if feature_selection:
             type_feature = os.path.join(self.model_path, "type_feature.m")
             app_feature = os.path.join(self.model_path, "app_feature.m")
-
+    
             type_model_feat = joblib.load(type_feature)
             type_data = type_model_feat.transform(data)
-
+            
             app_model_feat = joblib.load(app_feature)
             app_data = app_model_feat.transform(data)
         else:
             type_data = app_data = data
-
+        
         type_result = type_model_clf.predict(type_data)
         type_result = self.tencoder.inverse_transform(type_result)
-
+        
         app_result = app_model_clf.predict(app_data)
         app_result = self.aencoder.inverse_transform(app_result)
-
+        
         type_prediction = collections.Counter(type_result).most_common(1)[0]
         app_prediction = collections.Counter(app_result).most_common(1)[0]
-
+        
         type_confidence = type_prediction[1] / len(type_result)
-        app_confidence = app_prediction[1] / len(app_result)
-
+        app_confidence = app_prediction[1] / len(app_result) 
+        
         if type_confidence < 0.5:
             resourcelimit = 'default'
         else:
             resourcelimit = type_prediction[0]
-
+        
         if app_confidence < 0.5:
             applimit = 'default'
         else:
             applimit = app_prediction[0]
-
+            
         return bottleneck_binary, resourcelimit, applimit, app_confidence
-
+    
     def reidentify(self, data, custom_path):
         """
         for user: predict workload type
