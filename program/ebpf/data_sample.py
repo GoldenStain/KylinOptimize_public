@@ -4,6 +4,7 @@ from bcc import BPF, PerfType, PerfHWConfig
 from ..server import globals
 import psutil
 from collections import defaultdict
+import os
 
 def read_bpf_data(bpf, t_pid=0):
     send_bytes = bpf["send_bytes"]
@@ -128,6 +129,31 @@ def get_sum(dicts):
         for k, v in data.items():
             val = v.value
             sum[name] += val
+    
+    # 获取vmstat信息
+    vmstat = os.popen("vmstat 1 1").readlines()
+    vmstat = vmstat[2].split()
+    # r: 运行队列的进程数
+    # b: 等待IO的进程数
+    # swpd: 虚拟内存已使用大小
+    # free: 空闲内存大小
+    # buff: 缓冲区内存大小
+    # cache: 缓存内存大小
+    # si: 从磁盘读入的内存大小
+    # so: 从内存写入磁盘的内存大小
+    # bi: 从磁盘读入的块数
+    # bo: 从内存写入磁盘的块数
+    # in: 每秒的中断数
+    # cs: 每秒的上下文切换数
+    # us: 用户空间占用CPU百分比
+    # sy: 内核空间占用CPU百分比
+    # id: 空闲CPU百分比
+    # wa: 等待IO占用CPU百分比
+    # st: 虚拟机偷取CPU时间百分比
+    tags = ["r", "b", "swpd", "free", "buff", "cache", "si", "so", "bi", "bo", "in", "cs", "us", "sy", "id", "wa", "st"]
+    for i in range(len(tags)):
+        sum["vmstat_" + tags[i]] = int(vmstat[i])
+
     return sum
 
 def create_default(dicts):
@@ -163,11 +189,17 @@ def clear_dicts(bpf, dicts):
 def start():
     bpf = init_ebpf()
     dict_data = get_dicts(bpf)
-    while True:
-        time.sleep(1.0)
 
-        globals.SYSTEM_INFO = get_sum(dict_data)
+    t = time.time()
+
+    while True:
+        delta_time = time.time() - t
+        if delta_time < 1.0:
+            time.sleep(1.0 - delta_time)
+        t = time.time()
+
         pid_dict = get_proc_sum(dict_data)
+        globals.SYSTEM_INFO = get_sum(dict_data)
 
         temp = []
         for pid, data in pid_dict.items():

@@ -1,3 +1,6 @@
 
 SYSTEM_INFO = {}
 PROCESS_INFO = []
+
+MAIN_PID = 0
+LAST_PID = 0

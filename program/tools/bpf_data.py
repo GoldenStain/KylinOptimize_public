@@ -15,6 +15,8 @@ def start(t_pid, verbose=False):
 
 	headers = [k for k in dicts]
 	if t_pid == 0:
+		tags = ["r", "b", "swpd", "free", "buff", "cache", "si", "so", "bi", "bo", "in", "cs", "us", "sy", "id", "wa", "st"]
+		headers += tags
 		headers.append("procs")
 	csv.write(','.join(headers) + '\n')
 
@@ -29,11 +31,11 @@ def start(t_pid, verbose=False):
 
 			if t_pid == 0:
 				data = data_sample.get_sum(dicts)
-				for k in dicts:
+				for k in data:
 					data_list.append(data[k])
 			else:
 				data = data_sample.get_pid_sum(dicts, t_pid)
-				for k in dicts:
+				for k in data:
 					data_list.append(data[k]) 
 				
 			if t_pid == 0:
