@@ -3,7 +3,6 @@ import logging
 
 LOGGER = logging.getLogger(__name__)
 
-
 class BottleneckCharacterization:
 
     def __init__(self):
@@ -35,6 +34,7 @@ class BottleneckCharacterization:
             'task_nvcsw': float(EngineConfig.task_nvcsw),
             'task_nivcsw': float(EngineConfig.task_nivcsw),
         }
+        
 
     def search_bottleneck(self, data):
         cpu_exist = self.check_thresholds(data, self.cpu_thresholds, "computational")
@@ -52,4 +52,3 @@ class BottleneckCharacterization:
                 LOGGER.info('There is a %s bottleneck in %s', bottleneck_type, key)
                 bottleneck_found = True
         return bottleneck_found
-
