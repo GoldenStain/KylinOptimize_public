@@ -114,7 +114,7 @@ def init_ebpf(freq=49):
 
 def get_dicts(bpf):
     dict_name = ["sent_bytes", "recv_bytes", "sent_count", "recv_count", "disk_read_bytes", "disk_write_bytes", "disk_read_count", "disk_write_count"
-                , "cpu_usage", "disk_read_wait", "disk_write_wait", "mem_usage", "task_nvcsw", "task_nivcsw"
+                , "disk_read_wait", "disk_write_wait", "mem_usage", "task_nvcsw", "task_nivcsw" # , "cpu_usage"
                 #, "perf_hw_ipc", "perf_hw_cpu_cycles", "perf_cache_hits", "perf_cache_misses", "perf_branch_total", "perf_branch_misses"
                 ]
     dict_data = {}
