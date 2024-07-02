@@ -153,6 +153,9 @@ def get_sum(dicts):
     tags = ["r", "b", "swpd", "free", "buff", "cache", "si", "so", "bi", "bo", "in", "cs", "us", "sy", "id", "wa", "st"]
     for i in range(len(tags)):
         sum["vmstat_" + tags[i]] = int(vmstat[i])
+    
+    from multiprocessing import cpu_count
+    sum["cpu_count"] = cpu_count()
 
     return sum
 
