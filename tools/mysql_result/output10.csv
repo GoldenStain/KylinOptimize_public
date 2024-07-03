@@ -1,0 +1,62 @@
+TCP_sent,TCP_recv,DISK_read,DISK_write,DISK_read_cnt,DISK_write_cnt,CPU_usage
+0,0,4096,2310144,2,332,0.532547223
+0,0,2080768,15867904,127,788,0.509666009
+0,0,1536,1949696,2,337,0.520262823
+0,0,1152512,4284416,72,430,0.511460117
+0,0,0,1593344,0,327,0.51551824
+0,0,5210112,17272832,319,865,0.512299702
+0,0,8192,1445888,2,349,0.513519814
+0,0,6225920,15613952,256,824,0.505557568
+0,0,0,1335296,1,345,0.509243358
+0,0,1664512,4825088,103,456,0.51034956
+0,0,0,1331200,0,334,0.506965414
+0,0,3440640,17088512,211,862,0.508017964
+0,0,0,1236992,0,333,0.508353763
+0,0,1736704,6213632,107,522,0.506450764
+0,0,0,1224704,0,344,0.506897937
+0,0,5410816,18214912,331,912,0.510737815
+0,0,0,1073152,0,337,0.525587266
+0,0,1884160,5750784,117,513,0.525171725
+0,0,0,1200128,0,337,0.508547189
+0,0,2170880,5943296,135,496,0.508340931
+
+SYSBENCH OUTPUT:
+sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+queries performed:
+read:                            14112
+write:                           4032
+other:                           2016
+total:                           20160
+transactions:                        1008   (100.77 per sec.)
+queries:                             20160  (2015.32 per sec.)
+ignored errors:                      0      (0.00 per sec.)
+reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+total time:                          10.0025s
+total number of events:              1008
+
+Latency (ms):
+min:                                    6.45
+avg:                                    9.92
+max:                                   21.97
+95th percentile:                       10.84
+sum:                                 9996.94
+
+Threads fairness:
+events (avg/stddev):           1008.0000/0.00
+execution time (avg/stddev):   9.9969/0.00
+
+
+TEST_INFO: --table-size=10000 --tables=10 /usr/share/sysbench/oltp_read_write.lua run interval = 0.5s
