@@ -21,7 +21,7 @@ def api_proc():
 
 @app.route('/api/flame_graph')
 def api_flame_graph():
-    flame_graph.gen_cpu_flame_graph("program/server/static/flame_graph", 50)
+    flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
     return redirect('/static/flame_graph.svg', code=302, Response=None)
 
 def start(port):
