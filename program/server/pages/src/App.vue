@@ -1,7 +1,13 @@
 <template>
-  <!--<el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+
+  <div class="full-page">
+    <div class="title">系统监测平台</div>
+    <div class="line">
+      <hr style="width: 25%; ">
+    </div>
+    <el-tabs  v-model="activeName" class="demo-tabs" @tab-click="handleClick">
     <el-tab-pane label="性能数据" name="first">
-      <div>
+      <!-- <div>
     <div class="container1">
       <div style="background-color:#b2e1f8;" class="card">
         <div>
@@ -57,18 +63,8 @@
       <el-table-column prop="cpu_usage" label="CPU使用量" width="200">
       </el-table-column>
     </el-table>
-  </div>
-    </el-tab-pane>
-    <el-tab-pane label="性能火焰图" name="second">
-      <img :src="url">
-    </el-tab-pane>
-  </el-tabs>-->
-  <div class="full-page">
-    <div class="title">系统监测平台</div>
-    <div class="line">
-      <hr style="width: 25%; ">
-    </div>
-    <div class="back">
+  </div> -->
+  <div class="back">
       <div class="wrap" style="margin-top: 20px;">
         <div class="board">
           <div id="myChart1" style="width:20vw;height:300px;"></div>
@@ -149,6 +145,11 @@
     </el-scrollbar>
   </div>
 
+    </el-tab-pane>
+    <el-tab-pane label="性能火焰图" name="second">
+      <img :src="url">
+    </el-tab-pane>
+  </el-tabs>
 
   </div>
 </template>
@@ -164,11 +165,15 @@ export default {
   components: {
     'el-scrollbar': ElScrollbar,
     'el-table': ElTable,
-    'el-table-column': ElTableColumn
+    'el-table-column': ElTableColumn,
+    'el-tabs': ElTabs,
+    'el-tab-pane': ElTabPane,
   },
   name: 'LineChart',
   data() {
     return {
+      activeName: ref('first'),
+      url: '/static/flame_graph.svg',
       tableData: [
       ],
       perfname:[['disk_write_bytes','disk_read_bytes'],['sent_bytes','recv_bytes'],['disk_write_count','disk_read_count'],['sent_count','recv_count']],
@@ -367,6 +372,9 @@ export default {
    }, 1000);
   },
   methods: {
+  handleClick (tab , event){
+  console.log(tab, event)
+},
     async fetchData(url) {
       // 执行需要轮询的操作 
       try {
@@ -521,6 +529,12 @@ export default {
 </script>
 
 <style scoped>
+.demo-tabs > .el-tabs__content {
+  padding: 32px;
+  color: #6b778c;
+  font-size: 32px;
+  font-weight: 600;
+}
 .container1 {
   display: flex;
   justify-content: space-around;
@@ -686,3 +700,4 @@ hr {
   --el-table-row-hover-bg-color: rgb(2, 2, 189) !important;
 }
 </style>
+
