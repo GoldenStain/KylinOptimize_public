@@ -5,8 +5,8 @@
     <div class="line">
       <hr style="width: 25%; ">
     </div>
-    <el-tabs  v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-    <el-tab-pane label="性能数据" name="first">
+    <el-tabs  v-model="activeName" class="demo-tabs" @tab-click="handleClick" type="card">
+    <el-tab-pane label="性能数据" name="first" class="demo-tab-pane">
       <!-- <div>
     <div class="container1">
       <div style="background-color:#b2e1f8;" class="card">
@@ -139,7 +139,7 @@
       </el-table-column>
       <el-table-column prop="recv_bytes" label="网络接受量" width="160">
       </el-table-column>
-      <el-table-column prop="cpu_usage" label="CPU使用量" width="160">
+      <el-table-column prop="cpu_percent" label="CPU使用量" width="160">
       </el-table-column>
     </el-table>
     </el-scrollbar>
@@ -172,7 +172,7 @@ export default {
   name: 'LineChart',
   data() {
     return {
-      activeName: ref('first'),
+      activeName: 'first',
       url: '/static/flame_graph.svg',
       tableData: [
       ],
@@ -531,9 +531,9 @@ export default {
 <style scoped>
 .demo-tabs > .el-tabs__content {
   padding: 32px;
-  color: #6b778c;
-  font-size: 32px;
-  font-weight: 600;
+  color: #fff;
+  font-size: 100px;
+  font-weight: 800;
 }
 .container1 {
   display: flex;
@@ -666,8 +666,9 @@ hr {
   /* 背景图片覆盖整个div */
   background-position: center;
   border-radius: 30px;
-  position: fixed;
-  top: 100px;
+  position: absolute;
+  width: 50vw;
+  top: 0;
   right: 0;
   padding: 30px;
   box-shadow: 1px 1px 1px 1px #5080FF;

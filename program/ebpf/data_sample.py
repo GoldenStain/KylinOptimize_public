@@ -195,6 +195,8 @@ def start():
 
     t = time.time()
 
+    ps_dict = {}
+
     while True:
         delta_time = time.time() - t
         if delta_time < 1.0:
@@ -210,7 +212,14 @@ def start():
             p_dict["pid"] = int(pid)
 
             try:
-                p_dict["name"] = psutil.Process(int(pid)).name()
+                if pid not in ps_dict:
+                    p = psutil.Process(int(pid))
+                    ps_dict[pid] = p
+                else:
+                    p = ps_dict[pid]
+                p_dict["name"] = p.name()
+                p_dict["cpu_percent"] = p.cpu_percent()
+                p_dict["memory_percent"] = p.memory_percent()
             except:
                 continue
 
@@ -220,7 +229,8 @@ def start():
         
         clear_dicts(bpf, dict_data)
         
-        temp.sort(key=lambda item: item["name"])
+        # 按照CPU占用从大到小排序
+        temp.sort(key=lambda item: item["cpu_percent"], reverse=True)
 
         globals.PROCESS_INFO = temp
             
