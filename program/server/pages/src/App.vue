@@ -4,9 +4,9 @@
     <div class="line">
       <hr style="width: 25%; ">
     </div>
-    <el-tabs  v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-    <el-tab-pane label="性能数据" name="first">
-      <!-- <div>
+    <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick" type="card">
+      <el-tab-pane label="性能数据" name="first" class="demo-tab-pane">
+        <!-- <div>
     <div class="container1">
       <div style="background-color:#b2e1f8;" class="card">
         <div>
@@ -63,120 +63,129 @@
       </el-table-column>
     </el-table>
   </div> -->
-  <div class="back">
-      <div class="wrap" style="margin-top: 20px;">
-        <div class="board">
-          <div id="myChart1" style="width:20vw;height:300px;"></div>
-          <div class="show">
-            <img src="../src/assets/planet.png">
-            <div class="text">磁盘读取量:</div>
-            <div class="data">{{ perfData.disk_read_bytes }}/s</div>
+        <div class="back">
+          <div class="wrap" style="margin-top: 20px;">
+            <div class="board">
+              <div id="myChart1" style="width:20vw;height:300px;"></div>
+              <div class="show">
+                <img src="../src/assets/planet.png">
+                <div class="text">磁盘读取量:</div>
+                <div class="data">{{ perfData.disk_read_bytes }}/s</div>
+              </div>
+              <div class="show">
+                <img src="../src/assets/data.png">
+                <div class="text">磁盘写入量:</div>
+                <div class="data">{{ perfData.disk_write_bytes }}/s</div>
+              </div>
+            </div>
+            <div class="board">
+              <div id="myChart2" style="width:20vw;height:300px;"></div>
+              <div class="show">
+                <img src="../src/assets/planet.png">
+                <div class="text">网络发送量:</div>
+                <div class="data">{{ perfData.sent_bytes }}/s</div>
+              </div>
+              <div class="show">
+                <img src="../src/assets/data.png">
+                <div class="text">网络接收量:</div>
+                <div class="data">{{ perfData.recv_bytes }}/s</div>
+              </div>
+            </div>
           </div>
-          <div class="show">
-            <img src="../src/assets/data.png">
-            <div class="text">磁盘写入量:</div>
-            <div class="data">{{perfData.disk_write_bytes}}/s</div>
+          <div class="wrap">
+            <div class="board">
+              <div id="myChart3" style="width:20vw;height:300px;"></div>
+              <div class="show">
+                <img src="../src/assets/planet.png">
+                <div class="text">磁盘读取次数:</div>
+                <div class="data">{{ perfData.disk_read_count }}/s</div>
+              </div>
+              <div class="show">
+                <img src="../src/assets/data.png">
+                <div class="text">磁盘写入次数:</div>
+                <div class="data">{{ perfData.disk_write_count }}/s</div>
+              </div>
+            </div>
+            <div class="board">
+              <div id="myChart4" style="width:20vw;height:300px;"></div>
+              <div class="show">
+                <img src="../src/assets/planet.png">
+                <div class="text">网络发送次数:</div>
+                <div class="data">{{ perfData.sent_count }}/s</div>
+              </div>
+              <div class="show">
+                <img src="../src/assets/data.png">
+                <div class="text">网络接收次数:</div>
+                <div class="data">{{ perfData.recv_count }}/s</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="board">
-          <div id="myChart2" style="width:20vw;height:300px;"></div>
-          <div class="show">
-            <img src="../src/assets/planet.png">
-            <div class="text">网络发送量:</div>
-            <div class="data">{{perfData.sent_bytes}}/s</div>
-          </div>
-          <div class="show">
-            <img src="../src/assets/data.png">
-            <div class="text">网络接收量:</div>
-            <div class="data">{{perfData.recv_bytes}}/s</div>
-          </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="board">
-          <div id="myChart3" style="width:20vw;height:300px;"></div>
-          <div class="show">
-            <img src="../src/assets/planet.png">
-            <div class="text">磁盘读取次数:</div>
-            <div class="data">{{perfData.disk_read_count}}/s</div>
-          </div>
-          <div class="show">
-            <img src="../src/assets/data.png">
-            <div class="text">磁盘写入次数:</div>
-            <div class="data">{{perfData.disk_write_count}}/s</div>
-          </div>
-        </div>
-        <div class="board">
-          <div id="myChart4" style="width:20vw;height:300px;"></div>
-          <div class="show">
-            <img src="../src/assets/planet.png">
-            <div class="text">网络发送次数:</div>
-            <div class="data">{{perfData.sent_count}}/s</div>
-          </div>
-          <div class="show">
-            <img src="../src/assets/data.png">
-            <div class="text">网络接收次数:</div>
-            <div class="data">{{perfData.recv_count}}/s</div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  <div class="table-wrap">
-    <el-scrollbar class="scrollbar-wrapper">
-      <el-table :data="tableData" style="width: 100%" 
-      :header-cell-style="{background:'#100c2a30',color:'#C0C2C6'}">
-      <el-table-column prop="pid" label="pid" width="160">
-      </el-table-column>
-      <el-table-column prop="name" label="进程" width="160">
-      </el-table-column>
-      <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160">
-      </el-table-column>
-      <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160">
-      </el-table-column>
-      <el-table-column prop="sent_bytes" label="网络发送量" width="160">
-      </el-table-column>
-      <el-table-column prop="recv_bytes" label="网络接受量" width="160">
-      </el-table-column>
-      <el-table-column prop="cpu_usage" label="CPU使用量" width="160">
-      </el-table-column>
-    </el-table>
-    </el-scrollbar>
-  </div>
+        <div class="table-wrap">
+          <el-scrollbar class="scrollbar-wrapper">
+            <el-table :data="tableData" style="width: 100%"
+              :header-cell-style="{ background: '#100c2a30', color: '#C0C2C6' }">
+              <el-table-column prop="pid" label="pid" width="160">
+              </el-table-column>
+              <el-table-column prop="name" label="进程" width="160">
+              </el-table-column>
+              <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160">
+              </el-table-column>
+              <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160">
+              </el-table-column>
+              <el-table-column prop="sent_bytes" label="网络发送量" width="160">
+              </el-table-column>
+              <el-table-column prop="recv_bytes" label="网络接受量" width="160">
+              </el-table-column>
+              <el-table-column prop="cpu_percent" label="CPU使用量" width="160">
+              </el-table-column>
+            </el-table>
+          </el-scrollbar>
+        </div>
+      </el-tab-pane>
 
-    </el-tab-pane>
-    <el-tab-pane label="性能火焰图" name="second">
-      <img :src="url">
-    </el-tab-pane>
-    <el-tab-pane label="调优策略" name="third">
-      <div class="way">
-        <div id="main" style="width: 800px; height: 400px"></div>
-        <div>
-        <div class="button">
-          <el-switch v-model="value1" />
-          <div class="text">NUMA节点适配</div>
-          <el-switch v-model="value2" />
-          <div class="text">本地网络回环流量优化</div>
-          <el-switch v-model="value3" />
-          <div class="text">策略三</div>
-          <el-switch v-model="value4" />
-          <div class="text">策略四</div>
-          <el-switch v-model="value5" />
-          <div class="text">策略五</div>
+      </el-tab-pane>
+      <el-tab-pane label="性能火焰图" name="second">
+        <img :src="url">
+      </el-tab-pane>
+      <el-tab-pane label="调优策略" name="third">
+        <div class="way">
+          <div id="main" style="width: 800px; height: 400px"></div>
+          <div>
+            <div class="button">
+              <el-switch v-model="value1" />
+              <div class="text">NUMA节点适配</div>
+              <el-switch v-model="value2" />
+              <div class="text">本地网络回环流量优化</div>
+              <el-switch v-model="value3" />
+              <div class="text">策略三</div>
+              <el-switch v-model="value4" />
+              <div class="text">策略四</div>
+              <el-switch v-model="value5" />
+              <div class="text">策略五</div>
+            </div>
+            <img src="../src/assets/data.jpg" style="margin-top: 20px; width: 800px;">
+          </div>
         </div>
-        <img src="../src/assets/data.jpg" style="margin-top: 20px; width: 800px;">
+
+      </el-tab-pane>
+
+      <el-tab-pane label="性能火焰图" name="second" class="flame-graph-pane">
+        <iframe class="flame-graph" :src="url"></iframe>
+        <div style="display: flex; flex-direction: row; align-items: center;">
+          <button class="regen-btn">重新生成</button>
+          <span style="color: white;">目标进程PID:</span><input type="tel" class="regen-pid">
         </div>
-      </div>
-       
-    </el-tab-pane>
-  </el-tabs>
+      </el-tab-pane>
+    </el-tabs>
 
   </div>
 </template>
 
 <script>
 import * as echarts from 'echarts';
-import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar,ElSwitch } from 'element-plus';
+import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar, ElSwitch } from 'element-plus';
 // import { ref } from 'vue';
 
 const DATA_LENGTH = 7;
@@ -189,23 +198,23 @@ export default {
     'el-table-column': ElTableColumn,
     'el-tabs': ElTabs,
     'el-tab-pane': ElTabPane,
-    'el-switch' : ElSwitch,
+    'el-switch': ElSwitch,
   },
   name: 'LineChart',
   data() {
     return {
-    value1 : 'false',
-    value2 : 'false',
-    value3 : 'false',
-    value4 : 'false',
-    value5 : 'false',
+      value1: 'false',
+      value2: 'false',
+      value3: 'false',
+      value4: 'false',
+      value5: 'false',
 
       activeName: 'first',
       url: '/static/flame_graph.svg',
       tableData: [
       ],
-      perfname:[['disk_write_bytes','disk_read_bytes'],['sent_bytes','recv_bytes'],['disk_write_count','disk_read_count'],['sent_count','recv_count']],
-      convertname:['disk_write_bytes','disk_read_bytes','sent_bytes','recv_bytes'],
+      perfname: [['disk_write_bytes', 'disk_read_bytes'], ['sent_bytes', 'recv_bytes'], ['disk_write_count', 'disk_read_count'], ['sent_count', 'recv_count']],
+      convertname: ['disk_write_bytes', 'disk_read_bytes', 'sent_bytes', 'recv_bytes'],
       echartsOption1: {    // echarts选项，所有绘图数据和样式都在这里设置
         legend: {   //图表上方的图例
           data: ['磁盘写入量', '磁盘输出量']
@@ -251,7 +260,7 @@ export default {
         animation: false,
         xAxis: {
           type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
+          data: [...Array(DATA_LENGTH)].map((v, idx) => idx + 1),   // x轴数据
           name: '',   // x轴名称
           nameTextStyle: {    // x轴名称样式
             fontWeight: 400,
@@ -289,7 +298,7 @@ export default {
         animation: false,
         xAxis: {
           type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
+          data: [...Array(DATA_LENGTH)].map((v, idx) => idx + 1),   // x轴数据
           name: '',   // x轴名称
           nameTextStyle: {    // x轴名称样式
             fontWeight: 400,
@@ -327,7 +336,7 @@ export default {
         animation: false,
         xAxis: {
           type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
+          data: [...Array(DATA_LENGTH)].map((v, idx) => idx + 1),   // x轴数据
           name: '',   // x轴名称
           nameTextStyle: {    // x轴名称样式
             fontWeight: 400,
@@ -358,68 +367,68 @@ export default {
           }
         ],
       },
-      option : {
+      option: {
         title: {
-            text: '调优策略'
+          text: '调优策略'
         },
-        tooltip:{
-            
+        tooltip: {
+
         },
         legend: {
-            type:'scroll',
-            width:'20%',
-            pageButtonItemGap:4,
-            show:true,
-            icon:'rect',
-            top:'14',
-            left:'430',
-            itemWidth:20,
-            itemHeigth:10,
-            itemGap:30,
-            orient:'horizontal',
-            data: ['系统1', '系统2', '系统3']
+          type: 'scroll',
+          width: '20%',
+          pageButtonItemGap: 4,
+          show: true,
+          icon: 'rect',
+          top: '14',
+          left: '430',
+          itemWidth: 20,
+          itemHeigth: 10,
+          itemGap: 30,
+          orient: 'horizontal',
+          data: ['系统1', '系统2', '系统3']
         },
         radar: {
-            center:['50%','56%'],
-            radius:160,
-            startAngle:90,
-            name:{
-                formatter:'{value}',
-                textStyle:{fontSize:15,color:'green'}
-            },
-            indicator: [
+          center: ['50%', '56%'],
+          radius: 160,
+          startAngle: 90,
+          name: {
+            formatter: '{value}',
+            textStyle: { fontSize: 15, color: 'green' }
+          },
+          indicator: [
             { name: 'NUMA节点适配', max: 100.00 },
             { name: '本地网络回环流量优化', max: 100.00 },
-            { name: '策略三', max: 100.00  },
-            { name: '策略四', max: 100.00  },
+            { name: '策略三', max: 100.00 },
+            { name: '策略四', max: 100.00 },
             { name: '策略五', max: 100.00 },
-            ]
+          ]
         },
-        color:['#45C2E0', '#C1EBDD', '#FF9393'],
+        color: ['#45C2E0', '#C1EBDD', '#FF9393'],
         series: [
-            {
-            itemStyle:{
-                normal:{lineStyle:{width:1},opacity:0.2},
-                emphasis:{lineStyle:{width:5},opacity:1}
+          {
+            itemStyle: {
+              normal: { lineStyle: { width: 1 }, opacity: 0.2 },
+              emphasis: { lineStyle: { width: 5 }, opacity: 1 }
             },
             type: 'radar',
             data: [
-                {
-                value: [60,87.50,90.00,40,65.00],
+              {
+                value: [60, 87.50, 90.00, 40, 65.00],
                 name: '系统1'
-                },
-                {
-                value: [60,88.75,50,90,88.75],
+              },
+              {
+                value: [60, 88.75, 50, 90, 88.75],
                 name: '系统2'
-                },
-                {
-                value: [92.50,60,75,50,91.25],
+              },
+              {
+                value: [92.50, 60, 75, 50, 91.25],
                 name: '系统3'
-                }
+              }
             ]
-            }
+          }
         ]
-        },
+      },
       perfData: {
         sent_count: '--',
         recv_count: '--',
@@ -445,28 +454,28 @@ export default {
     let myChart5 = echarts.init(document.getElementById("main"), 'dark'); // 初始化echarts, theme为dark
     myChart5.setOption(this.option)   // echarts设置选项
 
-    setInterval(async() => {
+    setInterval(async () => {
       var data = await this.fetchData('/api/perf');
       this.tableData = await this.fetchData('/api/proc');
       Object.assign(this.perfData, data);
-      for(var i=0;i<this.convertname.length;i++){
+      for (var i = 0; i < this.convertname.length; i++) {
         this.perfData[this.convertname[i]] = this.convert(data[this.convertname[i]]);
       }
 
       //console.log(this.echartsOption2.series[0].data);
-      for (var i=0;i<this.perfname.length;i++){
-        this.replace(`echartsOption${i+1}`, data[this.perfname[i][0]], data[this.perfname[i][1]]);
+      for (var i = 0; i < this.perfname.length; i++) {
+        this.replace(`echartsOption${i + 1}`, data[this.perfname[i][0]], data[this.perfname[i][1]]);
       }
       myChart1.setOption(this.echartsOption1);
       myChart2.setOption(this.echartsOption2);
       myChart3.setOption(this.echartsOption3);
       myChart4.setOption(this.echartsOption4);
-   }, 1000);
+    }, 1000);
   },
   methods: {
-  handleClick (tab , event){
-  console.log(tab, event)
-},
+    handleClick(tab, event) {
+      console.log(tab, event)
+    },
     async fetchData(url) {
       // 执行需要轮询的操作 
       try {
@@ -499,29 +508,29 @@ export default {
         element.recv_bytes = this.convert(element.recv_bytes);
       });
     },
-    replace(name, data1, data2){
+    replace(name, data1, data2) {
       //this[name].series[0].data = this[name].series[0].data.slice(1).concat([data1]);
       //this[name].series[1].data = this[name].series[1].data.slice(1).concat([data2]);
-      
-      for (var t in [0,1]){
+
+      for (var t in [0, 1]) {
         var arr = this[name].series[t].data;
         var temp = [];
-        for (var i = 1; i < arr.length; i++){
+        for (var i = 1; i < arr.length; i++) {
           temp.push(arr[i]);
         }
         temp.push([data1, data2][t]);
         this[name].series[t].data = temp;
       }
     },
-    convert(bytes){
-      if(bytes>1e9)
-        return (bytes/1e9).toFixed(2)+'GB'
-      else if(bytes>1e6)
-        return (bytes/1e6).toFixed(2)+'MB'
-      else if(bytes>1e3)
-        return (bytes/1e3).toFixed(2)+'KB'
+    convert(bytes) {
+      if (bytes > 1e9)
+        return (bytes / 1e9).toFixed(2) + 'GB'
+      else if (bytes > 1e6)
+        return (bytes / 1e6).toFixed(2) + 'MB'
+      else if (bytes > 1e3)
+        return (bytes / 1e3).toFixed(2) + 'KB'
       else
-        return bytes.toFixed(2)+'B'
+        return bytes.toFixed(2) + 'B'
     }
   }
 }
@@ -621,12 +630,13 @@ export default {
 </script>
 
 <style scoped>
-.demo-tabs > .el-tabs__content {
+.demo-tabs>.el-tabs__content {
   padding: 32px;
-  color: #6b778c;
-  font-size: 32px;
-  font-weight: 600;
+  color: #fff;
+  font-size: 100px;
+  font-weight: 800;
 }
+
 .container1 {
   display: flex;
   justify-content: space-around;
@@ -758,52 +768,96 @@ hr {
   /* 背景图片覆盖整个div */
   background-position: center;
   border-radius: 30px;
-  position: fixed;
-  top: 100px;
+  position: absolute;
+  width: 50vw;
+  top: 0;
   right: 0;
   padding: 30px;
   box-shadow: 1px 1px 1px 1px #5080FF;
 }
- /* 修改头部背景 */
-::v-deep .el-table th{
-    background-color: rgba(0.06, 0.05, 0.2, 0.2);
+
+/* 修改头部背景 */
+::v-deep .el-table th {
+  background-color: rgba(0.06, 0.05, 0.2, 0.2);
 }
+
 /* 修改行背景 */
-::v-deep .el-table tr{
-    background: radial-gradient(#20306F, #101c7a);
+::v-deep .el-table tr {
+  background: radial-gradient(#20306F, #101c7a);
 }
+
 /* 修改行内文字居中 */
-::v-deep .el-table td, .el-table th {
-    text-align: center;
-    color: #fff;
- }
- /* 修改行内线 */
-::v-deep .el-table td,.building-top .el-table th.is-leaf {
-    border-bottom: 1px solid #007ACC;
-  }
+::v-deep .el-table td,
+.el-table th {
+  text-align: center;
+  color: #fff;
+}
+
+/* 修改行内线 */
+::v-deep .el-table td,
+.building-top .el-table th.is-leaf {
+  border-bottom: 1px solid #007ACC;
+}
+
 .el-table th.el-table__cell {
   color: #fff;
 }
+
 .el-table-border .el-table__header-wrapper tr {
-  border-bottom: 1px solid #ff0000; /* 设置行线颜色为红色 */
+  border-bottom: 1px solid #ff0000;
+  /* 设置行线颜色为红色 */
 }
+
 .el-table {
   --el-table-border: 1px solid #007ACC !important;
   --el-table-row-hover-bg-color: rgb(2, 2, 189) !important;
 }
-.way {
+
+<<<<<<< HEAD .way {
   display: flex;
 }
+
 .button {
   display: flex;
-  justify-content:center;
-  margin-top:40px ;
+  justify-content: center;
+  margin-top: 40px;
   margin-left: 20px;
 }
+
 .text {
   margin-left: 15px;
   margin-right: 15px;
   color: green;
 }
 </style>
+=======
+>>>>>>> b440d731c45e04a2e5dec43cbb980f35848efee0
 
+.flame-graph-pane {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+.flame-graph {
+display: block;
+height: 670px;
+width: 1210px;
+}
+
+.regen-btn {
+display: block;
+height: 60px;
+width: 120px;
+color: white;
+background: radial-gradient(#20306F, #101c7a);
+margin: 20px;
+}
+
+
+.regen-pid {
+
+}
+
+</style>
