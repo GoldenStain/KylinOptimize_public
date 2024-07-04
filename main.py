@@ -25,7 +25,7 @@ if args.data_sample:
 
 if args.flame_graph:
     #flame_graph.gen_cpu_flame_graph("program/server/static/flame_graph", 50)
-    flame_graph.gen_flame_graph_perf("out", 50)
+    flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
     exit(0)
 
 threading.Thread(target=lambda: app.start(port), daemon=True).start()
