@@ -147,10 +147,10 @@
       </el-tab-pane>
 
       <el-tab-pane label="性能火焰图" name="second" class="flame-graph-pane">
-        <iframe class="flame-graph" :src="url"></iframe>
+        <iframe class="flame-graph" id="flame-graph" :src="url"></iframe>
         <div style="display: flex; flex-direction: row; align-items: center;">
-          <button class="regen-btn">重新生成</button>
-          <span style="color: white;">目标进程PID:</span><input type="tel" class="regen-pid">
+          <button class="regen-btn" @click="onRegen">重新生成</button>
+          <span style="color: white;">目标进程PID:</span><input type="text" class="regen-pid" v-model="regenPID">
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -161,7 +161,6 @@
 <script>
 import * as echarts from 'echarts';
 import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar } from 'element-plus';
-// import { ref } from 'vue';
 
 const DATA_LENGTH = 7;
 
@@ -177,6 +176,7 @@ export default {
   data() {
     return {
       activeName: 'first',
+      regenPID: '',
       url: '/static/flame_graph.svg',
       tableData: [
       ],
@@ -378,6 +378,13 @@ export default {
   methods: {
     handleClick(tab, event) {
       console.log(tab, event)
+    },
+    async onRegen(){
+      alert('开始生成，需要等待几秒钟');
+      await fetch(`/api/flame_graph?${this.regenPID}`);
+      const frame = document.getElementById('flame-graph').contentWindow;
+      frame.location.reload();
+      alert("生成已完成");
     },
     async fetchData(url) {
       // 执行需要轮询的操作 

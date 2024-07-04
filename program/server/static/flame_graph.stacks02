@@ -1,506 +1,521 @@
-:62379;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;new_sync_read;pipe_read;pipe_wait;schedule;__sched_text_start;finish_task_switch 20000000
-:62405;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_exit_group;do_group_exit;do_exit;task_work_run;__fput;pipe_release;__wake_up_common_lock;__lock_text_start 20000000
-:62406;ret_from_fork;schedule_tail;finish_task_switch 20000000
-:62409;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;copy_user_highpage.isra.72 20000000
 Cache2_I/O;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
-Chrome_ChildIOT;close;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 20000000
-Chrome_ChildIOT;epoll_wait 20000000
-Chrome_ChildIOT;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 60000000
+Chrome_ChildIOT;close 20000000
+Chrome_ChildIOT;mallinfo 20000000
+Chrome_ChildIOT;malloc_usable_size 20000000
 Chrome_ChildIOT;node::GetArrayBufferAllocator 20000000
-Chrome_ChildIOT;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_recvmsg;sockfd_lookup_light;__fget_light 20000000
-Chrome_ChildIOT;v8::ScriptCompiler::ConsumeCodeCacheTask::ConsumeCodeCacheTask 20000000
-Chrome_ChildIOT;v8::ScriptCompiler::ConsumeCodeCacheTask::ConsumeCodeCacheTask;v8_inspector::V8DebuggerId::pair;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;ptep_clear_flush;flush_tlb_mm_range;smp_call_function_single 20000000
-Chrome_ChildIOT;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 40000000
-Chrome_IOThread 80000000
-Chrome_IOThread;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-Chrome_IOThread;node::GetArrayBufferAllocator 20000000
-Chrome_~dThread;epoll_wait;epoll_wait;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;ep_scan_ready_list.constprop.21;ep_send_events_proc 20000000
-Chrome_~dThread;epoll_wait;epoll_wait;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 120000000
-Chrome_~dThread;free;pthread_mutex_lock 20000000
-Chrome_~dThread;recvmsg;[[kernel.kallsyms]] 20000000
-Chrome_~dThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::operator= 20000000
-Chrome_~dThread;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 20000000
-Compositor 780000000
+Chrome_ChildIOT;node::GetArrayBufferAllocator;node::GetArrayBufferAllocator 20000000
+Chrome_ChildIOT;pthread_mutex_timedlock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
+Chrome_ChildIOT;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_recvmsg;___sys_recvmsg;____sys_recvmsg;unix_stream_recvmsg;unix_stream_read_generic;consume_skb;skb_release_data;__put_compound_page 20000000
+Chrome_ChildIOT;v8::HeapObjectStatistics::HeapObjectStatistics 20000000
+Chrome_ChildIOT;v8_inspector::V8DebuggerId::V8DebuggerId 20000000
+Chrome_ChildIOT;wl_proxy_get_tag 20000000
+Chrome_~dThread;epoll_wait;epoll_wait 20000000
+Chrome_~dThread;epoll_wait;epoll_wait;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 40000000
+Chrome_~dThread;malloc;jemalloc_free_dirty_pages 20000000
+Chrome_~dThread;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64 40000000
+Chrome_~dThread;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_recvmsg;sockfd_lookup_light;__fget_light 20000000
+Chrome_~dThread;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;syscall_trace_enter;__secure_computing 20000000
+Chrome_~dThread;sendmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_sendmsg;___sys_sendmsg;____sys_sendmsg;sock_sendmsg;unix_stream_sendmsg;skb_copy_datagram_from_iter;__check_object_size;__virt_addr_valid 20000000
+Chrome_~dThread;std::_Rb_tree<int, std::pair<int const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::_Select1st<std::pair<int const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, std::less<int>, std::allocator<std::pair<int const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::_M_get_insert_hint_unique_pos;mozilla::detail::MutexImpl::unlock;pthread_mutex_unlock 20000000
+Chrome_~dThread;std::vector<int, std::allocator<int> >::_M_default_append;recvmsg 20000000
+Compositor;close;__madvise 20000000
 Compositor;close;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single 20000000
-Compositor;getaddrinfo 20000000
-Compositor;node::CommonEnvironmentSetup::event_loop 20000000
+Compositor;close;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_getrandom;get_random_bytes_user;crng_make_state 20000000
 Compositor;node::GetArrayBufferAllocator 20000000
-Compositor;node::GetArrayBufferAllocator;munmap;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_munmap;vm_munmap;do_munmap;unmap_region;unmap_vmas;unmap_page_range;flush_tlb_mm_range;smp_call_function_single 20000000
+Compositor;node::GetArrayBufferAllocator;__pthread_mutex_init 20000000
+Compositor;node::GetArrayBufferAllocator;node::GetArrayBufferAllocator 20000000
 Compositor;pthread_cond_broadcast;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-Compositor;pthread_cond_timedwait 20000000
 Compositor;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 60000000
-Compositor;recvmsg;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
-Compositor;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_recvmsg;___sys_recvmsg;____sys_recvmsg;unix_stream_recvmsg;unix_stream_read_generic;schedule_timeout;schedule;__sched_text_start;finish_task_switch 20000000
-Compositor;send;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-Compositor;swapgs_restore_regs_and_return_to_usermode;prepare_exit_to_usermode;exit_to_usermode_loop 20000000
-Compositor;v8::CpuProfile::GetTopDownRoot 20000000
-Compositor;v8_inspector::V8DebuggerId::pair;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault 20000000
-Compositor;wl_cursor_frame 40000000
-Compositor;wl_cursor_frame;__nss_group_lookup 20000000
-Compositor;wl_display_set_default_max_buffer_size 40000000
-DOM_Worker 40000000
-Gecko_IOThread;epoll_wait;epoll_wait;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait 20000000
+Compositor;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+Compositor;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos;__nss_group_lookup 20000000
+Compositor;v8::HeapObjectStatistics::HeapObjectStatistics 20000000
+Compositor;v8::HeapObjectStatistics::HeapObjectStatistics;__nss_group_lookup 40000000
+Compositor;v8_inspector::V8DebuggerId::pair 20000000
+Compositor;wl_cursor_frame 140000000
+Compositor;wl_cursor_frame;pthread_mutex_trylock 20000000
+Compositor;wl_cursor_frame;wl_cursor_frame 20000000
+Compositor;wl_display_set_default_max_buffer_size;roundf 20000000
+Compositor;wl_proxy_get_tag 20000000
+Compositor;wl_resource_get_version 40000000
+DNS_Resolver_#3;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult ;std::vector<unsigned long, std::allocator<unsigned long> >::_M_realloc_insert<unsigned long> 20000000
+DOM_Worker;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;find_vma 20000000
+Gecko_IOThread;epoll_wait;epoll_wait;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll 20000000
 Gecko_IOThread;epoll_wait;epoll_wait;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 80000000
-Gecko_IOThread;epoll_wait;epoll_wait;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_rebalance_domains;__lock_text_start 20000000
-Gecko_IOThread;recvmsg 20000000
-Gecko_IOThread;sendmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_sendmsg;___sys_sendmsg;____sys_sendmsg;sock_sendmsg;unix_stream_sendmsg;sock_alloc_send_pskb;alloc_skb_with_frags;__alloc_skb;__kmalloc_reserve.isra.61;__kmalloc_node_track_caller 20000000
-Gecko_IOThread;sendmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_sendmsg;___sys_sendmsg;____sys_sendmsg;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 160000000
-IPDL_Background 120000000
-IPDL_Background;pthread_cond_wait 20000000
-IPDL_Background;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;_cond_resched;rcu_all_qs 20000000
-IPDL_Background;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 240000000
-IPDL_Background;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > 20000000
-IPDL_Background;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;std::_Function_base::_Base_manager<mozilla::ProfileChunkedBuffer::RequestChunk;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_rebalance_domains;__lock_text_start 20000000
-IPDL_Background;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 80000000
-IPDL_Background;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;pipe_update_file_time 20000000
-InputThread;drmIoctl;ioctl;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_ioctl;ksys_ioctl;do_vfs_ioctl;vmw_generic_ioctl;drm_ioctl;drm_ioctl_kernel;drm_mode_cursor_ioctl;drm_mode_cursor_common;drm_mode_cursor_universal;drm_atomic_helper_update_plane;drm_atomic_get_plane_state;drm_atomic_get_crtc_state 20000000
-InputThread;drmIoctl;ioctl;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_ioctl;ksys_ioctl;do_vfs_ioctl;vmw_generic_ioctl;drm_ioctl;drm_ioctl_kernel;drm_mode_cursor_ioctl;drm_mode_cursor_common;drm_mode_cursor_universal;drm_atomic_helper_update_plane;drm_atomic_helper_commit;commit_tail;drm_atomic_helper_commit_tail;drm_atomic_helper_commit_planes;vmw_du_cursor_plane_atomic_update;vmw_cursor_update_image;vmw_cmdbuf_commit;__vmw_cmdbuf_cur_flush;vmw_cmdbuf_man_process;vmw_cmdbuf_ctx_process;vmw_cmdbuf_ctx_submit.isra.9;vmw_cmdbuf_header_submit 20000000
-InputThread;drmIoctl;ioctl;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_ioctl;ksys_ioctl;do_vfs_ioctl;vmw_generic_ioctl;drm_ioctl;drm_ioctl_kernel;drm_mode_cursor_ioctl;drm_mode_cursor_common;drm_mode_cursor_universal;drm_atomic_helper_update_plane;drm_atomic_helper_commit;drm_atomic_helper_swap_state;wait_for_completion_interruptible 20000000
-InputThread;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 40000000
-InputThread;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 20000000
-JS_Helper;crc32_combine64 100000000
-JS_Helper;free;pthread_mutex_lock 20000000
-JS_Helper;inflateCodesUsed 100000000
+Gecko_IOThread;malloc 20000000
+Gecko_IOThread;read 20000000
+Gecko_IOThread;sendmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_sendmsg;___sys_sendmsg;____sys_sendmsg;sock_sendmsg;unix_stream_sendmsg;skb_copy_datagram_from_iter;copy_page_from_iter;copyin;copy_user_enhanced_fast_string 20000000
+Gecko_IOThread;sendmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_sendmsg;___sys_sendmsg;____sys_sendmsg;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 40000000
+Gecko_IOThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::operator=;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 20000000
+Gecko_IOThread;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 20000000
+IPDL_Background;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 40000000
+IPDL_Background;std::_Function_base::_Base_manager<mozilla::net::HttpAsyncAborter<mozilla::net::HttpChannelChild>::HandleAsyncAbort;std::_Function_base::_Base_manager<mozilla::net::HttpAsyncAborter<mozilla::net::TRRServiceChannel>::HandleAsyncAbort 20000000
+IPDL_Background;std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::operator[];mozilla::detail::MutexImpl::lock 20000000
+IPDL_Background;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;__fdget_pos;__fget_light 20000000
+IPDL_Background;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;__fsnotify_parent 20000000
+IPDL_Background;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write 20000000
 JS_Helper;jemalloc_free_dirty_pages;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;down_read;call_rwsem_down_read_failed;rwsem_down_read_failed;schedule;__sched_text_start;finish_task_switch 20000000
-JS_Helper;jemalloc_free_dirty_pages;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;down_read;call_rwsem_down_read_failed;rwsem_down_read_failed;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-JS_Helper;jemalloc_free_dirty_pages;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault 20000000
+JS_Helper;jemalloc_free_dirty_pages;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+JS_Helper;jemalloc_free_dirty_pages;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;up_read;call_rwsem_wake;rwsem_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
 JS_Helper;jemalloc_thread_local_arena;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_mmap_pgoff;vm_mmap_pgoff;do_mmap;mmap_region;do_munmap;unmap_region;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 20000000
 JS_Helper;malloc_usable_size 20000000
-JS_Helper;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;down_read;call_rwsem_down_read_failed;rwsem_down_read_failed;schedule;__sched_text_start;finish_task_switch 20000000
+JS_Helper;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
 JS_Helper;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 20000000
-JS_Helper;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 20000000
 JS_Helper;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single 80000000
-JS_Helper;malloc_usable_size;page_fault;do_page_fault;__do_page_fault;handle_mm_fault 20000000
-JS_Helper;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+JS_Helper;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;unmap_page_range;__tlb_remove_page_size;__get_free_pages;__alloc_pages_nodemask;get_page_from_freelist 20000000
+JS_Helper;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;unmap_page_range;page_remove_rmap;__dec_node_state 20000000
+JS_Helper;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_setup 20000000
+JS_Helper;pthread_mutex_lock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait 20000000
 JS_Helper;pthread_mutex_lock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
 JS_Helper;pthread_mutex_timedlock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-JS_Helper;std::atomic<void  40000000
-JS_Helper;std::atomic<void ;std::atomic<void  20000000
-JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+JS_Helper;pthread_mutex_unlock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 40000000
+JS_Helper;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 20000000
+JS_Helper;std::atomic<void  60000000
 JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range 20000000
-JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 60000000
-JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 20000000
-JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single 220000000
-JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single;generic_exec_single;x2apic_send_IPI;native_write_msr 80000000
-JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;tlb_flush_mmu_free;release_pages;__lock_text_start 20000000
-JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;unmap_page_range;page_remove_rmap;__dec_node_page_state 20000000
-JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax 20000000
-JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
+JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single 40000000
+JS_Helper;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single;generic_exec_single;x2apic_send_IPI;native_write_msr 20000000
+JS_Helper;std::atomic<void ;std::atomic<void ;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+JS_Helper;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 20000000
+JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax 140000000
 JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault;down_read;call_rwsem_down_read_failed;rwsem_down_read_failed;schedule;__sched_text_start;finish_task_switch 20000000
-JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;ptep_clear_flush;flush_tlb_mm_range;smp_call_function_many 60000000
-JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;ptep_clear_flush;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 20000000
-JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax 20000000
-JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault 20000000
-MainThread 660000000
-MainThread;jemalloc_free_dirty_pages;__nss_group_lookup 20000000
-MainThread;malloc_usable_size 20000000
-MainThread;mozilla::TimeStamp::Now;clock_gettime 20000000
-MainThread;mozilla_encoding_encode_from_nscstring 20000000
-MainThread;poll 20000000
-MainThread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;fput 20000000
-MainThread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 160000000
-MainThread;pthread_cond_broadcast;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-MainThread;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
-MainThread;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;__fdget_pos;__fget_light 20000000
-MainThread;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;new_sync_read;pipe_read;touch_atime;atime_needs_update 20000000
-MainThread;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_recvmsg 20000000
-MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 20000000
-MainThread;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 20000000
-MainThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >;mozilla::TimeStamp::Now 20000000
-MainThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >;mozilla::detail::MutexImpl::lock 20000000
+JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax 100000000
+JS_Helper;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;ptep_clear_flush;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 20000000
+MainThread 440000000
+MainThread;DumpCompleteHeap 40000000
+MainThread;PR_GetCurrentThread;pthread_getspecific 20000000
+MainThread;XPending;XUnlockDisplay;_XAllocIDs 20000000
+MainThread;XPending;_XEventsQueued 20000000
+MainThread;XPending;pthread_mutex_unlock 20000000
+MainThread;_XFreeX11XCBStructure;xcb_poll_for_reply64 20000000
+MainThread;encoding_mem_convert_utf8_to_utf16_without_replacement;mozilla_encoding_encode_from_nscstring 20000000
+MainThread;free 40000000
+MainThread;free;__nss_group_lookup 20000000
+MainThread;free;pthread_mutex_lock 20000000
+MainThread;g_main_context_acquire;g_mutex_lock 20000000
+MainThread;g_main_context_check;gdk_frame_clock_get_refresh_info;g_source_get_time@plt 20000000
+MainThread;g_main_context_dispatch;g_clear_list 20000000
+MainThread;gdk_x11_drag_context_get_type;XPending 20000000
+MainThread;jemalloc_free_dirty_pages 20000000
+MainThread;jemalloc_purge_freed_pages;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mmap 20000000
+MainThread;jemalloc_purge_freed_pages;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_mmap_pgoff;vm_mmap_pgoff;up_write;call_rwsem_wake;rwsem_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
+MainThread;malloc 40000000
+MainThread;malloc;jemalloc_free_dirty_pages;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist 20000000
+MainThread;malloc;jemalloc_free_dirty_pages;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+MainThread;malloc_usable_size 140000000
+MainThread;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 60000000
+MainThread;malloc_usable_size;malloc_usable_size 20000000
+MainThread;moz_arena_malloc 20000000
+MainThread;moz_arena_malloc;jemalloc_free_dirty_pages 40000000
+MainThread;mozilla::PrintfTarget::vprint 20000000
+MainThread;mozilla_encoding_encode_from_nscstring;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;page_add_new_anon_rmap;__mod_node_page_state 20000000
+MainThread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll 20000000
+MainThread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;__fget_light 20000000
+MainThread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;eventfd_poll 20000000
+MainThread;poll;pthread_setcanceltype 20000000
+MainThread;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 120000000
+MainThread;pthread_mutex_lock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+MainThread;recvmsg 20000000
+MainThread;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+MainThread;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_recvmsg;___sys_recvmsg;____sys_recvmsg;sock_recvmsg;security_socket_recvmsg 20000000
+MainThread;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult  20000000
+MainThread;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult ;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 20000000
+MainThread;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult ;std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_insert<__gnu_cxx::__normal_iterator<unsigned char const*, std::vector<unsigned char, std::allocator<unsigned char> > > > 20000000
+MainThread;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::_Function_base::_Base_manager<mozilla::dom::network::ConnectionProxy::Create;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult  20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::atomic<void  20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::dom::network::ConnectionProxy::Create;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> > 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::net::HttpAsyncAborter<mozilla::net::nsHttpChannel>::HandleAsyncAbort 20000000
+MainThread;std::_Function_base::_Base_manager<mozilla::net::HttpAsyncAborter<mozilla::net::nsHttpChannel>::HandleAsyncAbort;__nss_group_lookup 20000000
+MainThread;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_Hashtable<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> const*>;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports 20000000
+MainThread;std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::_M_insert_unique<std::pair<int, int> > 40000000
+MainThread;std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_copy<std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Reuse_or_alloc_node>;std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_copy<std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Reuse_or_alloc_node> 20000000
+MainThread;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos 20000000
+MainThread;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> >;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
+MainThread;std::atomic<void  580000000
+MainThread;std::atomic<void ;free 20000000
+MainThread;std::atomic<void ;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+MainThread;std::atomic<void ;std::atomic<void  160000000
+MainThread;std::atomic<void ;std::atomic<void ;std::atomic<void  20000000
+MainThread;std::atomic<void ;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 60000000
+MainThread;std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::operator[];std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult  20000000
+MainThread;std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::operator[];std::_Rb_tree<int, std::pair<int const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::_Select1st<std::pair<int const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, std::less<int>, std::allocator<std::pair<int const, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::_M_get_insert_hint_unique_pos 20000000
+MainThread;std::max<int> 20000000
+MainThread;std::max<int>;std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::_M_insert_unique<std::pair<int, int> > 20000000
+MainThread;std::max<int>;std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<mozilla::ArrayIterator<mozilla::AnimationEventInfo&, nsTArray_Impl<mozilla::AnimationEventInfo, nsTArrayInfallibleAllocator> >, mozilla::AnimationEventInfo*> 20000000
+MainThread;std::max<int>;std::max<int> 60000000
+MainThread;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 320000000
+MainThread;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;__nss_group_lookup 20000000
+MainThread;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::atomic<void  100000000
+MainThread;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::atomic<void ;__nss_group_lookup 20000000
+MainThread;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 40000000
+MainThread;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
+MainThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 20000000
+MainThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
+MainThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;__tls_get_addr 20000000
+MainThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > 20000000
+MainThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 20000000
+MainThread;std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_insert<__gnu_cxx::__normal_iterator<unsigned char const*, std::vector<unsigned char, std::allocator<unsigned char> > > >;__nss_group_lookup 20000000
+MainThread;std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_insert<__gnu_cxx::__normal_iterator<unsigned char const*, std::vector<unsigned char, std::allocator<unsigned char> > > >;std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_insert<__gnu_cxx::__normal_iterator<unsigned char const*, std::vector<unsigned char, std::allocator<unsigned char> > > > 20000000
 MainThread;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 20000000
-MainThread;write;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-Socket_Thread 40000000
-Socket_Thread;PRP_NakedBroadcast;__close;entry_SYSCALL_64_after_hwframe;do_syscall_64;exit_to_usermode_loop;task_work_run;__fput;sock_close;__sock_release;inet_release;tcp_close;__tcp_close;__release_sock;tcp_v6_do_rcv;tcp_rcv_state_process;tcp_mstamp_refresh;ktime_get;read_tsc 20000000
-Socket_Thread;__connect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_connect;__sys_connect;inet_stream_connect;__inet_stream_connect;tcp_v6_connect;tcp_connect;__tcp_transmit_skb;inet6_csk_xmit;ip6_xmit;ip6_output;ip6_finish_output2;__local_bh_enable_ip;do_softirq.part.18;do_softirq_own_stack;__softirqentry_text_start;net_rx_action;__napi_poll;process_backlog;__netif_receive_skb_one_core;ipv6_rcv;ip6_input;ip6_input_finish;tcp_v6_rcv;tcp_v6_do_rcv;tcp_rcv_state_process;tcp_conn_request;secure_tcpv6_seq;ktime_get_with_offset;read_tsc 20000000
-Socket_Thread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-Socket_Thread;std::_Function_base::_Base_manager<mozilla::net::HttpAsyncAborter<mozilla::net::nsHttpChannel>::HandleAsyncAbort;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 20000000
-Softwar~cThread 560000000
-Softwar~cThread;_dl_deallocate_tls;_dl_deallocate_tls 20000000
-Softwar~cThread;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 40000000
-Softwar~cThread;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 100000000
-Softwar~cThread;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_timer_softirq 20000000
-Softwar~cThread;pthread_mutex_lock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+MainThread;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 20000000
+MainThread;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
+MainThread;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 40000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax 180000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect 40000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;down_write_killable;_cond_resched;rcu_all_qs 20000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;down_write_killable;call_rwsem_down_write_failed_killable;rwsem_down_write_failed_killable;schedule;__sched_text_start;finish_task_switch 20000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_many 200000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 40000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_single 160000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_single;generic_exec_single;x2apic_send_IPI;native_write_msr 40000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;__tls_get_addr;_dl_deallocate_tls 20000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault 20000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 40000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax 120000000
+MainThread;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault 20000000
+MainThread;vfprintf 20000000
+MainThread;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write 20000000
+Socket_Thread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll 20000000
+Socket_Thread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll 20000000
+Socket_Thread;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;pipe_poll 20000000
+Socket_Thread;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;mark_wake_futex 20000000
+Socket_Thread;pthread_mutex_timedlock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
+Socket_Thread;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult  20000000
+Socket_Thread;std::_Function_base::_Base_manager<mozilla::net::HttpAsyncAborter<mozilla::net::HttpChannelChild>::HandleAsyncAbort;std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_insert<__gnu_cxx::__normal_iterator<unsigned char const*, std::vector<unsigned char, std::allocator<unsigned char> > > > 20000000
+Socket_Thread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > 20000000
+Socket_Thread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >;std::_Function_base::_Base_manager<mozilla::net::HttpAsyncAborter<mozilla::net::TRRServiceChannel>::HandleAsyncAbort 20000000
+Socket_Thread;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 20000000
+Socket_Thread;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;mozilla::detail::MutexImpl::~MutexImpl;__pthread_mutex_destroy 20000000
+Softwar~cThread;free 20000000
+Softwar~cThread;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 60000000
 Softwar~cThread;pthread_mutex_timedlock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-Softwar~cThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::operator=;pthread_condattr_init@plt 20000000
-Softwar~cThread;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::operator=;pthread_mutexattr_init 20000000
-Softwar~cThread;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write 20000000
-Softwar~cThread;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 120000000
-StreamT~ns_#298;pthread_mutex_unlock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
-ThreadPoolForeg 20000000
-ThreadPoolForeg;getaddrinfo;pthread_mutex_trylock 20000000
-ThreadPoolForeg;pthread_cond_timedwait 20000000
-ThreadPoolForeg;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 40000000
-ThreadPoolForeg;pthread_mutex_timedlock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-ThreadPoolForeg;v8::internal::StrongRootAllocatorBase::deallocate_impl 20000000
-ThreadPoolForeg;wl_proxy_set_tag;__nss_group_lookup 20000000
-Timer 20000000
+Softwar~cThread;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 20000000
+StreamT~ns_#125;jemalloc_free_dirty_pages;__nss_group_lookup 20000000
+StreamT~ns_#157;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;std::_Function_base::_Base_manager<mozilla::ProfileChunkedBuffer::RequestChunk 20000000
+StreamT~ns_#174;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+StreamT~ns_#221;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+StreamT~ns_#256;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+StreamT~ns_#270;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > 20000000
+ThreadPoolForeg;close;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 80000000
+ThreadPoolForeg;close;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;tlb_flush_mmu_free;release_pages;mem_cgroup_uncharge_list;uncharge_batch;page_counter_uncharge;page_counter_cancel 20000000
+ThreadPoolForeg;close;__nss_group_lookup 80000000
+ThreadPoolForeg;close;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault 60000000
+ThreadPoolForeg;close;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist 20000000
+ThreadPoolForeg;close;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+ThreadPoolForeg;getaddrinfo 20000000
+ThreadPoolForeg;node::FreeArrayBufferAllocator 20000000
+ThreadPoolForeg;node::GetArrayBufferAllocator 20000000
+ThreadPoolForeg;node::GetArrayBufferAllocator;node::GetArrayBufferAllocator 20000000
+ThreadPoolForeg;pthread_cond_broadcast;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 40000000
+ThreadPoolForeg;v8::HeapSpaceStatistics::HeapSpaceStatistics 40000000
+ThreadPoolForeg;v8::HeapSpaceStatistics::HeapSpaceStatistics;v8::HeapSpaceStatistics::HeapSpaceStatistics 100000000
+ThreadPoolForeg;v8::internal::Version::GetSONAME;v8::internal::Version::GetSONAME;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault 20000000
+ThreadPoolForeg;wl_proxy_set_tag 40000000
+ThreadPoolForeg;wl_resource_get_version;wl_proxy_set_tag 60000000
+Timer;mozilla::detail::ConditionVariableImpl::wait_for 20000000
 Timer;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 60000000
-URL_Classifier;[libsoftokn3.so];[libfreeblpriv3.so] 20000000
-VizCompositorTh 220000000
-VizCompositorTh;close 20000000
-VizCompositorTh;close;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single 20000000
-VizCompositorTh;g_main_context_iteration;g_thread_self 20000000
-VizCompositorTh;node::GetArrayBufferAllocator 40000000
-VizCompositorTh;node::GetArrayBufferAllocator;munmap;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_munmap;vm_munmap;do_munmap;unmap_region;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single 20000000
-VizCompositorTh;node::GetArrayBufferAllocator;munmap;entry_SYSCALL_64_after_hwframe;do_syscall_64;exit_to_usermode_loop;task_work_run;__fput;dput;__dentry_kill;evict;shmem_evict_inode;shmem_truncate_range;shmem_undo_range;__pagevec_release;release_pages;free_unref_page_list 20000000
-VizCompositorTh;poll 20000000
-VizCompositorTh;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 100000000
-VizCompositorTh;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;select_estimate_accuracy;ktime_get_ts64;read_tsc 60000000
+URL_Classifier;[libfreeblpriv3.so] 20000000
+URL_Classifier;[libsoftokn3.so];PR_NewLock 20000000
+URL_Classifier;jemalloc_free_dirty_pages 20000000
+URL_Classifier;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
+VizCompositorTh 20000000
+VizCompositorTh;g_main_context_check 20000000
+VizCompositorTh;g_source_ref;g_source_ref 20000000
+VizCompositorTh;getaddrinfo 20000000
+VizCompositorTh;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll 20000000
+VizCompositorTh;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 40000000
 VizCompositorTh;send;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_sendto;__sys_sendto;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 20000000
-VizCompositorTh;v8::CodeEvent::GetScriptColumn 20000000
-VizCompositorTh;v8::HeapSpaceStatistics::HeapSpaceStatistics;v8::HeapSpaceStatistics::HeapSpaceStatistics 160000000
-VizCompositorTh;wl_display_set_default_max_buffer_size;xcb_connection_has_error 20000000
-VizCompositorTh;wl_proxy_set_tag 60000000
-VizCompositorTh;wl_proxy_set_tag;__nss_group_lookup 20000000
-VizCompositorTh;wl_proxy_set_tag;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault 80000000
-VizCompositorTh;wl_proxy_set_tag;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;__lru_cache_add;pagevec_lru_move_fn;__lock_text_start 20000000
-VizCompositorTh;wl_proxy_set_tag;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
-VizCompositorTh;wl_proxy_set_tag;wl_proxy_set_tag 20000000
-WebExtensions;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-WebExtensions;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-Web_Content 2920000000
+VizCompositorTh;v8::HeapSpaceStatistics::HeapSpaceStatistics 20000000
+VizCompositorTh;v8::HeapSpaceStatistics::HeapSpaceStatistics;__nss_group_lookup 20000000
+VizCompositorTh;v8::HeapSpaceStatistics::HeapSpaceStatistics;v8::HeapSpaceStatistics::HeapSpaceStatistics 180000000
+VizCompositorTh;wl_cursor_frame 20000000
+VizCompositorTh;wl_display_set_default_max_buffer_size 20000000
+VizCompositorTh;wl_resource_get_version 40000000
+VizCompositorTh;writev;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_writev;vfs_writev;do_iter_write;do_iter_readv_writev;sock_write_iter;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 40000000
+Web_Content 2660000000
+Web_Content;DumpCompleteHeap 20000000
 Web_Content;Servo_ShutdownThreadPool 20000000
-Web_Content;[libfreeblpriv3.so];[libfreeblpriv3.so] 20000000
-Web_Content;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 60000000
-Web_Content;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_timer_softirq;call_timer_fn;usb_hcd_poll_rh_status;uhci_hub_status_data;__lock_text_start 20000000
-Web_Content;fluent_resource_addref 60000000
-Web_Content;free 40000000
+Web_Content;atp_promote_thread_to_real_time 20000000
+Web_Content;fluent_resource_addref 20000000
+Web_Content;fluent_resource_addref;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_Hashtable<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> const*> 20000000
+Web_Content;free 20000000
+Web_Content;free;pthread_mutex_lock 40000000
+Web_Content;free;pthread_mutex_lock@plt 20000000
+Web_Content;g_main_context_prepare;gdk_x11_drag_context_get_type 20000000
+Web_Content;jemalloc_free_dirty_pages 20000000
+Web_Content;malloc;pthread_mutex_unlock 20000000
 Web_Content;malloc_usable_size 20000000
-Web_Content;moz_arena_malloc 60000000
-Web_Content;moz_arena_malloc;jemalloc_free_dirty_pages 20000000
-Web_Content;moz_arena_malloc;pthread_mutex_timedlock 20000000
-Web_Content;page_fault;do_page_fault;__do_page_fault;handle_mm_fault 20000000
-Web_Content;poll;[[kernel.kallsyms]] 20000000
-Web_Content;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;sock_poll 20000000
-Web_Content;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-Web_Content;pthread_mutex_lock;siglongjmp;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
-Web_Content;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_recvmsg;___sys_recvmsg;____sys_recvmsg;unix_stream_recvmsg 20000000
-Web_Content;sdp_session_timing 20000000
-Web_Content;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports;PR_IntervalToMilliseconds 20000000
-Web_Content;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports 20000000
-Web_Content;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 20000000
-Web_Content;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::atomic<void  20000000
-Web_Content;std::_Function_base::_Base_manager<mozilla::dom::network::ConnectionProxy::Create;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult ;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult  20000000
-Web_Content;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_Hashtable<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> const*> 20000000
-Web_Content;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned long>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned long> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned long> >;std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<mozilla::ArrayIterator<mozilla::AnimationEventInfo&, nsTArray_Impl<mozilla::AnimationEventInfo, nsTArrayInfallibleAllocator> >, mozilla::AnimationEventInfo*> 20000000
+Web_Content;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;find_vma_prev;find_vma 20000000
+Web_Content;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 20000000
+Web_Content;malloc_usable_size;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_single 60000000
+Web_Content;moz_arena_malloc 80000000
+Web_Content;moz_arena_malloc;pthread_mutex_lock 20000000
+Web_Content;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;syscall_trace_enter 20000000
+Web_Content;recvmsg 20000000
+Web_Content;sdp_session_timing 60000000
+Web_Content;sdp_session_timing;__nss_group_lookup 20000000
+Web_Content;sdp_session_timing;sdp_session_timing 40000000
+Web_Content;sdp_session_timing;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_Hashtable<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> const*> 40000000
+Web_Content;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports 40000000
+Web_Content;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult  20000000
+Web_Content;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> > 20000000
+Web_Content;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports;std::__find_if<unsigned int*, __gnu_cxx::__ops::_Iter_equals_val<unsigned long const> > 20000000
+Web_Content;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&> 20000000
+Web_Content;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 60000000
+Web_Content;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;page_fault;do_page_fault;__do_page_fault 20000000
+Web_Content;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
+Web_Content;std::_Hashtable<int, int, std::allocator<int>, std::__detail::_Identity, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true> >::_M_insert_unique_node;std::_Sp_counted_deleter<_IO_FILE*, void  20000000
+Web_Content;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_Hashtable<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> const*>;std::_Function_base::_Base_manager<mozilla::ProfileChunkedBuffer::RequestChunk;__tls_get_addr 20000000
+Web_Content;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_Hashtable<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, mozilla::widget::Property> const*>;std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_replace_aux 20000000
+Web_Content;std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned long>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned long> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned long> > 20000000
 Web_Content;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos 20000000
-Web_Content;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos 20000000
-Web_Content;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> >;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports 20000000
-Web_Content;std::atomic<void  1680000000
-Web_Content;std::atomic<void ;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 60000000
-Web_Content;std::atomic<void ;page_fault;do_page_fault;__do_page_fault 20000000
-Web_Content;std::atomic<void ;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault 20000000
-Web_Content;std::atomic<void ;std::atomic<void  460000000
-Web_Content;std::atomic<void ;std::atomic<void ;__tls_get_addr 100000000
-Web_Content;std::atomic<void ;std::atomic<void ;page_fault;do_page_fault;__do_page_fault;handle_mm_fault 20000000
-Web_Content;std::atomic<void ;std::atomic<void ;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;ptep_clear_flush;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 20000000
-Web_Content;std::atomic<void ;std::atomic<void ;std::atomic<void  60000000
+Web_Content;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos;std::_Rb_tree<std::pair<unsigned int, unsigned int>, std::pair<std::pair<unsigned int, unsigned int> const, unsigned int>, std::_Select1st<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> >, std::less<std::pair<unsigned int, unsigned int> >, std::allocator<std::pair<std::pair<unsigned int, unsigned int> const, unsigned int> > >::_M_get_insert_hint_unique_pos 40000000
+Web_Content;std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<mozilla::ArrayIterator<mozilla::AnimationEventInfo&, nsTArray_Impl<mozilla::AnimationEventInfo, nsTArrayInfallibleAllocator> >, mozilla::AnimationEventInfo*> 20000000
+Web_Content;std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_replace_aux;std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_M_replace_aux 20000000
+Web_Content;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> > 20000000
+Web_Content;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> >;std::_Function_base::_Base_manager<imgMemoryReporter::CollectReports 40000000
+Web_Content;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> >;std::_Function_base::_Base_manager<mozilla::LogModuleManager::Init 40000000
+Web_Content;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> >;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
+Web_Content;std::__find_if<char16_t const*, __gnu_cxx::__ops::_Iter_equals_iter<char16_t const*> >;std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_insert<__gnu_cxx::__normal_iterator<unsigned char const*, std::vector<unsigned char, std::allocator<unsigned char> > > > 20000000
+Web_Content;std::atomic<void  1700000000
+Web_Content;std::atomic<void ;page_fault;do_page_fault;__do_page_fault;handle_mm_fault 20000000
+Web_Content;std::atomic<void ;std::atomic<void  360000000
+Web_Content;std::atomic<void ;std::atomic<void ;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;unmap_page_range 20000000
+Web_Content;std::atomic<void ;std::atomic<void ;__tls_get_addr 40000000
+Web_Content;std::atomic<void ;std::atomic<void ;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
+Web_Content;std::atomic<void ;std::atomic<void ;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+Web_Content;std::atomic<void ;std::atomic<void ;ret_from_intr;do_IRQ;irq_exit;__softirqentry_text_start 20000000
+Web_Content;std::atomic<void ;std::atomic<void ;std::atomic<void  40000000
 Web_Content;std::atomic<void ;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 40000000
+Web_Content;std::atomic<void ;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;__nss_group_lookup 20000000
+Web_Content;std::atomic<void ;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;ret_from_intr;do_IRQ;irq_exit;__softirqentry_text_start;tasklet_action_common.isra.20;vmci_dispatch_dgs;ioread8_rep 20000000
 Web_Content;std::atomic<void ;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
 Web_Content;std::atomic<void ;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax 20000000
-Web_Content;std::deque<std::function<void  20000000
-Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 1340000000
-Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_timer_softirq 20000000
-Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::atomic<void  180000000
-Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 500000000
-Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;v8::internal::RegExpParser::VerifyRegExpSyntax 20000000
-Web_Content;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append;moz_arena_malloc 20000000
+Web_Content;std::deque<std::function<void  40000000
+Web_Content;std::thread::_State_impl<std::thread::_Invoker<std::tuple<void ;std::thread::_State_impl<std::thread::_Invoker<std::tuple<void  20000000
+Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 1220000000
+Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::atomic<void  120000000
+Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 460000000
+Web_Content;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;v8::internal::RegExpParser::VerifyRegExpSyntax 40000000
+Web_Content;std::vector<mozilla::gl::GLFeature, std::allocator<mozilla::gl::GLFeature> >::_M_realloc_insert<mozilla::gl::GLFeature const&> 20000000
+Web_Content;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append 20000000
 Web_Content;std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append;pthread_mutex_timedlock 20000000
-Web_Content;std::vector<unsigned long, std::allocator<unsigned long> >::_M_realloc_insert<unsigned long>;std::_Function_base::_Base_manager<mozilla::ProfileChunkedBuffer::RequestChunk 20000000
-Web_Content;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;std::_Function_base::_Base_manager<NS_MutatorMethod<nsresult  20000000
-Web_Content;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void*> 20000000
-Web_Content;swapgs_restore_regs_and_return_to_usermode;prepare_exit_to_usermode;exit_to_usermode_loop 20000000
-Web_Content;swapgs_restore_regs_and_return_to_usermode;prepare_exit_to_usermode;exit_to_usermode_loop;schedule;__sched_text_start;finish_task_switch 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax 620000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;down_write_killable;call_rwsem_down_write_failed_killable;rwsem_down_write_failed_killable;schedule;__sched_text_start;finish_task_switch 60000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_many 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;__x2apic_send_IPI_mask 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_many;native_send_call_func_ipi;alloc_cpumask_var_node;__kmalloc_node 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_single 80000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_single;generic_exec_single;x2apic_send_IPI;native_write_msr 40000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;perf_event_mmap;perf_iterate_sb 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;perf_event_mmap;perf_iterate_sb;perf_event_mmap_output;__perf_event_header__init_id;sched_clock_cpu;sched_clock;vmware_sched_clock 140000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;up_write;call_rwsem_wake;rwsem_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__nss_group_lookup 20000000
+Web_Content;std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_insert<__gnu_cxx::__normal_iterator<unsigned char const*, std::vector<unsigned char, std::allocator<unsigned char> > > > 20000000
+Web_Content;std::vector<unsigned long, std::allocator<unsigned long> >::operator= 20000000
+Web_Content;std::vector<void*, std::allocator<void*> >::_M_realloc_insert<void* const&>;std::__shared_mutex_pthread::lock_shared 20000000
+Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax 1020000000
+Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;down_write_killable;call_rwsem_down_write_failed_killable;rwsem_down_write_failed_killable;rwsem_spin_on_owner 20000000
+Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_single 60000000
 Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;std::atomic<void  60000000
 Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 40000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 20000000
-Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
-Web_Content;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 40000000
-Xorg;[libpixman-1.so.0.40.0] 20000000
-Xorg;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;ktime_get_ts64;read_tsc;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_timer_softirq;call_timer_fn;usb_hcd_poll_rh_status;uhci_hub_status_data;__lock_text_start 20000000
-Xorg;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;select_estimate_accuracy;ktime_get_ts64;read_tsc 20000000
-Xorg;fbBlt;__nss_group_lookup 20000000
-Xorg;writev;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_writev;vfs_writev;do_iter_write;do_iter_readv_writev;sock_write_iter;sock_sendmsg;unix_stream_sendmsg;sock_alloc_send_pskb;alloc_skb_with_frags;__alloc_skb;__kmalloc_reserve.isra.61;__kmalloc_node_track_caller;kmalloc_slab 20000000
-Xorg;writev;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_writev;vfs_writev;do_iter_write;do_iter_readv_writev;sock_write_iter;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 100000000
-cat;[cat];write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;__wake_up_common_lock;__lock_text_start 20000000
-cat;[ld-2.28.so] 40000000
+Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&>;std::vector<char*, std::allocator<char*> >::_M_realloc_insert<char* const&> 40000000
+Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax 80000000
+Web_Content;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax;v8::internal::RegExpParser::VerifyRegExpSyntax 20000000
+Web_Content;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;pipe_write;mutex_lock 20000000
+Xorg;SyncVerifyFence 20000000
+Xorg;XNFstrdup;setitimer;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+Xorg;[libpixman-1.so.0.40.0] 80000000
+Xorg;_IO_str_seekoff 20000000
+Xorg;drmIoctl;ioctl;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_ioctl;ksys_ioctl;do_vfs_ioctl;vmw_generic_ioctl;drm_ioctl;drm_ioctl_kernel;drm_mode_dirtyfb_ioctl;vmw_framebuffer_surface_dirty;vmw_kms_stdu_surface_dirty;vmw_kms_helper_resource_finish;vmw_kms_helper_buffer_finish;vmw_execbuf_fence_commands;vmw_fifo_send_fence;vmw_cmdbuf_commit;__vmw_cmdbuf_cur_flush;vmw_cmdbuf_man_process;vmw_cmdbuf_ctx_process;vmw_cmdbuf_ctx_submit.isra.9;vmw_cmdbuf_header_submit 60000000
+Xorg;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;ep_scan_ready_list.constprop.21;ep_send_events_proc;ep_item_poll.isra.16;sock_poll 20000000
+Xorg;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;hrtimer_start_range_ns;__lock_text_start 20000000
+Xorg;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+Xorg;writev;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_writev;vfs_writev;do_iter_write;do_iter_readv_writev;sock_write_iter;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 40000000
+cat;[ld-2.28.so];__get_cpu_features;page_fault;do_page_fault;__do_page_fault 20000000
 cat;[libc-2.28.so] 20000000
 cat;__bzero 20000000
-cat;_dl_rtld_di_serinfo 20000000
-cat;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;map_vdso;__install_special_mapping;perf_event_mmap;perf_iterate_sb;perf_event_mmap_output;__perf_event_header__init_id;sched_clock_cpu;sched_clock;vmware_sched_clock 40000000
-code 1240000000
-code;[code] 20000000
-code;_IO_funlockfile;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_rt_sigaction;do_sigaction 20000000
-code;_start 260000000
-code;_start;_start 20000000
-code;close 80000000
-code;close;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 100000000
-code;close;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;tlb_flush_mmu_free;release_pages;free_unref_page_list;free_unref_page_prepare.part.71 20000000
+cat;getopt_long;confstr;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;alloc_pages_vma 20000000
+code 40000000
+code;__register_atfork;__libpthread_freeres 20000000
+code;_start 20000000
+code;close 40000000
 code;close;clock_gettime 20000000
-code;close;close 40000000
-code;close;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 40000000
-code;close;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 60000000
-code;close;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;syscall_trace_enter;__secure_computing 20000000
-code;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;flush_old_exec;mmput;exit_mmap;free_pgtables;unlink_anon_vmas 20000000
-code;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;flush_old_exec;mmput;exit_mmap;unmap_vmas;unmap_page_range;tlb_flush_mmu_free;free_pages_and_swap_cache 20000000
-code;epoll_pwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_pwait;do_epoll_wait;ep_poll;select_estimate_accuracy;ktime_get_ts64;read_tsc 20000000
-code;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-code;epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;select_estimate_accuracy;ktime_get_ts64;read_tsc 20000000
-code;gdk_x11_drag_context_get_type;gdk_event_free 20000000
-code;killpg;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-code;mallinfo;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault;find_vma;vmacache_find 20000000
-code;malloc_usable_size;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
-code;malloc_usable_size;pthread_getspecific 20000000
-code;node::AsyncResource::get_async_id 360000000
+code;close;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page;wp_page_copy;ptep_clear_flush;flush_tlb_mm_range;native_flush_tlb_others;is_uv_system 20000000
+code;close;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;mem_cgroup_from_task 20000000
+code;epoll_pwait;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+code;fork;entry_SYSCALL_64_after_hwframe;do_syscall_64;_do_fork;copy_process;copy_page_range;__pmd_alloc;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+code;getaddrinfo 40000000
+code;getaddrinfo;v8::Value::IsExternal 20000000
+code;malloc_usable_size 20000000
+code;node::AsyncResource::get_async_id 580000000
 code;node::AsyncResource::get_async_id;__nss_group_lookup 20000000
-code;node::AsyncResource::get_async_id;node::AsyncResource::get_async_id 80000000
+code;node::AsyncResource::get_async_id;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
+code;node::AsyncResource::get_async_id;node::AsyncResource::get_async_id 140000000
 code;node::AsyncResource::get_async_id;node::GetArrayBufferAllocator 20000000
-code;node::AsyncResource::get_trigger_async_id 80000000
-code;node::AsyncResource::get_trigger_async_id;cppgc::internal::AgeTable::ResetForTesting 40000000
-code;node::AsyncResource::get_trigger_async_id;cppgc::internal::AgeTable::ResetForTesting;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
-code;node::CallbackScope::~CallbackScope 20000000
-code;node::GetArrayBufferAllocator 120000000
-code;node::GetArrayBufferAllocator;node::AsyncResource::get_async_id 20000000
-code;node::GetArrayBufferAllocator;node::GetArrayBufferAllocator 20000000
-code;node::OnFatalError 20000000
-code;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-code;pthread_cond_broadcast 20000000
-code;pthread_cond_broadcast;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake 20000000
-code;pthread_cond_broadcast;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;hash_futex 20000000
-code;pthread_cond_broadcast;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 40000000
-code;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
-code;pthread_cond_timedwait 20000000
-code;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 140000000
-code;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
-code;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_setup;get_futex_value_locked 20000000
-code;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;get_timespec64 20000000
-code;pthread_cond_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
-code;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-code;recvmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_recvmsg;___sys_recvmsg;____sys_recvmsg;unix_stream_recvmsg;unix_stream_read_generic;consume_skb;skb_release_all;skb_release_head_state;unix_destruct_scm;sock_wfree;unix_write_space;__wake_up_common_lock;__lock_text_start 20000000
-code;sem_getvalue;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 60000000
-code;sendmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_sendmsg;___sys_sendmsg;____sys_sendmsg;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 20000000
+code;node::AsyncResource::get_async_id;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;mem_cgroup_try_charge_delay;mem_cgroup_throttle_swaprate 20000000
+code;node::AsyncResource::get_async_id;roundf 20000000
+code;node::AsyncResource::get_async_id;wl_display_set_default_max_buffer_size 20000000
+code;node::GetArrayBufferAllocator 100000000
+code;node::GetArrayBufferAllocator;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_fault;__do_fault;__xfs_filemap_fault;filemap_fault;__do_page_cache_readahead;__alloc_pages_nodemask 20000000
+code;pthread_cond_broadcast;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 60000000
+code;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
+code;pthread_mutex_timedlock;siglongjmp 20000000
+code;sem_getvalue;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 40000000
+code;sem_getvalue;sem_getvalue 20000000
+code;send 20000000
 code;uv_sem_post;sem_post;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 40000000
-code;uv_tcp_simultaneous_accepts 60000000
-code;v8::CppHeap::wrapper_descriptor 80000000
-code;v8::CppHeap::wrapper_descriptor;uv_tcp_simultaneous_accepts 20000000
-code;v8::CpuProfileNode::GetDeoptInfos 20000000
-code;v8::Platform::SystemClockTimeMillis 240000000
-code;v8::Unlocker::~Unlocker 660000000
-code;v8::internal::StrongRootAllocatorBase::deallocate_impl 80000000
-code;v8::internal::StrongRootAllocatorBase::deallocate_impl;page_fault;do_page_fault;__do_page_fault 20000000
-code;v8::internal::StrongRootAllocatorBase::deallocate_impl;v8::CppHeap::wrapper_descriptor 20000000
-code;v8::internal::StrongRootAllocatorBase::deallocate_impl;wl_cursor_frame;__madvise;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_madvise;do_madvise;zap_page_range;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;cpumask_any_but 20000000
-code;v8::internal::TickSample::print;operator new 20000000
-code;wl_cursor_frame;__mprotect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;change_protection;flush_tlb_mm_range;smp_call_function_single 20000000
+code;v8::CodeEvent::GetComment 20000000
+code;v8::CodeEvent::GetScriptColumn 20000000
+code;v8::CodeEvent::GetScriptLine 60000000
+code;v8::CpuProfileNode::GetDeoptInfos 40000000
+code;v8::CpuProfileNode::GetScriptResourceNameStr 20000000
+code;v8::HeapObjectStatistics::HeapObjectStatistics;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_anonymous_page;alloc_pages_vma;get_task_policy.part.37 20000000
+code;v8::Platform::SystemClockTimeMillis;__nss_group_lookup;page_fault;do_page_fault;__do_page_fault 20000000
+code;v8::ScriptCompiler::ConsumeCodeCacheTask::ConsumeCodeCacheTask 60000000
+code;v8::Unwinder::PCIsInV8 20000000
+code;v8_inspector::V8DebuggerId::V8DebuggerId 20000000
+code;v8_inspector::V8DebuggerId::pair;__nss_group_lookup 20000000
+code;v8_inspector::V8StackTraceId::ToString;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_fault;__do_fault;__xfs_filemap_fault;filemap_fault;__do_page_cache_readahead;read_pages;blk_finish_plug;blk_flush_plug_list;blk_mq_flush_plug_list;blk_mq_sched_insert_requests;blk_mq_run_hw_queue;__blk_mq_delay_run_hw_queue;__blk_mq_run_hw_queue;blk_mq_sched_dispatch_requests;__blk_mq_sched_dispatch_requests;blk_mq_do_dispatch_sched;blk_mq_dispatch_rq_list;scsi_queue_rq;mptscsih_qcmd;mpt_put_msg_frame;call_function_single_interrupt;irq_exit;__softirqentry_text_start 20000000
+code;wl_cursor_frame 40000000
+code;wl_cursor_frame;wl_display_set_default_max_buffer_size 20000000
 code;wl_display_set_default_max_buffer_size 40000000
-code;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;eventfd_write 20000000
-cpuUsage.sh;[ld-2.28.so];_dl_rtld_di_serinfo 20000000
-cpuUsage.sh;expand_word 20000000
-dbus-daemon;[dbus-daemon];dbus_connection_unref 20000000
-dbus-daemon;[dbus-daemon];epoll_wait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_epoll_wait;do_epoll_wait;ep_poll;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-dbus-daemon;_dbus_validate_bus_namespace;_dbus_pipe_invalidate 20000000
-dbus-daemon;_dbus_write_socket;sendmsg;entry_SYSCALL_64_after_hwframe;do_syscall_64;__sys_sendmsg;___sys_sendmsg;____sys_sendmsg;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 20000000
-esbuild 20000000
-esbuild;[esbuild];entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 20000000
-fcitx;FcitxInstanceRemoveTimeoutById;select;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_select;kern_select;core_sys_select;do_select;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-gdbus 20000000
-gdbus;g_main_context_prepare 20000000
-gdbus;g_task_attach_source;g_source_attach 20000000
-gdbus;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-git;[git];__lxstat64;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-git;[git];__lxstat64;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_newlstat;vfs_statx;filename_lookup;path_lookupat;link_path_walk.part.35 20000000
-git;[git];__lxstat64;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_newlstat;vfs_statx;filename_lookup;path_lookupat;link_path_walk.part.35;inode_permission 20000000
-ksoftirqd/0;ret_from_fork;kthread;smpboot_thread_fn;run_ksoftirqd 40000000
-ksoftirqd/0;ret_from_fork;kthread;smpboot_thread_fn;run_ksoftirqd;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;__lock_text_start 120000000
-ksoftirqd/0;ret_from_fork;kthread;smpboot_thread_fn;schedule;__sched_text_start;finish_task_switch 20000000
-ksoftirqd/13;ret_from_fork;kthread;smpboot_thread_fn;schedule;__sched_text_start;finish_task_switch 20000000
-ksoftirqd/2;ret_from_fork;kthread;smpboot_thread_fn;run_ksoftirqd;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;__lock_text_start 20000000
-ksoftirqd/3;ret_from_fork;kthread;smpboot_thread_fn;schedule;__sched_text_start;finish_task_switch 20000000
-kworker/0:0-eve;ret_from_fork;kthread;worker_thread;process_one_work;e1000_watchdog;e1000_update_stats;__lock_text_start 20000000
-kworker/0:0-eve;ret_from_fork;kthread;worker_thread;process_one_work;vmstat_shepherd 20000000
-kworker/0:0-eve;ret_from_fork;kthread;worker_thread;process_one_work;vmstat_shepherd;queue_delayed_work_on 20000000
-kworker/12:1-ev;ret_from_fork;kthread;worker_thread;schedule;__sched_text_start;finish_task_switch 20000000
-kworker/1:0-mpt;ret_from_fork;kthread;worker_thread;schedule;__sched_text_start;finish_task_switch 20000000
-kworker/2:0-mm_;ret_from_fork;kthread;worker_thread;process_one_work;vmci_transport_recv_pkt_work;sock_def_error_report;__wake_up_common_lock;__lock_text_start 20000000
-kworker/5:0-mm_;ret_from_fork;kthread;worker_thread;schedule;__sched_text_start;finish_task_switch 20000000
-kworker/6:3-mm_;ret_from_fork;kthread;worker_thread;schedule;__sched_text_start;finish_task_switch 60000000
-kworker/u256:1-;ret_from_fork;kthread;worker_thread;process_one_work;wb_workfn;wb_writeback;__writeback_inodes_wb;writeback_sb_inodes;__writeback_single_inode;do_writepages;xfs_vm_writepages;write_cache_pages;xfs_do_writepage;xfs_add_to_ioend;__bio_add_page 20000000
-kworker/u256:1-;ret_from_fork;kthread;worker_thread;process_one_work;wb_workfn;wb_writeback;__writeback_inodes_wb;writeback_sb_inodes;__writeback_single_inode;do_writepages;xfs_vm_writepages;write_cache_pages;xfs_do_writepage;xfs_add_to_ioend;submit_bio;generic_make_request_no_check;blk_mq_make_request;blk_flush_plug_list;blk_mq_flush_plug_list;blk_mq_sched_insert_requests;blk_mq_run_hw_queue;__blk_mq_delay_run_hw_queue;__blk_mq_run_hw_queue;blk_mq_sched_dispatch_requests;__blk_mq_sched_dispatch_requests;blk_mq_do_dispatch_sched;blk_mq_dispatch_rq_list;scsi_queue_rq;mptscsih_qcmd;mpt_put_msg_frame;call_function_single_interrupt;irq_exit;__softirqentry_text_start 20000000
-marco;[marco] 20000000
-marco;_XFreeX11XCBStructure;xcb_poll_for_event 20000000
-marco;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll 20000000
-marco;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;rcu_process_callbacks 20000000
+code;wl_display_set_default_max_buffer_size;wl_display_set_default_max_buffer_size 20000000
+cpuUsage.sh;euidaccess;access;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_faccessat;kmem_cache_free 20000000
+cpuUsage.sh;file_status;__xstat;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_newstat;vfs_statx;filename_lookup;path_lookupat;link_path_walk.part.35;inode_permission;generic_permission 20000000
+cpuUsage.sh;shell_execve;execve;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;copy_strings_kernel;copy_strings.isra.26;get_user_pages_remote;__get_user_pages;handle_mm_fault;__handle_mm_fault;do_anonymous_page;mem_cgroup_try_charge_delay;mem_cgroup_try_charge;get_mem_cgroup_from_mm 20000000
+dconf_worker;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
+dconf_worker;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_read 20000000
+gdbus;g_dbus_proxy_call_with_unix_fd_list_sync;g_io_error_quark 20000000
+gdbus;g_object_unref;g_cclosure_marshal_BOOLEAN__BOXED_BOXEDv;g_signal_handlers_destroy 20000000
+gdbus;g_socket_create_source;g_clear_list 20000000
+gdbus;g_type_check_instance_cast 20000000
+kworker/9:1H-kb;ret_from_fork;kthread;worker_thread;process_one_work;__blk_mq_run_hw_queue;blk_mq_sched_dispatch_requests;__blk_mq_sched_dispatch_requests;blk_mq_do_dispatch_sched;blk_mq_dispatch_rq_list;scsi_queue_rq;mptscsih_qcmd;mpt_put_msg_frame;call_function_single_interrupt;irq_exit;__softirqentry_text_start 20000000
+kylin_kms_daemo;send;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_sendto;__sys_sendto;sock_sendmsg;udp_sendmsg;udp_send_skb.isra.43;ip_send_skb;ip_output;ip_finish_output2;__dev_queue_xmit;sch_direct_xmit;dev_hard_start_xmit;e1000_xmit_frame 20000000
+marco;[marco];XFixesDestroyRegion 20000000
+marco;_dbus_connection_unlock;_dbus_list_pop_first_link 20000000
+marco;gdk_event_new;g_slice_alloc0;g_slice_alloc 20000000
 marco;writev;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_writev;vfs_writev;do_iter_write;do_iter_readv_writev;sock_write_iter;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 20000000
-mate-indicators 20000000
-mate-indicators;gtk_container_propagate_expose;gtk_widget_region_intersect 20000000
-mate-indicators;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-mate-session;poll 20000000
-migration/13;ret_from_fork;kthread;smpboot_thread_fn;schedule;__sched_text_start;finish_task_switch 20000000
-migration/14;ret_from_fork;kthread;smpboot_thread_fn;schedule;__sched_text_start;finish_task_switch 20000000
-migration/15;ret_from_fork;kthread;smpboot_thread_fn;schedule;__sched_text_start;finish_task_switch 40000000
-migration/8;ret_from_fork;kthread;smpboot_thread_fn;cpu_stopper_thread;active_load_balance_cpu_stop 20000000
-node 40000000
-node;__connect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_connect;__sys_connect;inet_stream_connect;release_sock;__release_sock;tcp_v4_do_rcv;tcp_rcv_state_process;__tcp_transmit_skb;__ip_queue_xmit;ip_output;ip_finish_output2;__local_bh_enable_ip;do_softirq.part.18;do_softirq_own_stack;__softirqentry_text_start;net_rx_action;__napi_poll;process_backlog;__netif_receive_skb_one_core;ip_rcv;ip_local_deliver;ip_local_deliver_finish;tcp_v4_rcv;tcp_child_process;tcp_rcv_state_process;tcp_init_transfer;tcp_init_metrics;tcp_init_cwnd 20000000
-node;uv__drain;shutdown;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_shutdown;__sys_shutdown;inet_shutdown;__tcp_push_pending_frames;tcp_write_xmit;__tcp_transmit_skb;__ip_queue_xmit;ip_output;ip_finish_output2;__local_bh_enable_ip;do_softirq.part.18;do_softirq_own_stack;__softirqentry_text_start 20000000
-node;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;sock_write_iter;sock_sendmsg;unix_stream_sendmsg;sock_def_readable;__wake_up_common_lock;__lock_text_start 20000000
-node;writev;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_writev;vfs_writev;do_iter_write;do_iter_readv_writev;sock_write_iter;sock_sendmsg;tcp_sendmsg;tcp_sendmsg_locked;__tcp_push_pending_frames;tcp_write_xmit;__tcp_transmit_skb;inet6_csk_xmit;ip6_xmit;ip6_output;ip6_finish_output2;__local_bh_enable_ip;do_softirq.part.18;do_softirq_own_stack;__softirqentry_text_start;net_rx_action;__napi_poll;process_backlog;__netif_receive_skb_one_core;ipv6_rcv;ip6_input;ip6_input_finish;tcp_v6_rcv;tcp_v6_do_rcv;tcp_rcv_established;sock_def_readable;__wake_up_common_lock;__lock_text_start 20000000
-ps;[ld-2.28.so];_dl_catch_error;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;perf_event_mmap;perf_iterate_sb;perf_event_mmap_output;__perf_event_header__init_id;sched_clock_cpu;sched_clock;vmware_sched_clock 20000000
-ps;[ps];escaped_copy 20000000
-ps;_IO_vfscanf 20000000
-ps;pwcache_get_user 20000000
-ps;pwcache_get_user;__close 20000000
-ps;pwcache_get_user;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;seq_read;proc_single_show;proc_pid_status;cpuset_task_status_allowed;seq_printf;seq_vprintf;vsnprintf;pointer;bitmap_string.isra.3 20000000
-python2;PyObject_Malloc 20000000
-python3 80000000
-python3;PyDict_GetItem;lookdict_unicode_nodummy 20000000
-python3;PyErr_SetObject 20000000
+mate-indicators;_IO_str_seekoff 20000000
+mate-indicators;malloc 20000000
+mate-power-mana;g_clear_list 20000000
+node 80000000
+node;_IO_str_seekoff 20000000
+node;__connect;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_connect;__sys_connect;inet_stream_connect;release_sock;__release_sock;tcp_v4_do_rcv;tcp_rcv_state_process;__tcp_transmit_skb;__ip_queue_xmit;ip_output;ip_finish_output2;__local_bh_enable_ip;do_softirq.part.18;do_softirq_own_stack;__softirqentry_text_start;net_rx_action;__napi_poll;process_backlog;__netif_receive_skb_one_core;ip_rcv;ip_local_deliver;ip_local_deliver_finish;tcp_v4_rcv;tcp_v4_inbound_md5_hash.isra.39 20000000
+node;node::AsyncHooks::pop_async_context 20000000
+node;uv__drain;shutdown;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_shutdown;__sys_shutdown;inet_shutdown;__tcp_push_pending_frames;tcp_write_xmit;__tcp_transmit_skb;__ip_queue_xmit;ip_output;ip_finish_output2;__local_bh_enable_ip;do_softirq.part.18;do_softirq_own_stack;__softirqentry_text_start;net_rx_action;__napi_poll;process_backlog;__netif_receive_skb_one_core;ip_rcv;ip_local_deliver;ip_local_deliver_finish;tcp_v4_rcv;tcp_v4_do_rcv;tcp_rcv_state_process;tcp_data_queue;tcp_fin;inet_csk_destroy_sock;tcp_v4_destroy_sock;tcp_write_queue_purge 20000000
+node;v8::Function::Call 20000000
+node;v8::internal::(anonymous namespace)::IterateObjectCache 20000000
+node;v8::internal::String::WriteToFlat<unsigned char>;v8::internal::StringShape::DispatchToSpecificTypeWithoutCast<v8::internal::StringShape::DispatchToSpecificType<v8::internal::String::GetImpl 20000000
+node;v8::internal::compiler::GraphReducer::ReduceTop 20000000
+node;write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;sock_write_iter;sock_sendmsg;tcp_sendmsg;tcp_sendmsg_locked;__tcp_push_pending_frames;tcp_write_xmit;tcp_event_new_data_sent;tcp_rearm_rto.part.71 20000000
+node;writev;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_writev;vfs_writev;do_iter_write;do_iter_readv_writev;sock_write_iter;sock_sendmsg;tcp_sendmsg;enable_loopback 20000000
+perf;[perf];write;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_write;vfs_write;new_sync_write;xfs_file_buffered_aio_write;xfs_file_aio_write_checks;file_update_time;xfs_vn_update_time;xfs_trans_ijoin 20000000
+ps;_IO_file_write;write 20000000
+ps;pwcache_get_user;__close;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+ps;pwcache_get_user;__close;entry_SYSCALL_64_after_hwframe;do_syscall_64;exit_to_usermode_loop;task_work_run;__fput;single_release;kfree 20000000
+ps;pwcache_get_user;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;seq_read;proc_single_show;proc_pid_status;seq_put_decimal_ull 20000000
+python3;PyCSimpleType_from_param;PyObject_IsInstance 20000000
+python3;PyCSimpleType_from_param;i_set 20000000
 python3;PyEval_RestoreThread;__errno_location 20000000
 python3;PyEval_RestoreThread;__errno_location@plt 20000000
-python3;PyLong_FromString 20000000
-python3;PyLong_FromUnicodeObject;PyUnicode_AsUTF8AndSize 20000000
-python3;PyObject_GenericGetAttr;_PyObject_GenericGetAttrWithDict 20000000
-python3;PyObject_GenericGetAttr;_PyObject_GenericGetAttrWithDict;PyMember_GetOne 20000000
-python3;PyObject_IsInstance 40000000
-python3;PyObject_RichCompare;do_richcompare 20000000
+python3;PyLong_FromLong;_PyLong_New;_PyObject_Malloc;pymalloc_alloc 20000000
+python3;PyNumber_AsOff_t;PyNumber_Index 20000000
+python3;PyNumber_Multiply;binary_op1 20000000
+python3;PyObject_CallMethodObjArgs;PyObject_GetAttr 20000000
+python3;PyObject_GenericGetAttr;_PyObject_GenericGetAttrWithDict;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page 20000000
+python3;PyThread_acquire_lock_timed;sem_trywait 20000000
 python3;PyUnicode_DecodeUTF8Stateful 20000000
-python3;PyUnicode_DecodeUTF8Stateful;ascii_decode 20000000
 python3;_IO_str_seekoff 20000000
-python3;_IO_str_seekoff;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_wp_page 20000000
-python3;_PyArg_ParseTupleAndKeywordsFast_SizeT;vgetargskeywordsfast 20000000
-python3;_PyBytes_Resize;_PyObject_Realloc 20000000
-python3;_PyCFunction_FastCallKeywords;_PyMethodDef_RawFastCallKeywords 20000000
-python3;_PyCFunction_FastCallKeywords;_PyMethodDef_RawFastCallKeywords;builtin_len;unicode_length 20000000
-python3;_PyCFunction_FastCallKeywords;_PyMethodDef_RawFastCallKeywords;time_monotonic;_PyTime_GetMonotonicClock 20000000
-python3;_PyDict_GetItem_KnownHash;lookdict_unicode_nodummy 20000000
 python3;_PyDict_LoadGlobal 20000000
-python3;_PyEval_EvalFrameDefault 60000000
-python3;_PyEval_EvalFrameDefault;PyLong_AsLong;PyLong_AsLongAndOverflow 20000000
-python3;_PyEval_EvalFrameDefault;subtype_dealloc 20000000
-python3;_PyMethodDef_RawFastCallDict;c_void_p_from_param 20000000
-python3;_PyObjectDict_SetItem;PyDict_SetItem 20000000
-python3;_PyObject_FastCallKeywords 20000000
-python3;_PyObject_Free;pymalloc_free;munmap;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_munmap;vm_munmap;do_munmap;unmap_region;tlb_finish_mmu;arch_tlb_finish_mmu;flush_tlb_mm_range;smp_call_function_many 20000000
-python3;_PyObject_GenericGetAttrWithDict;PyMethod_New 20000000
-python3;_PyObject_GenericGetAttrWithDict;getset_get;descr_check 20000000
+python3;_PyEval_EvalFrameDefault 100000000
+python3;_PyEval_EvalFrameDefault;PyFrame_BlockPop 20000000
+python3;_PyEval_EvalFrameDefault;page_fault;do_page_fault;__do_page_fault 20000000
+python3;_PyEval_EvalFrameDefault;slot_tp_iternext;call_method;lookup_method;lookup_maybe_method 20000000
+python3;_PyMethodDef_RawFastCallDict 20000000
+python3;_PyMethodDescr_FastCallKeywords;_PyObject_RealIsSubclass 20000000
 python3;_PyObject_GetMethod 20000000
-python3;_PyObject_Malloc;pymalloc_alloc 20000000
-python3;_PyType_Lookup 80000000
-python3;_PyType_Lookup;assign_version_tag 20000000
-python3;_Py_bytes_rfind;find_internal;PyBuffer_Release 20000000
-python3;_ctypes_callproc;_call_function_pointer;PyThreadState_Swap 20000000
-python3;_io_FileIO___init__;_io_FileIO___init___impl 20000000
-python3;_io_FileIO_close;_io_FileIO_close_impl;internal_close;__close;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_close;__close_fd 20000000
-python3;_io_FileIO_readall_impl 40000000
-python3;_io_FileIO_readall_impl;__fxstat;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-python3;_io_FileIO_tell;_io_FileIO_tell_impl;portable_lseek;lseek 20000000
-python3;_io_FileIO_tell;_io_FileIO_tell_impl;portable_lseek;lseek;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-python3;bpf_map_delete_elem;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-python3;bpf_map_delete_elem;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;__fget_light 20000000
-python3;bpf_map_get_next_key;syscall 20000000
+python3;_PyObject_RealIsInstance;recursive_isinstance;PyType_IsSubtype 20000000
+python3;_PyType_Lookup 60000000
+python3;_Unwind_Backtrace 20000000
+python3;_ctypes_callproc;GetResult;PyLong_FromLong 20000000
+python3;_ctypes_callproc;_PyObject_Free 20000000
+python3;_ctypes_get_errobj;PyCapsule_IsValid;name_matches;__nss_group_lookup 20000000
+python3;_io_FileIO___init__;_io_FileIO___init___impl;__fxstat;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_newfstat;cp_new_stat 20000000
+python3;_io_FileIO_close;_io_FileIO_close_impl;internal_close;__close;entry_SYSCALL_64_after_hwframe;do_syscall_64;exit_to_usermode_loop;task_work_run;__call_rcu 20000000
+python3;_io_FileIO_readall_impl;__fxstat 20000000
+python3;_io_FileIO_readall_impl;__fxstat;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_newfstat;cp_new_stat;_copy_to_user;copy_user_enhanced_fast_string 20000000
+python3;_io_FileIO_tell;_io_FileIO_tell_impl;portable_lseek;lseek;entry_SYSCALL_64_after_hwframe;do_syscall_64 40000000
 python3;bpf_map_get_next_key;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64 40000000
-python3;bpf_map_get_next_key;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;htab_map_get_next_key 180000000
-python3;bpf_map_lookup_elem;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;bpf_map_copy_value 20000000
-python3;buffered_close;_PyObject_Free 20000000
-python3;bytes_split;bytes_split_impl;stringlib_split_whitespace;PyBytes_FromStringAndSize 20000000
-python3;dict_dealloc;wrapper_dealloc 20000000
-python3;dictresize;build_indices;dk_set_index 20000000
+python3;bpf_map_get_next_key;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf 20000000
+python3;bpf_map_get_next_key;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;__check_object_size;__check_heap_object 20000000
+python3;bpf_map_get_next_key;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;fput 20000000
+python3;bpf_map_get_next_key;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;htab_map_get_next_key 100000000
+python3;bpf_map_lookup_elem;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+python3;bpf_map_lookup_elem;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;bpf_map_copy_value;htab_map_lookup_elem;lookup_nulls_elem_raw 20000000
+python3;bpf_map_lookup_elem;syscall;entry_SYSCALL_64_after_hwframe;do_syscall_64;__do_sys_bpf;ns_capable_common;security_capable;cap_capable 20000000
+python3;byref;PyType_IsSubtype 20000000
+python3;bytes_subscript 20000000
+python3;convertitem;convertsimple 20000000
+python3;dict_ass_sub;PyDict_SetItem;insertdict;find_empty_slot 20000000
+python3;encoder_listencode_dict 20000000
 python3;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;flush_old_exec;mmput;exit_mmap;unmap_vmas;unmap_page_range 20000000
-python3;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;flush_old_exec;mmput;exit_mmap;unmap_vmas;unmap_page_range;tlb_flush_mmu_free;free_pages_and_swap_cache 40000000
-python3;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;setup_new_exec;__set_task_comm;strlcpy;memcpy 20000000
-python3;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_exit;do_exit;perf_event_task;perf_iterate_sb;perf_event_task_output;sched_clock_cpu;sched_clock;vmware_sched_clock 20000000
-python3;ffi_prep_go_closure;bpf_map_get_next_key 40000000
-python3;find_name_in_mro;PyErr_Occurred;swapgs_restore_regs_and_return_to_usermode;prepare_exit_to_usermode;exit_to_usermode_loop;schedule;__sched_text_start;finish_task_switch 20000000
-python3;fork;_IO_str_seekoff;page_fault;do_page_fault;__do_page_fault 20000000
-python3;fork;entry_SYSCALL_64_after_hwframe;do_syscall_64;_do_fork;copy_process;flush_tlb_mm_range;smp_call_function_single 20000000
-python3;frame_dealloc;page_fault;do_page_fault;__do_page_fault 20000000
-python3;insertdict 20000000
-python3;list_dealloc;_PyObject_Free;pymalloc_free 20000000
-python3;list_dealloc;page_fault;do_page_fault;__do_page_fault;find_vma 20000000
-python3;lookdict_unicode_nodummy 40000000
-python3;object_vacall 20000000
-python3;object_vacall;_PyObject_FastCallDict;_PyCFunction_FastCallDict;_PyMethodDef_RawFastCallDict 20000000
-python3;open;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_sys_open;do_filp_open;path_openat;do_dentry_open 20000000
-python3;open;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_sys_open;do_filp_open;path_openat;link_path_walk.part.35;walk_component;lookup_fast;__d_lookup_rcu 20000000
-python3;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
+python3;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;flush_old_exec;mmput;exit_mmap;unmap_vmas;unmap_page_range;page_remove_rmap 20000000
+python3;ffi_closure_free;ffi_prep_go_closure 20000000
+python3;find_name_in_mro 20000000
+python3;find_name_in_mro;_PyDict_GetItem_KnownHash 20000000
+python3;fork 20000000
+python3;fork;entry_SYSCALL_64_after_hwframe;do_syscall_64;_do_fork;copy_process;__vmalloc_node_range;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+python3;fork;entry_SYSCALL_64_after_hwframe;do_syscall_64;_do_fork;copy_process;copy_page_range 20000000
+python3;fork;entry_SYSCALL_64_after_hwframe;do_syscall_64;_do_fork;copy_process;copy_page_range;__pte_alloc;pte_alloc_one;__alloc_pages_nodemask;get_page_from_freelist;clear_page_erms 20000000
+python3;frame_dealloc 60000000
+python3;list_extend;PySequence_Fast 20000000
+python3;list_sort_impl;binarysort 20000000
+python3;lock_PyThread_release_lock;PyThread_release_lock;sem_post;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
+python3;long_to_decimal_string_internal;long_dealloc 20000000
+python3;lookdict_split 20000000
+python3;lookdict_unicode_nodummy 20000000
+python3;method_get;descr_check;PyType_IsSubtype 20000000
+python3;open;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_sys_open 20000000
+python3;open;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_sys_open;do_filp_open;path_openat;link_path_walk.part.35;walk_component;lookup_slow;__lookup_slow;d_alloc_parallel;d_alloc;__list_add_valid 20000000
+python3;open;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_sys_open;do_filp_open;path_openat;lookup_fast;__d_lookup 20000000
 python3;pthread_cond_signal;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wake;wake_up_q;try_to_wake_up;__lock_text_start 20000000
-python3;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;seq_read;proc_single_show;do_task_stat;__delayacct_blkio_ticks;__lock_text_start 20000000
+python3;pthread_cond_timedwait;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_futex;do_futex;futex_wait;futex_wait_queue_me;schedule;__sched_text_start;finish_task_switch 40000000
+python3;pymalloc_alloc 20000000
+python3;pymalloc_alloc;page_fault;do_page_fault;__do_page_fault 20000000
+python3;read;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
+python3;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;__fdget_pos;__fget_light 40000000
 python3;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;seq_read;proc_single_show;do_task_stat;__lock_text_start 20000000
-python3;select;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_select;kern_select;core_sys_select;do_select;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 20000000
-python3;send;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_sendto;__sys_sendto;sock_sendmsg;tcp_sendmsg;__local_bh_enable_ip 20000000
-python3;split 20000000
-python3;subprocess_fork_exec;child_exec;execve;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;sched_exec;stop_one_cpu;_cond_resched;__sched_text_start;finish_task_switch 20000000
-python3;take_gil;pthread_mutex_lock 20000000
-python3;tupledealloc 40000000
-python3;tupledealloc;PyObject_GC_UnTrack 20000000
-rcu_sched;ret_from_fork;kthread;rcu_gp_kthread;schedule;__sched_text_start;finish_task_switch 20000000
-rcu_sched;ret_from_fork;kthread;rcu_gp_kthread;schedule_timeout;schedule;__sched_text_start;finish_task_switch 340000000
-sed;_dl_rtld_di_serinfo;_dl_rtld_di_serinfo;_dl_catch_error;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_mprotect;do_mprotect_pkey;mprotect_fixup;perf_event_mmap;perf_iterate_sb;perf_event_mmap_output;__perf_event_header__init_id;sched_clock_cpu;sched_clock;vmware_sched_clock 20000000
-sed;mmap;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_mmap_pgoff;vm_mmap_pgoff;do_mmap;mmap_region;perf_event_mmap;perf_iterate_sb;perf_event_mmap_output;__perf_event_header__init_id;sched_clock_cpu;sched_clock;vmware_sched_clock 20000000
-sh;[ld-2.28.so];_dl_rtld_di_serinfo;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_fault;filemap_map_pages 20000000
-sh;_dl_debug_state;_dl_catch_error;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_sys_open;do_filp_open;path_openat;simple_lookup;d_add 20000000
-sh;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;vm_brk_flags;do_brk_flags;perf_event_mmap;perf_iterate_sb;perf_event_mmap_output;__perf_event_header__init_id;sched_clock_cpu;sched_clock;vmware_sched_clock 20000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state 240000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt 5780000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;__lock_text_start 20000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;__lock_text_start 100000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start 1080000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;__lock_text_start 640000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;__lock_text_start 1120000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;update_blocked_averages 20000000
+python3;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;seq_read;single_start 20000000
+python3;slot_tp_getattr_hook 20000000
+python3;super_getattro;PyDict_GetItem 20000000
+python3;take_gil;pthread_cond_signal 20000000
+python3;tcgetattr;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_ioctl;ksys_ioctl 20000000
+python3;tupledealloc;page_fault;do_page_fault;__do_page_fault 20000000
+python3;va_build_stack;countformat 20000000
+python3;vgetargskeywords;__nss_group_lookup 20000000
+python3;vgetargskeywordsfast_impl 20000000
+rcu_sched;ret_from_fork;kthread;rcu_gp_kthread;schedule_timeout;__lock_text_start 20000000
+rcu_sched;ret_from_fork;kthread;rcu_gp_kthread;schedule_timeout;schedule;__sched_text_start;finish_task_switch 40000000
+sh;[ld-2.28.so];entry_SYSCALL_64_after_hwframe;do_syscall_64;exit_to_usermode_loop;task_work_run;__fput;pipe_release;__wake_up_common_lock;__lock_text_start 20000000
+sh;__bzero 20000000
+sh;shell_execve;execve;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_execve;__do_execve_file.isra.35;search_binary_handler;load_elf_binary;load_elf_phdrs;kernel_read;vfs_read;new_sync_read;xfs_file_read_iter;xfs_file_buffered_aio_read;xfs_ilock 20000000
+sleep;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_exit_group;do_group_exit;do_exit;arch_local_irq_enable 20000000
+swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt 6480000000
+swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start 1200000000
 swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;schedule_idle;__sched_text_start;finish_task_switch 60000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;schedule_idle;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;__lock_text_start 20000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;tick_nohz_idle_enter 60000000
-swapper;secondary_startup_64_no_verify;start_kernel;cpu_startup_entry;do_idle;tick_nohz_idle_exit 40000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state 820000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt 117660000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 160000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;rcu_process_callbacks 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;rebalance_domains;load_balance 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_rebalance_domains;__lock_text_start 60000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_timer_softirq;call_timer_fn;usb_hcd_poll_rh_status;uhci_hub_status_data;__lock_text_start 60000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start 1160000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;__lock_text_start 180000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;rebalance_domains;load_balance;find_busiest_group;update_group_capacity 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;__lock_text_start 200000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;reschedule_interrupt;irq_exit;__softirqentry_text_start;_nohz_idle_balance;update_nohz_stats;__lock_text_start 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;rcu_idle_exit 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;schedule_idle;__sched_text_start;finish_task_switch 2420000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;schedule_idle;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;schedule_idle;__sched_text_start;finish_task_switch;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_rebalance_domains;__lock_text_start 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;schedule_idle;__sched_text_start;finish_task_switch;call_function_single_interrupt;irq_exit;__softirqentry_text_start 20000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;tick_nohz_idle_enter 680000000
-swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;tick_nohz_idle_exit 500000000
-vmstat;[ld-2.28.so] 20000000
-vmstat;[ld-2.28.so];_dl_catch_error;entry_SYSCALL_64_after_hwframe;do_syscall_64 20000000
-vmstat;[ld-2.28.so];_dl_catch_error;entry_SYSCALL_64_after_hwframe;do_syscall_64;do_sys_open;do_filp_open;path_openat;trailing_symlink;xfs_vn_get_link;xfs_readlink;xfs_iunlock 20000000
-vmstat;[ld-2.28.so];_dl_catch_error;page_fault;do_page_fault;__do_page_fault 20000000
-vmstat;[ld-2.28.so];_dl_rtld_di_serinfo;page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_fault;filemap_map_pages;alloc_set_pte;_raw_spin_lock 20000000
-vmstat;[ld-2.28.so];page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_fault;filemap_map_pages;alloc_set_pte;page_add_file_rmap;lock_page_memcg 20000000
-vmstat;[libselinux.so.1];page_fault;do_page_fault;__do_page_fault;handle_mm_fault;__handle_mm_fault;do_fault;filemap_map_pages 20000000
-vmstat;_dl_catch_error;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_mmap_pgoff;vm_mmap_pgoff;do_mmap;mmap_region;perf_event_mmap;perf_iterate_sb;perf_event_mmap_output;__perf_event_header__init_id;sched_clock_cpu;sched_clock;vmware_sched_clock 40000000
-vmstat;getstat;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;proc_reg_read;seq_read;show_stat;get_idle_time;get_cpu_idle_time_us;ktime_get;read_tsc 20000000
-vmtoolsd 60000000
-vmtoolsd;BackdoorHbVmcall 20000000
-vmtoolsd;Backdoor_HbIn 20000000
-vmtoolsd;Backdoor_Vmcall 60000000
-vmtoolsd;Socket_SendPacket;Message_Send@plt 20000000
-vmtoolsd;System_GetTimeMonotonic;times;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_times;do_sys_times;thread_group_cputime_adjusted;thread_group_cputime;task_sched_runtime;__lock_text_start 40000000
-vmtoolsd;[unknown];BackdoorHbVmcall 20000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle 20000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt 127280000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start 20000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_rebalance_domains;__lock_text_start 20000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;apic_timer_interrupt;smp_apic_timer_interrupt;irq_exit;__softirqentry_text_start;run_timer_softirq;call_timer_fn;try_to_wake_up;__lock_text_start 20000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;cpuidle_enter_state;acpi_idle_enter;acpi_safe_halt;native_safe_halt;reschedule_interrupt;irq_exit;__softirqentry_text_start 600000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;schedule_idle;__sched_text_start;finish_task_switch 460000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;tick_nohz_idle_enter 20000000
+swapper;secondary_startup_64_no_verify;start_secondary;cpu_startup_entry;do_idle;tick_nohz_idle_exit 40000000
+systemd-cgroups;_dl_rtld_di_serinfo 20000000
+vmstat;__bzero 20000000
+vmstat;getstat;read;entry_SYSCALL_64_after_hwframe;do_syscall_64;ksys_read;vfs_read;proc_reg_read;seq_read;show_stat;seq_printf;seq_vprintf;vsnprintf;number 20000000
+vmtoolsd;Backdoor_Vmcall 100000000
+vmtoolsd;Message_Send;Backdoor_Vmcall 20000000
+vmtoolsd;RpcChannel_SendOne;__socket;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_socket;__sys_socket 20000000
+vmtoolsd;Socket_SendPacket;Message_Receive 20000000
 vmtoolsd;[unknown];Backdoor_HbIn 20000000
-vmtoolsd;poll;entry_SYSCALL_64_after_hwframe;do_syscall_64;__x64_sys_poll;do_sys_poll;poll_schedule_timeout.constprop.13;schedule_hrtimeout_range_clock;schedule;__sched_text_start;finish_task_switch 60000000
-xfsaild/dm-0;ret_from_fork;kthread;xfsaild;schedule_timeout;schedule;__sched_text_start;finish_task_switch 20000000
-xfsaild/dm-0;ret_from_fork;kthread;xfsaild;xfs_buf_delwri_submit_buffers;__xfs_buf_submit;_xfs_buf_ioapply;submit_bio;generic_make_request_no_check;blk_mq_make_request;blk_flush_plug_list;blk_mq_flush_plug_list;blk_mq_sched_insert_requests;blk_mq_run_hw_queue;__blk_mq_delay_run_hw_queue;__blk_mq_run_hw_queue;blk_mq_sched_dispatch_requests;__blk_mq_sched_dispatch_requests;blk_mq_do_dispatch_sched;blk_mq_dispatch_rq_list;scsi_queue_rq;mptscsih_qcmd;mpt_put_msg_frame 20000000
+vmtoolsd;g_main_context_check;VMTools_CreateTimer 20000000
+vmtoolsd;g_main_context_check;g_mutex_unlock 20000000
+vmtoolsd;realpath 20000000
+vmtoolsd;vfprintf;__nss_group_lookup 20000000
