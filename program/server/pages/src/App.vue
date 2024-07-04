@@ -227,7 +227,7 @@ export default {
         animation: false,
         xAxis: {
           type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
+          data: [...Array(DATA_LENGTH)].map((v, idx) => idx + 1),   // x轴数据
           name: '',   // x轴名称
           nameTextStyle: {    // x轴名称样式
             fontWeight: 400,
@@ -265,7 +265,7 @@ export default {
         animation: false,
         xAxis: {
           type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
+          data: [...Array(DATA_LENGTH)].map((v, idx) => idx + 1),   // x轴数据
           name: '',   // x轴名称
           nameTextStyle: {    // x轴名称样式
             fontWeight: 400,
@@ -303,7 +303,7 @@ export default {
         animation: false,
         xAxis: {
           type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7'],   // x轴数据
+          data: [...Array(DATA_LENGTH)].map((v, idx) => idx + 1),   // x轴数据
           name: '',   // x轴名称
           nameTextStyle: {    // x轴名称样式
             fontWeight: 400,
