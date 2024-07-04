@@ -1,5 +1,4 @@
 <template>
-
   <div class="full-page">
     <div class="title">系统监测平台</div>
     <div class="line">
@@ -7,63 +6,6 @@
     </div>
     <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick" type="card">
       <el-tab-pane label="性能数据" name="first" class="demo-tab-pane">
-        <!-- <div>
-    <div class="container1">
-      <div style="background-color:#b2e1f8;" class="card">
-        <div>
-          <h4 style="color: rgb(115, 114, 114);font-weight: 400;">磁盘I/O量</h4>
-          <h2>{{ perfData.disk_read_bytes }}/{{ perfData.disk_write_bytes }}/s</h2>
-        </div>
-        <img src="../images/cd.IO.png" class="icon">
-      </div>
-      <div style="background-color:#cef3d4;" class="card">
-        <div>
-          <h4 style="color: rgb(115, 114, 114);font-weight: 400;">网络I/O量</h4>
-          <h2>{{ perfData.recv_bytes }}/{{ perfData.sent_bytes }}/s</h2>
-        </div>
-        <img src="../images/intel.IO.png" class="icon">
-      </div>
-    </div>
-
-     <div>
-      <div class="container1">
-        <div style="background-color:#F6F7E7;" class="card">
-          <div>
-            <h4 style="color: rgb(115, 114, 114);font-weight: 400;">磁盘读写次数</h4>
-            <h2>{{ perfData.disk_read_count }}/{{ perfData.disk_write_count }}/s</h2>
-          </div>
-          <img src="../images/cd.rw.png" class="icon">
-
-        </div>
-        <div style="background-color:#FFEDE6;" class="card">
-          <div>
-            <h4 style="color: rgb(115, 114, 114);font-weight: 400;">网络读写次数</h4>
-            <h2>{{ perfData.recv_count }}/{{ perfData.sent_count }}/s</h2>
-          </div>
-          <img src="../images/intel.rw.png" class="icon">
-        </div>
-      </div>
-    </div>
-  </div> 
-
-  <div>
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="pid" label="pid" width="200">
-      </el-table-column>
-      <el-table-column prop="name" label="进程" width="200">
-      </el-table-column>
-      <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="200">
-      </el-table-column>
-      <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="200">
-      </el-table-column>
-      <el-table-column prop="sent_bytes" label="网络发送量" width="200">
-      </el-table-column>
-      <el-table-column prop="recv_bytes" label="网络接受量" width="200">
-      </el-table-column>
-      <el-table-column prop="cpu_usage" label="CPU使用量" width="200">
-      </el-table-column>
-    </el-table>
-  </div> -->
         <div class="back">
           <div class="wrap" style="margin-top: 20px;">
             <div class="board">
@@ -153,14 +95,34 @@
           <span style="color: white;">目标进程PID:</span><input type="text" class="regen-pid" v-model="regenPID">
         </div>
       </el-tab-pane>
-    </el-tabs>
 
+      <el-tab-pane label="调优策略" name="third">
+        <div class="way">
+          <div id="main" style="width: 800px; height: 400px"></div>
+          <div>
+            <div class="button">
+              <el-switch v-model="value1" />
+              <div class="text">NUMA节点适配</div>
+              <el-switch v-model="value2" />
+              <div class="text">本地网络回环流量优化</div>
+              <el-switch v-model="value3" />
+              <div class="text">策略三</div>
+              <el-switch v-model="value4" />
+              <div class="text">策略四</div>
+              <el-switch v-model="value5" />
+              <div class="text">策略五</div>
+            </div>
+            <img src="../src/assets/data.jpg" style="margin-top: 20px; width: 800px;">
+          </div>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script>
 import * as echarts from 'echarts';
-import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar } from 'element-plus';
+import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar, ElSwitch } from 'element-plus';
 
 const DATA_LENGTH = 7;
 
@@ -171,10 +133,17 @@ export default {
     'el-table-column': ElTableColumn,
     'el-tabs': ElTabs,
     'el-tab-pane': ElTabPane,
+    'el-switch': ElSwitch,
   },
   name: 'LineChart',
   data() {
     return {
+      value1: 'false',
+      value2: 'false',
+      value3: 'false',
+      value4: 'false',
+      value5: 'false',
+
       activeName: 'first',
       regenPID: '',
       url: '/static/flame_graph.svg',
@@ -334,6 +303,68 @@ export default {
           }
         ],
       },
+      option: {
+        title: {
+          text: '调优策略'
+        },
+        tooltip: {
+
+        },
+        legend: {
+          type: 'scroll',
+          width: '20%',
+          pageButtonItemGap: 4,
+          show: true,
+          icon: 'rect',
+          top: '14',
+          left: '430',
+          itemWidth: 20,
+          itemHeigth: 10,
+          itemGap: 30,
+          orient: 'horizontal',
+          data: ['系统1', '系统2', '系统3']
+        },
+        radar: {
+          center: ['50%', '56%'],
+          radius: 160,
+          startAngle: 90,
+          name: {
+            formatter: '{value}',
+            textStyle: { fontSize: 15, color: 'green' }
+          },
+          indicator: [
+            { name: 'NUMA节点适配', max: 100.00 },
+            { name: '本地网络回环流量优化', max: 100.00 },
+            { name: '策略三', max: 100.00 },
+            { name: '策略四', max: 100.00 },
+            { name: '策略五', max: 100.00 },
+          ]
+        },
+        color: ['#45C2E0', '#C1EBDD', '#FF9393'],
+        series: [
+          {
+            itemStyle: {
+              normal: { lineStyle: { width: 1 }, opacity: 0.2 },
+              emphasis: { lineStyle: { width: 5 }, opacity: 1 }
+            },
+            type: 'radar',
+            data: [
+              {
+                value: [60, 87.50, 90.00, 40, 65.00],
+                name: '系统1'
+              },
+              {
+                value: [60, 88.75, 50, 90, 88.75],
+                name: '系统2'
+              },
+              {
+                value: [92.50, 60, 75, 50, 91.25],
+                name: '系统3'
+              }
+            ]
+          }
+        ]
+      },
       perfData: {
         sent_count: '--',
         recv_count: '--',
@@ -356,6 +387,8 @@ export default {
     myChart3.setOption(this.echartsOption3)   // echarts设置选项
     let myChart4 = echarts.init(document.getElementById("myChart4"), 'dark'); // 初始化echarts, theme为dark
     myChart4.setOption(this.echartsOption4)   // echarts设置选项
+    let myChart5 = echarts.init(document.getElementById("main"), 'dark'); // 初始化echarts, theme为dark
+    myChart5.setOption(this.option)   // echarts设置选项
 
     setInterval(async () => {
       var data = await this.fetchData('/api/perf');
@@ -419,9 +452,6 @@ export default {
       });
     },
     replace(name, data1, data2) {
-      //this[name].series[0].data = this[name].series[0].data.slice(1).concat([data1]);
-      //this[name].series[1].data = this[name].series[1].data.slice(1).concat([data2]);
-
       for (var t in [0, 1]) {
         var arr = this[name].series[t].data;
         var temp = [];
@@ -444,99 +474,6 @@ export default {
     }
   }
 }
-// const handleClick = (tab , event) => {
-//   console.log(tab, event)
-// }
-// export default {
-//   components: { ElTable, ElTableColumn, ElTabs, ElTabPane },
-//   data() {
-//     return {
-//       tableData: [],
-//       perfData: {
-//         sent_count: '--',
-//         recv_count: '--',
-//         sent_bytes: '--',
-//         recv_bytes: '--',
-//         disk_read_bytes: '--',
-//         disk_write_bytes: '--',
-//         disk_read_count: '--',
-//         disk_write_count: '--',
-//         cpu_usage: '--'
-//       },
-//       timer: null,
-//       activeName: ref('first'),
-//       url: '/static/flame_graph.svg',
-//     };
-//   },
-//   methods: {
-//     async fetchData(url) {
-//       // 执行需要轮询的操作 
-//       try {
-//         const response = await fetch(url); // 等待fetch完成并返回结果  
-//         const data = await response.json(); // 等待解析响应数据并返回结果  
-//         console.log(data); // 打印解析后的数据
-//         return data;
-//       } catch (error) {
-//         console.error('Error:', error); // 捕获并打印错误信息  
-//       }
-//     },
-//     async fetchgraph(url) {
-//       const response = await fetch(url);
-//       return response.url;
-//     },
-//     async function(){
-//       // 调用需要轮询的方法 
-//       var data = await this.fetchData('/api/proc');
-//       this.tableData = data;
-//       this.tableData.forEach((element) => {
-//         element.disk_read_bytes = this.convert(element.disk_read_bytes);
-//         element.disk_write_bytes = this.convert(element.disk_write_bytes);
-//         element.sent_bytes = this.convert(element.sent_bytes);
-//         element.recv_bytes = this.convert(element.recv_bytes);
-//       });
-
-//       data = await this.fetchData('/api/perf');
-//       this.perfData = data;
-//       this.perfData.disk_read_bytes=this.convert(this.perfData.disk_read_bytes);
-//       this.perfData.disk_write_bytes=this.convert(this.perfData.disk_write_bytes);
-//       this.perfData.recv_bytes=this.convert(this.perfData.recv_bytes);
-//       this.perfData.sent_bytes=this.convert(this.perfData.sent_bytes);
-//     },
-//     convert(bytes){
-//       if(bytes>1e9)
-//         return (bytes/1e9).toFixed(2)+'GB'
-//       else if(bytes>1e6)
-//         return (bytes/1e6).toFixed(2)+'MB'
-//       else if(bytes>1e3)
-//         return (bytes/1e3).toFixed(2)+'KB'
-//       else
-//         return bytes.toFixed(2)+'B'
-//     }
-//   },
-//   async mounted() {
-//     //   setInterval(() => {
-
-//     //   }, 1000);
-//     //   // 每隔一段时间执行某个方法 
-//     //   this.pollingTimer = setInterval(async function(){
-//     //     this.fetchData();
-//     //     // 调用需要轮询的方法 cd
-//     //     this.tableData = await this.fetchData('/api/proc');
-//     //     var data = await this.fetchData('/api/perf');
-//     //     this.perfData = data;
-//     //   }, 1000); // 1秒为例，可以根据需求调整时间间隔 
-//     // },
-//     this.timer = setInterval(() => {
-//       this.function();
-//     }, 1000);
-//     // this.function();
-//     await this.fetchgraph('/api/flame_graph');
-//   },
-//   beforeUnmount(){
-//     clearInterval(this.timer);
-//     this.timer = null;
-//   },
-// }
 </script>
 
 <style scoped>
@@ -594,8 +531,6 @@ h4 {
   top: 0;
   left: 0;
   z-index: 0;
-
-  /* background:linear-gradient() */
 }
 
 .title {
@@ -723,26 +658,43 @@ hr {
   --el-table-row-hover-bg-color: rgb(2, 2, 189) !important;
 }
 
-.flame-graph-pane {
+.way {
   display: flex;
-  align-items: center;
+}
+
+.button {
+  display: flex;
   justify-content: center;
-  flex-direction: column;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.text {
+  margin-left: 15px;
+  margin-right: 15px;
+  color: green;
+}
+
+.flame-graph-pane {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 }
 
 .flame-graph {
-  display: block;
-  height: 670px;
-  width: 1210px;
+display: block;
+height: 670px;
+width: 1210px;
 }
 
 .regen-btn {
-  display: block;
-  height: 60px;
-  width: 120px;
-  color: white;
-  background: radial-gradient(#20306F, #101c7a);
-  margin: 20px;
+display: block;
+height: 60px;
+width: 120px;
+color: white;
+background: radial-gradient(#20306F, #101c7a);
+margin: 20px;
 }
 
 
