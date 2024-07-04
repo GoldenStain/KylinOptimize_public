@@ -1,5 +1,4 @@
 <template>
-
   <div class="full-page">
     <div class="title">系统监测平台</div>
     <div class="line">
@@ -149,6 +148,24 @@
     <el-tab-pane label="性能火焰图" name="second">
       <img :src="url">
     </el-tab-pane>
+    <el-tab-pane label="调优策略" name="third">
+      <div class="way">
+        <div id="main" style="width: 800px; height: 400px"></div>
+        <div class="button">
+          <el-switch v-model="value1" />
+          <div class="text">NUMA节点适配</div>
+          <el-switch v-model="value2" />
+          <div class="text">本地网络回环流量优化</div>
+          <el-switch v-model="value3" />
+          <div class="text">策略三</div>
+          <el-switch v-model="value4" />
+          <div class="text">策略四</div>
+          <el-switch v-model="value5" />
+          <div class="text">策略五</div>
+        </div>
+      </div>
+       
+    </el-tab-pane>
   </el-tabs>
 
   </div>
@@ -156,10 +173,15 @@
 
 <script>
 import * as echarts from 'echarts';
-import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar } from 'element-plus';
+import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar,ElSwitch } from 'element-plus';
 // import { ref } from 'vue';
 
 const DATA_LENGTH = 7;
+const value1 = 'false';
+const value2 = 'false';
+const value3 = 'false';
+const value4 = 'false';
+const value5 = 'false';
 
 export default {
   components: {
@@ -168,11 +190,12 @@ export default {
     'el-table-column': ElTableColumn,
     'el-tabs': ElTabs,
     'el-tab-pane': ElTabPane,
+    'el-switch' : ElSwitch,
   },
   name: 'LineChart',
   data() {
     return {
-      activeName: ref('first'),
+      activeName: 'first',
       url: '/static/flame_graph.svg',
       tableData: [
       ],
@@ -330,6 +353,68 @@ export default {
           }
         ],
       },
+      option : {
+        title: {
+            text: '调优策略'
+        },
+        tooltip:{
+            
+        },
+        legend: {
+            type:'scroll',
+            width:'20%',
+            pageButtonItemGap:4,
+            show:true,
+            icon:'rect',
+            top:'14',
+            left:'430',
+            itemWidth:20,
+            itemHeigth:10,
+            itemGap:30,
+            orient:'horizontal',
+            data: ['系统1', '系统2', '系统3']
+        },
+        radar: {
+            center:['50%','56%'],
+            radius:160,
+            startAngle:90,
+            name:{
+                formatter:'{value}',
+                textStyle:{fontSize:15,color:'green'}
+            },
+            indicator: [
+            { name: 'NUMA节点适配', max: 100.00 },
+            { name: '本地网络回环流量优化', max: 100.00 },
+            { name: '策略三', max: 100.00  },
+            { name: '策略四', max: 100.00  },
+            { name: '策略五', max: 100.00 },
+            ]
+        },
+        color:['#45C2E0', '#C1EBDD', '#FF9393'],
+        series: [
+            {
+            itemStyle:{
+                normal:{lineStyle:{width:1},opacity:0.2},
+                emphasis:{lineStyle:{width:5},opacity:1}
+            },
+            type: 'radar',
+            data: [
+                {
+                value: [60,87.50,90.00,40,65.00],
+                name: '系统1'
+                },
+                {
+                value: [60,88.75,50,90,88.75],
+                name: '系统2'
+                },
+                {
+                value: [92.50,60,75,50,91.25],
+                name: '系统3'
+                }
+            ]
+            }
+        ]
+        },
       perfData: {
         sent_count: '--',
         recv_count: '--',
@@ -352,6 +437,8 @@ export default {
     myChart3.setOption(this.echartsOption3)   // echarts设置选项
     let myChart4 = echarts.init(document.getElementById("myChart4"), 'dark'); // 初始化echarts, theme为dark
     myChart4.setOption(this.echartsOption4)   // echarts设置选项
+    let myChart5 = echarts.init(document.getElementById("main"), 'dark'); // 初始化echarts, theme为dark
+    myChart5.setOption(this.option)   // echarts设置选项
 
     setInterval(async() => {
       var data = await this.fetchData('/api/perf');
@@ -698,6 +785,20 @@ hr {
 .el-table {
   --el-table-border: 1px solid #007ACC !important;
   --el-table-row-hover-bg-color: rgb(2, 2, 189) !important;
+}
+.way {
+  display: flex;
+}
+.button {
+  display: flex;
+  justify-content:center;
+  margin-top:40px ;
+  margin-left: 20px;
+}
+.text {
+  margin-left: 15px;
+  margin-right: 15px;
+  color: green;
 }
 </style>
 
