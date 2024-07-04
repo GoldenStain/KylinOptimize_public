@@ -151,6 +151,7 @@
     <el-tab-pane label="调优策略" name="third">
       <div class="way">
         <div id="main" style="width: 800px; height: 400px"></div>
+        <div>
         <div class="button">
           <el-switch v-model="value1" />
           <div class="text">NUMA节点适配</div>
@@ -162,6 +163,8 @@
           <div class="text">策略四</div>
           <el-switch v-model="value5" />
           <div class="text">策略五</div>
+        </div>
+        <img src="../src/assets/data.jpg" style="margin-top: 20px; width: 800px;">
         </div>
       </div>
        
@@ -177,11 +180,7 @@ import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar,ElSwitch } from 
 // import { ref } from 'vue';
 
 const DATA_LENGTH = 7;
-const value1 = 'false';
-const value2 = 'false';
-const value3 = 'false';
-const value4 = 'false';
-const value5 = 'false';
+
 
 export default {
   components: {
@@ -195,6 +194,12 @@ export default {
   name: 'LineChart',
   data() {
     return {
+    value1 : 'false',
+    value2 : 'false',
+    value3 : 'false',
+    value4 : 'false',
+    value5 : 'false',
+
       activeName: 'first',
       url: '/static/flame_graph.svg',
       tableData: [
