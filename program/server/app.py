@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import *
 import json
 from . import globals
 from ..ebpf import flame_graph
@@ -21,7 +21,11 @@ def api_proc():
 
 @app.route('/api/flame_graph')
 def api_flame_graph():
-    flame_graph.gen_cpu_flame_graph("program/server/static/flame_graph", 50)
+    if request.args.__contains__("pid"):
+        pid_list = map(int, request.args["pid"].split(','))
+        flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50, pid=pid_list)
+    else:
+        flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
     return redirect('/static/flame_graph.svg', code=302, Response=None)
 
 def start(port):

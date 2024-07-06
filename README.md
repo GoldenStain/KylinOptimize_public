@@ -4,6 +4,9 @@ python版本3.7.9，从源代码编译安装
 yum安装的库:
 bcc-tools clang llvm llvm-devel llvm-static clang clang-devel clang-libs elfutils-devel elfutils-debuginfod elfutils-debuginfod-client-devel luajit-devel mesa-libGL
 
+额外依赖工具：
+perf numad perl
+
 从github上安装的库：
 iovisor/bcc仓库里维护量一份代码(/program/ebpf/BCCSource文件夹)，修改部分代码bug
 项目中 src/python/bcc 文件夹内version.py文件去掉末尾的".in"再整体移动到 /usr/local/lib/python3.7/site-packages 里面去

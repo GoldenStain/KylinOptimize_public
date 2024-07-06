@@ -1,4 +1,5 @@
 #!/usr/bin/python3.7m
+# encoding=utf-8
 from program.server import app, client
 import threading
 from program.ebpf import flame_graph, data_sample
@@ -23,7 +24,8 @@ if args.data_sample:
     exit(0)
 
 if args.flame_graph:
-    flame_graph.gen_cpu_flame_graph("program/server/static/flame_graph", 50)
+    #flame_graph.gen_cpu_flame_graph("program/server/static/flame_graph", 50)
+    flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
     exit(0)
 
 threading.Thread(target=lambda: app.start(port), daemon=True).start()
