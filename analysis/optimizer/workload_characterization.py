@@ -28,10 +28,26 @@ class WorkloadCharacterization:
         self.tencoder = LabelEncoder()
         self.aencoder = LabelEncoder()
         self.dataset = None
-        self.data_features = ['cpu_usage', 'disk_read_bytes', 'disk_write_bytes',
-                              'disk_read_count', 'disk_write_count', 'disk_read_wait',
-                              'disk_write_wait', 'mem_usage', 'task_nvcsw', 'task_nivcsw',
-                              'sent_bytes', 'recv_bytes', 'sent_count', 'recv_count']
+        self.data_features = ['CPU.STAT.usr', 'CPU.STAT.nice', 'CPU.STAT.sys', 'CPU.STAT.iowait',
+                              'CPU.STAT.irq', 'CPU.STAT.soft', 'CPU.STAT.steal', 'CPU.STAT.guest',
+                              'CPU.STAT.util', 'CPU.STAT.cutil', 'STORAGE.STAT.rs',
+                              'STORAGE.STAT.ws', 'STORAGE.STAT.rMBs', 'STORAGE.STAT.wMBs',
+                              'STORAGE.STAT.rrqm', 'STORAGE.STAT.wrqm', 'STORAGE.STAT.rareq-sz',
+                              'STORAGE.STAT.wareq-sz', 'STORAGE.STAT.r_await',
+                              'STORAGE.STAT.w_await', 'STORAGE.STAT.util', 'STORAGE.STAT.aqu-sz',
+                              'NET.STAT.rxkBs', 'NET.STAT.txkBs', 'NET.STAT.rxpcks',
+                              'NET.STAT.txpcks', 'NET.STAT.ifutil', 'NET.ESTAT.errs',
+                              'NET.ESTAT.util', 'MEM.MEMINFO.MemTotal', 'MEM.MEMINFO.MemFree',
+                              'MEM.MEMINFO.MemAvailable','MEM.MEMINFO.SwapTotal','MEM.MEMINFO.Dirty',
+                              'MEM.BANDWIDTH.Total_Util','PERF.STAT.IPC',
+                              'PERF.STAT.CACHE-MISS-RATIO', 'PERF.STAT.MPKI',
+                              'PERF.STAT.ITLB-LOAD-MISS-RATIO', 'PERF.STAT.DTLB-LOAD-MISS-RATIO',
+                              'PERF.STAT.SBPI', 'PERF.STAT.SBPC', 'MEM.VMSTAT.procs.b','MEM.VMSTAT.memory.swpd',
+                              'MEM.VMSTAT.io.bo', 'MEM.VMSTAT.system.in', 'MEM.VMSTAT.system.cs',
+                              'MEM.VMSTAT.util.swap', 'MEM.VMSTAT.util.cpu', 'MEM.VMSTAT.procs.r',
+                              'SYS.TASKS.procs', 'SYS.TASKS.cswchs', 'SYS.LDAVG.runq-sz',
+                              'SYS.LDAVG.plist-sz', 'SYS.LDAVG.ldavg-1', 'SYS.LDAVG.ldavg-5',
+                              'SYS.FDUTIL.fd-util']
 
     @staticmethod
     def abnormal_detection(x_axis):

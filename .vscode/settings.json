@@ -4,5 +4,8 @@
         "chrono": "c",
         "algorithm": "c",
         "*.inc": "c"
-    }
+    },
+    "python.analysis.extraPaths": [
+        "./program/ebpf/BCCSource/src/python"
+    ]
 }

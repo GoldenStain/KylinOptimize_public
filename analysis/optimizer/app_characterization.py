@@ -34,11 +34,9 @@ class AppCharacterization(WorkloadCharacterization):
     def __init__(self, model_path, mode="all"):
         super().__init__(model_path)
 
-        self.perf_indicator = [
-            'cpu_usage', 'mem_usage', 'disk_read_bytes', 'disk_write_bytes',
-            'disk_read_count', 'disk_write_count', 'disk_read_wait', 'disk_write_wait',
-            'task_nvcsw', 'task_nivcsw', 'sent_bytes', 'recv_bytes', 'sent_count', 'recv_count'
-        ]
+        self.perf_indicator = ['PERF.STAT.IPC', 'PERF.STAT.CACHE-MISS-RATIO', 'PERF.STAT.MPKI',
+                        'PERF.STAT.ITLB-LOAD-MISS-RATIO', 'PERF.STAT.DTLB-LOAD-MISS-RATIO',
+                        'PERF.STAT.SBPI', 'PERF.STAT.SBPC', ]
 
         self.consider_perf = self.consider_perf_detection()
 
@@ -86,19 +84,17 @@ class AppCharacterization(WorkloadCharacterization):
         :param x_axis, y_axis:  orginal input and output data
         :returns selected_x:  selected input data
         """
-        lasso = Lasso(alpha=0.01, max_iter=100000000).fit(x_axis, y_axis)
+        lasso = Lasso(alpha=0.01, max_iter=10000).fit(x_axis, y_axis)
         importance = lasso.coef_.tolist()
         featureimportance = sorted(zip(data_features, importance), key=lambda x: -np.abs(x[1]))
         result = ", ".join(f"{label}: {round(coef, 3)}" for label, coef in featureimportance)
         LOGGER.info('Feature selection result of current classifier: %s', result)
 
         # Store selected column names into a list and return it as output
-        self.selected_columns = [feat[0] for feat in featureimportance if abs(feat[1]) > 0.000001]
+        self.selected_columns = [feat[0] for feat in featureimportance if abs(feat[1]) > 0.001]
         LOGGER.info('selected_columns: %s', self.selected_columns)
         
-        print("Selected columns after feature selection:", self.selected_columns)
-
-        feature_model = SelectFromModel(lasso, threshold=0.0001)
+        feature_model = SelectFromModel(lasso, threshold=0.001)
         selected_x = feature_model.fit_transform(x_axis, y_axis)
 
         if clfpath is not None:
