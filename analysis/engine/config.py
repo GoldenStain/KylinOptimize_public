@@ -1,13 +1,17 @@
-
 """
 Initial engine config parameters.
 """
 
-class EngineConfig:
-    """Initial engine config parameters"""
+import os
+from configparser import ConfigParser
+from analysis.default_config import get_or_default
 
-    engine_host = 'localhost'
-    engine_port = '3838'
+
+class EngineConfig:
+    """initial engine config parameters"""
+
+    engine_host = ''
+    engine_port = ''
     engine_tls = False
     engine_ca_file = ''
     engine_server_cert = ''
@@ -24,22 +28,35 @@ class EngineConfig:
     db_passwd_key = ''
     db_passwd_iv = ''
     db_analysis_type = []
-    cpu_usage = '50'
-    task_nvcsw = '100'
-    task_nivcsw = '10'
-    mem_usage = '60'
-    sent_bytes = '1000'
-    recv_bytes = '800'
-    sent_count = '50'
-    recv_count = '30'
-    disk_read_bytes = '500'
-    disk_write_bytes = '300'
-    disk_read_count = '200'
-    disk_write_count = '150'
-    disk_read_wait = '5'
-    disk_write_wait = '3'
 
     @staticmethod
-    def initial_params():
-        """Initial all params"""
+    def initial_params(filename):
+        """initial all params"""
+        if not os.path.exists(filename):
+            return False
+        config = ConfigParser()
+        config.read(filename)
+        EngineConfig.engine_host = get_or_default(config, 'server', 'engine_host', 'localhost')
+        EngineConfig.engine_port = get_or_default(config, 'server', 'engine_port', '3838')
+        EngineConfig.level = get_or_default(config, 'log', 'level', 'info')
+        EngineConfig.log_dir = get_or_default(config, 'log', 'level', None)
+        
+        # bottleneck
+        # computing
+        EngineConfig.cpu_stat_util = get_or_default(config, 'bottleneck', 'cpu_stat_util', '80')
+        EngineConfig.cpu_stat_cutil = get_or_default(config, 'bottleneck', 'cpu_stat_cutil', '80')
+        EngineConfig.perf_stat_ipc = get_or_default(config, 'bottleneck', 'perf_stat_ipc', '1')
+        # memory
+        EngineConfig.mem_bandwidth_total_util = get_or_default(config, 'bottleneck', 'mem_bandwidth_total_util', '70')
+        EngineConfig.mem_vmstat_util_swap = get_or_default(config, 'bottleneck', 'mem_vmstat_util_swap', '70')
+        EngineConfig.mem_vmstat_util_cpu = get_or_default(config, 'bottleneck', 'mem_vmstat_util_cpu', '70')
+        # network
+        EngineConfig.net_stat_ifutil = get_or_default(config, 'bottleneck', 'net_stat_ifutil', '70')
+        EngineConfig.net_estat_errs = get_or_default(config, 'bottleneck', 'net_estat_errs', '1')
+        # network I/O
+        EngineConfig.net_stat_rxkbs = get_or_default(config, 'bottleneck', 'net_stat_rxkbs', '70')
+        EngineConfig.net_stat_txkbs = get_or_default(config, 'bottleneck', 'net_stat_txkbs', '70')
+        #disk I/OF
+        EngineConfig.storage_stat_util = get_or_default(config, 'bottleneck', 'storage_stat_util', '70')
+            
         return True
