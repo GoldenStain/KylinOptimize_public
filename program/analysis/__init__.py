@@ -49,7 +49,7 @@ def get_consider_perf(consider_perf):
 
 
 # 加载模型
-model_path = "/home/wsw/桌面/KylinDBOptimize/program/analysis/models"
+model_path = "./program/analysis/models"
 tencoder_path = os.path.join(model_path, "tencoder.pkl")
 aencoder_path = os.path.join(model_path, "aencoder.pkl")
 scaler_path = os.path.join(model_path, "scaler.pkl")
