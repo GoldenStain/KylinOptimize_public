@@ -3,7 +3,6 @@ import logging
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-LOGGER = logging.getLogger(__name__)
 
 class BottleneckCharacterization:
         
@@ -31,11 +30,6 @@ class BottleneckCharacterization:
         }
                 
     def search_bottleneck(self, data):
-        LOGGER.info("cpu_thresholds: %s", self.cpu_thresholds)
-        LOGGER.info("mem_thresholds: %s", self.mem_thresholds)
-        LOGGER.info("net_quality_thresholds: %s", self.net_quality_thresholds)
-        LOGGER.info("net_io_thresholds: %s", self.net_io_thresholds)
-        LOGGER.info("disk_io_thresholds: %s", self.disk_io_thresholds)
         
         cpu_probability = self.check_thresholds(data, self.cpu_thresholds, "computational", special_key='PERF.STAT.IPC', special_value=-1)
         mem_probability = self.check_thresholds(data, self.mem_thresholds, "memory")
@@ -69,8 +63,7 @@ class BottleneckCharacterization:
             average_probability = np.mean(probabilities)
         else:
             average_probability = 0
-        
-        LOGGER.info('The probability of %s bottleneck is: %s', bottleneck_type, average_probability)
+            
         return average_probability
     
     
@@ -117,4 +110,6 @@ class BottleneckCharacterization:
         results_df = pd.DataFrame(results, columns=['CPU Prob', 'Memory Prob', 'Net Quality Prob', 'Net I/O Prob', 'Disk I/O Prob'])
          # 数据规范化
         normalized_results_df = self.normalize_data(results_df)
+        
+        
         return normalized_results_df
