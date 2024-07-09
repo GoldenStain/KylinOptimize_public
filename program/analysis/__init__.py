@@ -53,8 +53,7 @@ def get_consider_perf(consider_perf):
 
 
 # 加载模型
-model_path = os.path.join(os.path.dirname(__file__), "models")
-print(model_path)
+model_path = "./program/analysis/models"
 tencoder_path = os.path.join(model_path, "tencoder.pkl")
 aencoder_path = os.path.join(model_path, "aencoder.pkl")
 scaler_path = os.path.join(model_path, "scaler.pkl")

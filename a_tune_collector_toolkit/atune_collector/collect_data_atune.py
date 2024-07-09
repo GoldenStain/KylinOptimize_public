@@ -18,13 +18,18 @@ import argparse
 import json
 import os
 import time
+import traceback
 import csv
 import subprocess
 import sys
 import threading
+import pandas as pd
 
 from plugin.plugin import MPI
 from werkzeug.utils import secure_filename
+
+sys.path.append("...")
+from program.analysis.utils import identify
 
 
 class Collector:
@@ -227,8 +232,8 @@ def start_collect_atune(arg_json_path):
         print("start to collect data...")
 
         # stress test !!!
-        memory_thread = threading.Thread(target=memory_stress)
-        memory_thread.start()
+        # memory_thread = threading.Thread(target=memory_stress)
+        # memory_thread.start()
 
         with open(os.path.join(path, file_name), "w") as csvfile:
             writer = csv.writer(csvfile)
@@ -241,9 +246,9 @@ def start_collect_atune(arg_json_path):
                 str_data.insert(0, time.strftime("%H:%M:%S"))
                 writer.writerow(str_data)
                 csvfile.flush()
-                with stress_lock:
-                    if stress_process.poll() is not None:
-                        break
+                # with stress_lock:
+                #     if stress_process.poll() is not None:
+                #         break
                 # print(" ".join(str_data))
         print("finish to collect data, csv path is %s" % os.path.join(path, file_name))
 
@@ -251,3 +256,24 @@ def start_collect_atune(arg_json_path):
         print("user stop collect data")
 
     subprocess.run(['chown', current_user, f'{path}/{file_name}'], capture_output=False)
+
+def GetDataReturnConfidence():
+    """采集一次数据，返回置信度"""
+    json_path = "./a_tune_collector_toolkit/atune_collector/collect_data.json"
+    with open(json_path, 'r') as file:
+        json_data = json.load(file)
+    collector = Collector(json_data)
+    try:
+        current_data = collector.collect_data()
+        str_data = [str(round(value, 3)) for value in current_data]
+        df = pd.DataFrame([str_data], columns=collector.field_name)
+        confidence = identify(df)
+        return confidence
+    except Exception as e:
+        print(f"An exception of type {type(e).__name__} occurred.")
+        print(f"Exception message: {e}")
+        # 打印完整的异常信息
+        traceback.print_exc()
+
+if __name__ == "__main__":
+    something = GetDataReturnConfidence()
