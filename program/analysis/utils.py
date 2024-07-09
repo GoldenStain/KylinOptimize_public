@@ -1,5 +1,7 @@
 import collections
 from . import app_model_feat,app_model_clf,aencoder,scaler,get_consider_perf
+
+
 def identify(data, consider_perf=True, get_consider_perf_func=get_consider_perf, 
              scaler=scaler, aencoder=aencoder, app_model_clf=app_model_clf, app_model_feat=app_model_feat, feature_selection=True, model='rf'):
     # 获取考虑的性能特征
@@ -29,3 +31,28 @@ def identify(data, consider_perf=True, get_consider_perf_func=get_consider_perf,
     
     return app_confidences
 
+
+
+import pandas as pd
+import numpy as np
+from . import BottleneckCharacterization
+
+def probability_bottleneck_result(data):
+        # 存储每行数据的概率结果
+        bottleneck = BottleneckCharacterization()
+        results = []
+        # 遍历每行数据
+        for index, row in data.iterrows():
+            # 将每行数据转换为字典格式，传递给 probability_bottleneck 方法
+            row_dict = row.to_dict()
+            # 数据预处理
+            preprocessed_data = bottleneck.preprocess_data(row_dict)
+            probabilities = bottleneck.probability_bottleneck(preprocessed_data)
+            results.append(probabilities)
+
+        # 将结果转换为 DataFrame
+        results_df = pd.DataFrame(results, columns=['CPU Prob', 'Memory Prob', 'Net Quality Prob', 'Net I/O Prob', 'Disk I/O Prob'])
+         # 数据规范化
+        normalized_results_df = bottleneck.normalize_data(results_df)
+        
+        return normalized_results_df
