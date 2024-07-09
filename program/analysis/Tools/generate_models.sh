@@ -1,11 +1,15 @@
 #!/bin/bash
 
-# 指定CSV数据文件的路径
-CSV_PATH="/home/wsw/桌面/KylinDBOptimize/analysis/dataset"
 
-# 指定模型保存路径
-MODEL_PATH="/home/wsw/桌面/KylinDBOptimize/analysis/models"
-
+# 获取当前脚本所在目录的绝对路径
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+echo "Script directory: $SCRIPT_DIR"
+# 指定CSV数据文件的路径，相对于当前脚本的上级目录的analysis目录
+CSV_PATH="$SCRIPT_DIR/../dataset"
+echo "CSV path: $CSV_PATH"
+# 指定模型保存路径，相对于当前脚本的上级目录的analysis目录
+MODEL_PATH="$SCRIPT_DIR/../models"
+echo "Model path: $MODEL_PATH"
 # 是否进行特征选择
 FEATURE_SELECTION="True"
 

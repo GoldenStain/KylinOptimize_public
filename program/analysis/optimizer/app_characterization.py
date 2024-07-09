@@ -121,9 +121,10 @@ class AppCharacterization(WorkloadCharacterization):
         """
         if consider_perf is None:
             consider_perf = self.consider_perf
-
+            
         data_features = self.get_consider_perf(consider_perf)
-
+    
+      
         tencoder_path = os.path.join(self.model_path, "tencoder.pkl")
         aencoder_path = os.path.join(self.model_path, "aencoder.pkl")
         scaler_path = os.path.join(self.model_path, "scaler.pkl")
@@ -179,7 +180,6 @@ class AppCharacterization(WorkloadCharacterization):
         data = data[data_features]
         LOGGER.info("Data before scaling:")
         LOGGER.info(data)  # Log the data before scaling
-        
         tencoder_path = os.path.join(self.model_path, "tencoder.pkl")
         aencoder_path = os.path.join(self.model_path, "aencoder.pkl")
         scaler_path = os.path.join(self.model_path, "scaler.pkl")

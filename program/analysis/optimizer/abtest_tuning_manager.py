@@ -72,14 +72,17 @@ class ABtestTuningManager:
             self._max_eval += len(self._abtuning_list[i].items)
             self._default_val_vec.append(self._abtuning_list[i].items[0])
             self._best_val_vec.append(self._abtuning_list[i].items[0])
+        # 发送最大评估次数给子进程
         self._child_conn.send(self._max_eval)
 
     def construct_set_knob_val_vec(self, item):
         """construct set knob val vec"""
         index = self._abtuning_index
         set_knob_val_vec = []
+        
         for i in range(index):
             set_knob_val_vec.append(self._best_val_vec[i])
+            
         set_knob_val_vec.append(item)
         for i in range(index + 1, self._abtuning_num):
             set_knob_val_vec.append(self._default_val_vec[i])
