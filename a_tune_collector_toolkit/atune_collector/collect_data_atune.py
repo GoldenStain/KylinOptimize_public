@@ -258,6 +258,7 @@ def start_collect_atune(arg_json_path):
     subprocess.run(['chown', current_user, f'{path}/{file_name}'], capture_output=False)
 
 def GetDataReturnConfidence():
+    """采集一次数据，返回置信度"""
     json_path = "./a_tune_collector_toolkit/atune_collector/collect_data.json"
     with open(json_path, 'r') as file:
         json_data = json.load(file)
