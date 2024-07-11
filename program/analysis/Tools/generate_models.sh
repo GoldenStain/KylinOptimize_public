@@ -16,7 +16,7 @@ FEATURE_SELECTION="True"
 # 是否启用参数空间搜索
 SEARCH="True"
 
-TYPE="rf"
+TYPE="nn"
 
 # 运行Python脚本
 python3 generate_models.py -d $CSV_PATH -m $MODEL_PATH -s $FEATURE_SELECTION -g $SEARCH -t $TYPE
