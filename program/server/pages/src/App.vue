@@ -101,15 +101,15 @@
           <div id="main" style="width: 800px; height: 400px"></div>
           <div>
             <div class="button">
-              <el-switch v-model="value1" />
+              <el-switch v-model="optimizers[0]" />
               <div class="text">NUMA节点适配</div>
-              <el-switch v-model="value2" />
+              <el-switch v-model="optimizers[1]" />
               <div class="text">本地网络回环流量优化</div>
-              <el-switch v-model="value3" />
+              <el-switch v-model="optimizers[2]" />
               <div class="text">策略三</div>
-              <el-switch v-model="value4" />
+              <el-switch v-model="optimizers[3]" />
               <div class="text">策略四</div>
-              <el-switch v-model="value5" />
+              <el-switch v-model="optimizers[4]" />
               <div class="text">策略五</div>
             </div>
             <img src="../src/assets/data.jpg" style="margin-top: 20px; width: 800px;">
@@ -138,12 +138,7 @@ export default {
   name: 'LineChart',
   data() {
     return {
-      value1: 'false',
-      value2: 'false',
-      value3: 'false',
-      value4: 'false',
-      value5: 'false',
-
+      optimizers: [false, false, false, false, false],
       activeName: 'first',
       regenPID: '',
       url: '/static/flame_graph.svg',
@@ -322,7 +317,7 @@ export default {
           itemHeigth: 10,
           itemGap: 30,
           orient: 'horizontal',
-          data: ['系统1', '系统2', '系统3']
+          data: ['数据库系统']
         },
         radar: {
           center: ['50%', '56%'],
@@ -333,14 +328,16 @@ export default {
             textStyle: { fontSize: 15, color: 'green' }
           },
           indicator: [
-            { name: 'NUMA节点适配', max: 100.00 },
-            { name: '本地网络回环流量优化', max: 100.00 },
-            { name: '策略三', max: 100.00 },
-            { name: '策略四', max: 100.00 },
-            { name: '策略五', max: 100.00 },
+            { name: '常态', max: 1.00 },
+            { name: '集中式数据库', max: 1.00 },
+            { name: 'CPU瓶颈', max: 1.00 },
+            { name: '分布式数据库', max: 1.00 },
+            { name: '文件IO瓶颈', max: 1.00 },
+            { name: '内存瓶颈', max: 1.00 },
+            { name: '网络瓶颈', max: 1.00 },
           ]
         },
-        color: ['#45C2E0', '#C1EBDD', '#FF9393'],
+        color: ['#45C2E0'],
         series: [
           {
             itemStyle: {
@@ -350,16 +347,8 @@ export default {
             type: 'radar',
             data: [
               {
-                value: [60, 87.50, 90.00, 40, 65.00],
-                name: '系统1'
-              },
-              {
-                value: [60, 88.75, 50, 90, 88.75],
-                name: '系统2'
-              },
-              {
-                value: [92.50, 60, 75, 50, 91.25],
-                name: '系统3'
+                value: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                name: '数据库系统'
               }
             ]
           }
@@ -388,7 +377,7 @@ export default {
     let myChart4 = echarts.init(document.getElementById("myChart4"), 'dark'); // 初始化echarts, theme为dark
     myChart4.setOption(this.echartsOption4)   // echarts设置选项
     let myChart5 = echarts.init(document.getElementById("main"), 'dark'); // 初始化echarts, theme为dark
-    myChart5.setOption(this.option)   // echarts设置选项
+    myChart5.setOption(this.option);   // echarts设置选项
 
     setInterval(async () => {
       var data = await this.fetchData('/api/perf');
@@ -407,6 +396,18 @@ export default {
       myChart3.setOption(this.echartsOption3);
       myChart4.setOption(this.echartsOption4);
     }, 1000);
+
+    setInterval(async () => {
+      var confidence = await this.fetchData('/api/confidence');
+
+      names = ['default', 'centralized database', 'cpustress', 'distributed database', 'fileio stress', 'memory stress', 'net stress'];
+      
+      for (var i = 0; i < names.length; i++){
+        this.option.series[0].data[0].value[i] = confidence[names[i]];
+      }
+
+      myChart5.setOption(this.option);
+    }, 2000);
   },
   methods: {
     handleClick(tab, event) {

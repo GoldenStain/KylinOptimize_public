@@ -25,7 +25,7 @@ import sys
 import threading
 import pandas as pd
 
-from plugin.plugin import MPI
+from .plugin.plugin import MPI
 from werkzeug.utils import secure_filename
 
 sys.path.append("...")
@@ -211,7 +211,7 @@ def net_stress():
 
 def start_collect_atune(arg_json_path):
     current_user = os.getlogin()
-    json_path = "./a_tune_collector_toolkit/atune_collector/collect_data.json"
+    json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
     if arg_json_path:
         json_path = arg_json_path
     with open(json_path, 'r') as file:
@@ -257,13 +257,12 @@ def start_collect_atune(arg_json_path):
 
     subprocess.run(['chown', current_user, f'{path}/{file_name}'], capture_output=False)
 
-def GetDataReturnConfidence():
+from . import shared
+
+def get_data_return_confidence():
     """采集一次数据，返回置信度"""
-    json_path = "./a_tune_collector_toolkit/atune_collector/collect_data.json"
-    with open(json_path, 'r') as file:
-        json_data = json.load(file)
-    collector = Collector(json_data)
     try:
+        collector = shared.GetCollector
         current_data = collector.collect_data()
         str_data = [str(round(value, 3)) for value in current_data]
         df = pd.DataFrame([str_data], columns=collector.field_name)
@@ -274,6 +273,3 @@ def GetDataReturnConfidence():
         print(f"Exception message: {e}")
         # 打印完整的异常信息
         traceback.print_exc()
-
-if __name__ == "__main__":
-    something = GetDataReturnConfidence()

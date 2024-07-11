@@ -26,8 +26,11 @@ def identify(data, consider_perf=True, get_consider_perf_func=get_consider_perf,
     # 统计每个应用限制的出现次数
     app_counts = collections.Counter(app_result)
     
+    # 获取所有可能的应用限制
+    all_applications = aencoder.classes_
+    
     # 计算每个应用限制的置信度
-    app_confidences = {app: count / len(app_result) for app, count in app_counts.items()}
+    app_confidences = {app: app_counts.get(app, 0) / len(app_result) for app in all_applications}
     
     return app_confidences
 
@@ -56,3 +59,4 @@ def probability_bottleneck_result(data):
         normalized_results_df = bottleneck.normalize_data(results_df)
         
         return normalized_results_df
+

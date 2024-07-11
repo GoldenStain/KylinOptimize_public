@@ -19,6 +19,16 @@ LOGGER = logging.getLogger(__name__)
 class FeatureSelectorProcess(multiprocessing.Process):
     """class feature selector each with multiprocessing"""
 
+
+    """
+    regressor 用于预测的回归器（模型）
+    list_sample_x 特征样本列表
+    list_sample_y 目标变量值列表
+    labels 特征标签列表
+    index 索引
+    sorted_index_queue 用于存放排序后索引的队列
+    prediction_queue 用于存放预测结果的队列
+    """
     def __init__(self, regressor, list_sample_x, list_sample_y,
                  labels, index, sorted_index_queue, prediction_queue):
         multiprocessing.Process.__init__(self)

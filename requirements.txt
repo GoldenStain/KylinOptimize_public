@@ -1,4 +1,3 @@
-atune-collector==0.1
 bpfcc==0.15.0
 catfish==1.4.13
 click==8.1.7

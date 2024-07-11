@@ -6,7 +6,7 @@ from program.ebpf import flame_graph, data_sample
 from program.tools import bpf_data
 import argparse
 import time
-from a_tune_collector_toolkit.atune_collector import collect_data_atune
+from program.a_tune_collector_toolkit.atune_collector import collect_data_atune
 
 parser = argparse.ArgumentParser(description="eBPF based Database System Optimizer")
 parser.add_argument('-d', '--data-sample', action='store_true', default=False, help='sample data only')
@@ -23,7 +23,8 @@ port = args.port
 pid = args.pid
 
 if(args.atune):
-    collect_data_atune.start_collect_atune(args.config)
+    #collect_data_atune.start_collect_atune(args.config)
+    print(collect_data_atune.get_data_return_confidence())
     exit(0)
 
 if args.data_sample:

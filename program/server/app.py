@@ -1,7 +1,8 @@
 from flask import *
 import json
 from . import globals
-from ..ebpf import flame_graph
+from program.ebpf import flame_graph
+from program.a_tune_collector_toolkit.atune_collector.collect_data_atune import get_data_return_confidence
 
 app = Flask(__name__)
 
@@ -27,6 +28,10 @@ def api_flame_graph():
     else:
         flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
     return redirect('/static/flame_graph.svg', code=302, Response=None)
+
+@app.route('/api/confidence')
+def api_confidence():
+    return json.dumps(get_data_return_confidence())
 
 def start(port):
     app.run(port=port)

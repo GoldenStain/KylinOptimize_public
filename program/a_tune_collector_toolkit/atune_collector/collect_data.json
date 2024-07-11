@@ -1,11 +1,11 @@
 {
-  "network": "enp0s20f0u4",
-  "block": "nvme0n1",
+  "network": "ens33",
+  "block": "sda",
   "application": "",
-  "sample_num": 10,
+  "sample_num": 500,
   "interval": 1,
-  "output_dir": "./a_tune_collector_toolkit/collect_data",
-  "workload_type": "memory stress",
+  "output_dir": "./program/a_tune_collector_toolkit/collect_data",
+  "workload_type": "default",
   "collection_items": [
     {
       "name": "cpu",
