@@ -49,7 +49,7 @@ class MemBandwidth(Monitor):
 
         self.__cache_line_size = 64  # 假设缓存行大小为64字节
         self.__cnt["Total_Max"] = self.__get_theory_bandwidth()  # 计算理论最大带宽
-        # print(f'{self.__cnt["Total_Max"]} GB/s')
+        # print(f'{self.__cnt["Total_Max"]} MB/s')
 
         # LOGGER.info("Monitor initialized for cache-misses, cache-references, cycles, instructions")
 
@@ -87,12 +87,12 @@ class MemBandwidth(Monitor):
         match = re.search(pattern, perf_output, re.MULTILINE)
         if match:
             cache_misses = int(match.group(1).replace(",", ""))
-            print(f'cache_misses : {cache_misses}')
+            # print(f'cache_misses : {cache_misses}')
             self.__cnt["CacheMisses"] = cache_misses
             self.__cnt["Bandwidth"] = (cache_misses * self.__cache_line_size) / (self.__interval / 1000.0) / 1024 / 1024
             self.__cnt["Total"] = self.__cnt["Bandwidth"]
             if self.__cnt["Total_Max"] != 0:
-                self.__cnt["Total_Util"] = (self.__cnt["Total"] / self.__cnt["Total_Max"])
+                self.__cnt["Total_Util"] = (self.__cnt["Total"] / self.__cnt["Total_Max"]) * 100
             # LOGGER.info("Cache Misses: %d, Estimated Bandwidth: %.2f MB/s, Utilization: %.2f%%",
             #             cache_misses, self.__cnt["Bandwidth"], self.__cnt["Total_Util"])
 

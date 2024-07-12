@@ -25,5 +25,5 @@ sys.path.insert(0, os.path.dirname(__file__))
 json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
 with open(json_path, 'r') as file:
     json_data = json.load(file)
-shared.GetCollector = Collector(json_data)
+shared.GET_COLLECTOR = Collector(json_data)
 
