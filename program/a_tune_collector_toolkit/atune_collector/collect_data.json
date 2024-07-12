@@ -1,11 +1,11 @@
 {
-  "network": "lo",
-  "block": "sda",
+  "network": "enp0s20f0u4",
+  "block": "nvme0n1",
   "application": "",
-  "sample_num": 5,
+  "sample_num": 1000,
   "interval": 1,
   "output_dir": "./program/a_tune_collector_toolkit/collect_data",
-  "workload_type": "default",
+  "workload_type": "CPU stress",
   "collection_items": [
     {
       "name": "cpu",

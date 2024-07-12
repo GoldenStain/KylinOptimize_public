@@ -15,15 +15,18 @@ parser.add_argument('--flame-graph', action='store_true', default=False, help='g
 parser.add_argument('-p', '--port', type=int, default=80, help='local HTTP server port')
 parser.add_argument('--pid', type=int, default=0, help='target pid to sample data')
 parser.add_argument('-a', '--atune', action='store_true', default=False, help='collect data for Atune')
-parser.add_argument('-c', '--config', type=str, default=None, help='specific the location of collect_data.json')
+parser.add_argument('-c', '--confidence', action='store_true', default=False, help='calculate confidence')
 args = parser.parse_args()
 
 is_verbose = args.verbose
 port = args.port
 pid = args.pid
 
-if(args.atune):
-    #collect_data_atune.start_collect_atune(args.config)
+if args.atune:
+    collect_data_atune.start_collect_atune()
+    exit(0)
+
+if args.confidence:
     print(collect_data_atune.get_data_return_confidence())
     exit(0)
 

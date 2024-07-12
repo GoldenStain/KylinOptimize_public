@@ -93,7 +93,7 @@ class Collector:
 TABLE_SIZE = '100000'
 
 commands = [
-    ['sysbench', 'cpu', '--cpu-max-prime=20000000', '--threads=14', '--time=120', 'run'],
+    ['sysbench', 'cpu', '--cpu-max-prime=20000000', '--threads=16', '--time=90', 'run'],
     [
         'sysbench',
         '--db-driver=mysql',
@@ -209,7 +209,12 @@ def net_stress():
     with stress_lock:
         stress_process = subprocess.Popen(commands[9], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
-def start_collect_atune(arg_json_path):
+def CPU_stress():
+    global stress_process
+    with stress_lock:
+        stress_process = subprocess.Popen(commands[0], stdout=sys.stdout, stderr=sys.stderr, text=True)
+
+def start_collect_atune():
     current_user = os.getlogin()
     # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
     # if arg_json_path:
@@ -217,7 +222,7 @@ def start_collect_atune(arg_json_path):
     # with open(json_path, 'r') as file:
     #     json_data = json.load(file)
     # filename = secure_filename(json_path)
-    collector = shared.GetCollector
+    collector = shared.GET_COLLECTOR
     path = os.path.abspath(os.path.expanduser(os.path.expandvars(collector.data["output_dir"])))
     if not os.path.exists(path):
         os.makedirs(path, 0o750)
@@ -232,8 +237,8 @@ def start_collect_atune(arg_json_path):
         print("start to collect data...")
 
         # stress test !!!
-        # memory_thread = threading.Thread(target=memory_stress)
-        # memory_thread.start()
+        stress_thread = threading.Thread(target=CPU_stress)
+        stress_thread.start()
 
         with open(os.path.join(path, file_name), "w") as csvfile:
             writer = csv.writer(csvfile)
@@ -246,9 +251,9 @@ def start_collect_atune(arg_json_path):
                 str_data.insert(0, time.strftime("%H:%M:%S"))
                 writer.writerow(str_data)
                 csvfile.flush()
-                # with stress_lock:
-                #     if stress_process.poll() is not None:
-                #         break
+                with stress_lock:
+                    if stress_process.poll() is not None:
+                        break
                 # print(" ".join(str_data))
         print("finish to collect data, csv path is %s" % os.path.join(path, file_name))
 
@@ -262,7 +267,7 @@ from . import shared
 def get_data_return_confidence():
     """采集一次数据，返回置信度"""
     try:
-        collector = shared.GetCollector
+        collector = shared.GET_COLLECTOR
         current_data = collector.collect_data()
         str_data = [str(round(value, 3)) for value in current_data]
         df = pd.DataFrame([str_data], columns=collector.field_name)
