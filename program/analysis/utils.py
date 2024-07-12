@@ -6,9 +6,6 @@ from . import app_char,NeuralNetwork,data_features
 def identify(data, data_features=data_features, scaler=app_char.scaler,
               aencoder=app_char.aencoder, app_model_feat=app_char.app_model_feat,
               feature_selection=True,dict_param=app_char.dict_param):
-    # 获取考虑的性能特征
-    data_features = data_features
-    
     # 筛选数据特征
     data = data[data_features]
     
@@ -29,23 +26,11 @@ def identify(data, data_features=data_features, scaler=app_char.scaler,
     app_data_tensor = torch.tensor(app_data, dtype=torch.float32)
     with torch.no_grad():
         app_result = neural_network(app_data_tensor)
-        app_result = torch.argmax(app_result, dim=1).numpy()
-        
-    app_result = aencoder.inverse_transform(app_result)
     
-    # 计算每个应用限制的置信度
-    app_confidences = {}
-    
-    all_applications = aencoder.classes_
-    
-    # 计算每种应用限制的置信度，考虑多种可能性同时出现的情况
-    for app in all_applications:
-        app_confidence = sum(1 for result in app_result if app in result) / len(app_result)
-        app_confidences[app] = app_confidence
+    print(app_result)
 
     # 返回每个应用限制的置信度
-    return app_confidences
-
+    return app_result
 
 
 import pandas as pd
