@@ -26,11 +26,9 @@ def identify(data, data_features=data_features, scaler=app_char.scaler,
     app_data_tensor = torch.tensor(app_data, dtype=torch.float32)
     with torch.no_grad():
         app_result = neural_network(app_data_tensor)
-    
-    print(app_result)
 
     # 返回每个应用限制的置信度
-    return app_result
+    return app_result.tolist()
 
 
 import pandas as pd

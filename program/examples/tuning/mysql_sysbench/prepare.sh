@@ -51,7 +51,7 @@ fi
 
 echo "install sysbench..."
 yum install -y git
-git clone --depth=1 https://github.com/akopytov/sysbench.git
+git clone --depth=1 https://github.com/akopytov/sysbench.git -b 1.0.20
 cd sysbench
 yum install -y automake libtool
 ./autogen.sh
