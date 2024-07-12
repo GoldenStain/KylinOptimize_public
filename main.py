@@ -23,8 +23,8 @@ port = args.port
 pid = args.pid
 
 if(args.atune):
-    #collect_data_atune.start_collect_atune(args.config)
-    print(collect_data_atune.get_data_return_confidence())
+    collect_data_atune.start_collect_atune(args.config)
+    # print(collect_data_atune.get_data_return_confidence())
     exit(0)
 
 if args.data_sample:

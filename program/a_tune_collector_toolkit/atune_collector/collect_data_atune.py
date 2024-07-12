@@ -211,13 +211,13 @@ def net_stress():
 
 def start_collect_atune(arg_json_path):
     current_user = os.getlogin()
-    json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
-    if arg_json_path:
-        json_path = arg_json_path
-    with open(json_path, 'r') as file:
-        json_data = json.load(file)
-    filename = secure_filename(json_path)
-    collector = Collector(json_data)
+    # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
+    # if arg_json_path:
+    #     json_path = arg_json_path
+    # with open(json_path, 'r') as file:
+    #     json_data = json.load(file)
+    # filename = secure_filename(json_path)
+    collector = shared.GetCollector
     path = os.path.abspath(os.path.expanduser(os.path.expandvars(collector.data["output_dir"])))
     if not os.path.exists(path):
         os.makedirs(path, 0o750)

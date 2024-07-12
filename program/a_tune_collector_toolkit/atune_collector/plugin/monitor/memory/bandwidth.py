@@ -24,6 +24,7 @@ import json
 from ..common import Monitor
 from ..memory import topo
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s: %(message)s')
 LOGGER = logging.getLogger(__name__)
 
 
@@ -31,90 +32,26 @@ class MemBandwidth(Monitor):
     """To collect memory bandwidth stat info"""
     _module = "MEM"
     _purpose = "BANDWIDTH"
-    _option = "-a -e {events} --interval-print {int} --interval-count 1"
-
-    __evs1620 = {
-        "c0d0c0_r": "hisi_sccl1_ddrc0/flux_rd/",
-        "c0d0c1_r": "hisi_sccl1_ddrc1/flux_rd/",
-        "c0d0c2_r": "hisi_sccl1_ddrc2/flux_rd/",
-        "c0d0c3_r": "hisi_sccl1_ddrc3/flux_rd/",
-        "c0d0c0_w": "hisi_sccl1_ddrc0/flux_wr/",
-        "c0d0c1_w": "hisi_sccl1_ddrc1/flux_wr/",
-        "c0d0c2_w": "hisi_sccl1_ddrc2/flux_wr/",
-        "c0d0c3_w": "hisi_sccl1_ddrc3/flux_wr/",
-        "c0d1c0_r": "hisi_sccl3_ddrc0/flux_rd/",
-        "c0d1c1_r": "hisi_sccl3_ddrc1/flux_rd/",
-        "c0d1c2_r": "hisi_sccl3_ddrc2/flux_rd/",
-        "c0d1c3_r": "hisi_sccl3_ddrc3/flux_rd/",
-        "c0d1c0_w": "hisi_sccl3_ddrc0/flux_wr/",
-        "c0d1c1_w": "hisi_sccl3_ddrc1/flux_wr/",
-        "c0d1c2_w": "hisi_sccl3_ddrc2/flux_wr/",
-        "c0d1c3_w": "hisi_sccl3_ddrc3/flux_wr/",
-        "c1d0c0_r": "hisi_sccl5_ddrc0/flux_rd/",
-        "c1d0c1_r": "hisi_sccl5_ddrc1/flux_rd/",
-        "c1d0c2_r": "hisi_sccl5_ddrc2/flux_rd/",
-        "c1d0c3_r": "hisi_sccl5_ddrc3/flux_rd/",
-        "c1d0c0_w": "hisi_sccl5_ddrc0/flux_wr/",
-        "c1d0c1_w": "hisi_sccl5_ddrc1/flux_wr/",
-        "c1d0c2_w": "hisi_sccl5_ddrc2/flux_wr/",
-        "c1d0c3_w": "hisi_sccl5_ddrc3/flux_wr/",
-        "c1d1c0_r": "hisi_sccl7_ddrc0/flux_rd/",
-        "c1d1c1_r": "hisi_sccl7_ddrc1/flux_rd/",
-        "c1d1c2_r": "hisi_sccl7_ddrc2/flux_rd/",
-        "c1d1c3_r": "hisi_sccl7_ddrc3/flux_rd/",
-        "c1d1c0_w": "hisi_sccl7_ddrc0/flux_wr/",
-        "c1d1c1_w": "hisi_sccl7_ddrc1/flux_wr/",
-        "c1d1c2_w": "hisi_sccl7_ddrc2/flux_wr/",
-        "c1d1c3_w": "hisi_sccl7_ddrc3/flux_wr/"}
-
-    __cnt1620 = {
-        "Total": 0,
-        "CPU0": 0,
-        "CPU1": 0,
-        "CPU0_Die0": 0,
-        "CPU0_Die1": 0,
-        "CPU1_Die0": 0,
-        "CPU1_Die1": 0,
-        "CPU0_Die0_R": 0,
-        "CPU0_Die1_R": 0,
-        "CPU1_Die0_R": 0,
-        "CPU1_Die1_R": 0,
-        "CPU0_Die0_W": 0,
-        "CPU0_Die1_W": 0,
-        "CPU1_Die0_W": 0,
-        "CPU1_Die1_W": 0,
-        "Total_Max": 0,
-        "CPU0_Max": 0,
-        "CPU1_Max": 0,
-        "Total_Util": 0}
+    _option = "-a -e cache-misses,cache-references,cycles,instructions --interval-print {int} --interval-count 1"
 
     def __init__(self, user=None):
         Monitor.__init__(self, user)
         self.__cmd = "perf stat"
         self.__interval = 1000
 
-        self.__evs = self.__evs1620
-        self.__cnt = self.__cnt1620
-        self.__cnt["CPU0_Max"] = self.__get_theory_bandwidth(0) / 1024 / 1024
-        self.__cnt["CPU1_Max"] = self.__get_theory_bandwidth(1) / 1024 / 1024
+        self.__cnt = {
+            "Total": 0,
+            "CacheMisses": 0,
+            "Bandwidth": 0.0,
+            "Total_Max": 0,
+            "Total_Util": 0.0
+        }
 
-        all_events = subprocess.check_output(
-            "perf list".split(),
-            shell=False,
-            stderr=subprocess.STDOUT).decode()
-        self.__events = ""
-        for event in self.__evs:
-            search_obj = re.search(self.__evs[event], all_events, re.UNICODE | re.MULTILINE)
-            if search_obj is not None:
-                self.__events = self.__events + self.__evs[event] + ","
-        self.__events = self.__events.strip(",")
-        LOGGER.info("events is %s", self.__events)
+        self.__cache_line_size = 64  # 假设缓存行大小为64字节
+        self.__cnt["Total_Max"] = self.__get_theory_bandwidth()  # 计算理论最大带宽
+        # print(f'{self.__cnt["Total_Max"]} GB/s')
 
-        help_info = "--fields="
-        for cnt in self.__cnt:
-            help_info = help_info + cnt + "/"
-        help_info = help_info.strip("/")
-        self.decode.__func__.__doc__ = Monitor.decode.__doc__ % help_info
+        # LOGGER.info("Monitor initialized for cache-misses, cache-references, cycles, instructions")
 
     def _get(self, para=None):
         if para is not None:
@@ -132,85 +69,32 @@ class MemBandwidth(Monitor):
                         raise err
                     continue
 
-        if self.__events == "":
-            return ""
-
         output = subprocess.check_output(
             "{cmd} {opt}".format(
                 cmd=self.__cmd,
                 opt=self._option.format(
-                    int=self.__interval,
-                    events=self.__events)).split(),
+                    int=self.__interval,)).split(),
             stderr=subprocess.STDOUT)
         return output.decode()
-
+# 待完善
     @staticmethod
-    def __get_theory_bandwidth(socket):
-        memtopo = topo.MemTopo()
-        info_json = memtopo.report("json", None)
-        if isinstance(info_json, Exception):
-            raise info_json
-        info = json.loads(info_json)
+    def __get_theory_bandwidth():
+        max_bandwidth = 76800 # 以MB/s为单位
+        return max_bandwidth
 
-        dimms = [[0 for i in range(8)] for i in range(8)]
-        if info["memorys"] is None or len(info["memorys"]) == 0 or "children" not in info["memorys"][0]:
-            return 0
-        for dimm in info["memorys"][0]["children"]:
-            if dimm.get("size") is None:
-                continue
-            if "slot" in dimm:
-                locator = memtopo.table_get_locator(dimm["slot"])
-                if locator is None:
-                    continue
-                if dimms[locator[0]][locator[1]] == 0:
-                    dimms[locator[0]][locator[1]] = dimm["width"] * \
-                                                    memtopo.table_get_freq(dimm["description"]) / 8
-        ret = 0
-        for channel in dimms[socket]:
-            ret += channel
-        return ret
-
-    def __read_counters(self, c_evs):
-        self.__cnt["CPU0_Die0_R"] = ((int(c_evs["c0d0c0_r"]) + int(c_evs["c0d0c1_r"]) + int(
-            c_evs["c0d0c2_r"]) + int(c_evs["c0d0c3_r"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU0_Die1_R"] = ((int(c_evs["c0d1c0_r"]) + int(c_evs["c0d1c1_r"]) + int(
-            c_evs["c0d1c2_r"]) + int(c_evs["c0d1c3_r"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU1_Die0_R"] = ((int(c_evs["c1d0c0_r"]) + int(c_evs["c1d0c1_r"]) + int(
-            c_evs["c1d0c2_r"]) + int(c_evs["c1d0c3_r"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU1_Die1_R"] = ((int(c_evs["c1d1c0_r"]) + int(c_evs["c1d1c1_r"]) + int(
-            c_evs["c1d1c2_r"]) + int(c_evs["c1d1c3_r"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU0_Die0_W"] = ((int(c_evs["c0d0c0_w"]) + int(c_evs["c0d0c1_w"]) + int(
-            c_evs["c0d0c2_w"]) + int(c_evs["c0d0c3_w"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU0_Die1_W"] = ((int(c_evs["c0d1c0_w"]) + int(c_evs["c0d1c1_w"]) + int(
-            c_evs["c0d1c2_w"]) + int(c_evs["c0d1c3_w"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU1_Die0_W"] = ((int(c_evs["c1d0c0_w"]) + int(c_evs["c1d0c1_w"]) + int(
-            c_evs["c1d0c2_w"]) + int(c_evs["c1d0c3_w"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU1_Die1_W"] = ((int(c_evs["c1d1c0_w"]) + int(c_evs["c1d1c1_w"]) + int(
-            c_evs["c1d1c2_w"]) + int(c_evs["c1d1c3_w"])) * 32 / 1024 / 1024) * 1000 / \
-                                    self.__interval
-        self.__cnt["CPU0_Die0"] = self.__cnt["CPU0_Die0_R"] + \
-                                  self.__cnt["CPU0_Die0_W"]
-        self.__cnt["CPU0_Die1"] = self.__cnt["CPU0_Die1_R"] + \
-                                  self.__cnt["CPU0_Die1_W"]
-        self.__cnt["CPU1_Die0"] = self.__cnt["CPU1_Die0_R"] + \
-                                  self.__cnt["CPU1_Die0_W"]
-        self.__cnt["CPU1_Die1"] = self.__cnt["CPU1_Die1_R"] + \
-                                  self.__cnt["CPU1_Die1_W"]
-        self.__cnt["CPU0"] = self.__cnt["CPU0_Die0_R"] + self.__cnt["CPU0_Die0_W"] + \
-                             self.__cnt["CPU0_Die1_R"] + self.__cnt["CPU0_Die1_W"]
-        self.__cnt["CPU1"] = self.__cnt["CPU1_Die0_R"] + self.__cnt["CPU1_Die0_W"] + \
-                             self.__cnt["CPU1_Die1_R"] + self.__cnt["CPU1_Die1_W"]
-        self.__cnt["Total"] = self.__cnt["CPU0"] + self.__cnt["CPU1"]
-        self.__cnt["Total_Max"] = self.__cnt["CPU0_Max"] + self.__cnt["CPU1_Max"]
-        self.__cnt["Total_Util"] = self.__cnt["Total"] / self.__cnt["Total_Max"] * 100 \
-            if self.__cnt["Total_Max"] != 0 else 0
+    def __read_counters(self, perf_output):
+        pattern = r"^\s*\S+\s+(\d[\d,]*)\s+cache-misses"
+        match = re.search(pattern, perf_output, re.MULTILINE)
+        if match:
+            cache_misses = int(match.group(1).replace(",", ""))
+            print(f'cache_misses : {cache_misses}')
+            self.__cnt["CacheMisses"] = cache_misses
+            self.__cnt["Bandwidth"] = (cache_misses * self.__cache_line_size) / (self.__interval / 1000.0) / 1024 / 1024
+            self.__cnt["Total"] = self.__cnt["Bandwidth"]
+            if self.__cnt["Total_Max"] != 0:
+                self.__cnt["Total_Util"] = (self.__cnt["Total"] / self.__cnt["Total_Max"])
+            # LOGGER.info("Cache Misses: %d, Estimated Bandwidth: %.2f MB/s, Utilization: %.2f%%",
+            #             cache_misses, self.__cnt["Bandwidth"], self.__cnt["Total_Util"])
 
     def decode(self, info, para):
         """
@@ -222,17 +106,7 @@ class MemBandwidth(Monitor):
         if para is None:
             return info
 
-        c_evs = self.__evs.copy()
-        for evs in self.__evs:
-            pattern = r"^\ {2,}(\d.*?)\ {2,}(\d.*?)\ {2,}(" + \
-                      self.__evs[evs] + ").*?"
-            search_obj = re.search(pattern, info, re.UNICODE | re.MULTILINE)
-            if search_obj is not None:
-                c_evs[evs] = search_obj.group(2).replace(",", "")
-            else:
-                c_evs[evs] = 0
-
-        self.__read_counters(c_evs)
+        self.__read_counters(info)
         fields = []
         ret = ""
 
@@ -243,5 +117,5 @@ class MemBandwidth(Monitor):
                 continue
 
         for field in fields:
-            ret = ret + " {:.2f}".format(self.__cnt[field])
+            ret = ret + " {:.2f}".format(self.__cnt.get(field, 0))
         return ret
