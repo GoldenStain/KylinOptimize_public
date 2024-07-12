@@ -300,11 +300,9 @@ export default {
       },
       option: {
         title: {
-          text: '调优策略'
+          text: '场景分析'
         },
-        tooltip: {
-
-        },
+        tooltip: {},
         legend: {
           type: 'scroll',
           width: '20%',
@@ -400,7 +398,7 @@ export default {
     setInterval(async () => {
       var confidence = await this.fetchData('/api/confidence');
 
-      names = ['default', 'centralized database', 'cpustress', 'distributed database', 'fileio stress', 'memory stress', 'net stress'];
+      var names = ['default', 'centralized database', 'cpustress', 'distributed databases', 'fileio stress', 'memory stress', 'net stress'];
       
       for (var i = 0; i < names.length; i++){
         this.option.series[0].data[0].value[i] = confidence[names[i]];

@@ -1,8 +1,8 @@
 {
-  "network": "ens33",
-  "block": "sda",
+  "network": "lo",
+  "block": "nvme0n1",
   "application": "",
-  "sample_num": 500,
+  "sample_num": 5,
   "interval": 1,
   "output_dir": "./program/a_tune_collector_toolkit/collect_data",
   "workload_type": "default",
