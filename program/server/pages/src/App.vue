@@ -69,19 +69,19 @@
           <el-scrollbar class="scrollbar-wrapper">
             <el-table :data="tableData" style="width: 100%"
               :header-cell-style="{ background: '#100c2a30', color: '#C0C2C6' }">
-              <el-table-column prop="pid" label="pid" width="160" :sortable="true">
+              <el-table-column prop="pid" label="pid" width="160" :sortable="true" header-align="center">
               </el-table-column>
-              <el-table-column prop="name" label="进程" width="160" :sortable="true">
+              <el-table-column prop="name" label="进程" width="160" :sortable="true" header-align="center">
               </el-table-column>
-              <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160" :sortable="true">
+              <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160" :sortable="true" header-align="center">
               </el-table-column>
-              <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160" :sortable="true">
+              <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160" :sortable="true" header-align="center">
               </el-table-column>
-              <el-table-column prop="sent_bytes" label="网络发送量" width="160" :sortable="true">
+              <el-table-column prop="sent_bytes" label="网络发送量" width="160" :sortable="true" header-align="center">
               </el-table-column>
-              <el-table-column prop="recv_bytes" label="网络接受量" width="160" :sortable="true">
+              <el-table-column prop="recv_bytes" label="网络接受量" width="160" :sortable="true" header-align="center">
               </el-table-column>
-              <el-table-column prop="cpu_percent" label="CPU使用量" width="160" :sortable="true">
+              <el-table-column prop="cpu_percent" label="CPU使用量" width="160" :sortable="true" header-align="center">
               </el-table-column>
             </el-table>
           </el-scrollbar>
@@ -90,29 +90,43 @@
 
       <el-tab-pane label="性能火焰图" name="second" class="flame-graph-pane">
         <iframe class="flame-graph" id="flame-graph" :src="url"></iframe>
-        <div style="display: flex; flex-direction: row; align-items: center;">
+        <div style="display: flex; flex-direction: row; align-items: center; gap:5px">
           <button class="regen-btn" @click="onRegen">重新生成</button>
-          <span style="color: white;">目标进程PID:</span><input type="text" class="regen-pid" v-model="regenPID">
+          <span style="color: white;">目标进程PID:</span>
+          <input type="text" class="regen-pid" v-model="regenPID">
         </div>
       </el-tab-pane>
 
       <el-tab-pane label="调优策略" name="third">
         <div class="way">
-          <div id="main" style="width: 800px; height: 400px"></div>
-          <div>
-            <div class="button">
-              <el-switch v-model="optimizers[0]" />
-              <div class="text">NUMA节点适配</div>
-              <el-switch v-model="optimizers[1]" />
-              <div class="text">本地网络回环流量优化</div>
-              <el-switch v-model="optimizers[2]" />
-              <div class="text">策略三</div>
-              <el-switch v-model="optimizers[3]" />
-              <div class="text">策略四</div>
-              <el-switch v-model="optimizers[4]" />
-              <div class="text">策略五</div>
+          <div id="main" style="width: 1000px; height: 600px;"></div>
+          <div class="back">
+            <div class="control">
+              <div class="button">
+                <el-switch v-model="optimizers[0]" />
+                <div class="text">NUMA节点适配</div>
+                <el-switch v-model="optimizers[1]" />
+                <div class="text">本地网络回环流量优化</div>
+                <el-switch v-model="optimizers[2]" />
+                <div class="text">策略三</div>
+                <el-switch v-model="optimizers[3]" />
+                <div class="text">策略四</div>
+                <el-switch v-model="optimizers[4]" />
+                <div class="text">策略五</div>
+              </div>
+              <div class="hexagon-block">
+                <div class="hexagon-display">
+                  <hexagon content="50%" title="NONE"></hexagon>
+                  <hexagon></hexagon>
+                  <hexagon></hexagon>
+                </div>
+                <div class="hexagon-display">
+                  <hexagon></hexagon>
+                  <hexagon></hexagon>
+                  <hexagon></hexagon>
+                </div>
+              </div>
             </div>
-            <img src="../src/assets/data.jpg" style="margin-top: 20px; width: 800px;">
           </div>
         </div>
       </el-tab-pane>
@@ -123,6 +137,7 @@
 <script>
 import * as echarts from 'echarts';
 import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar, ElSwitch } from 'element-plus';
+import Hexagon from './components/Hexagon.vue';
 
 const DATA_LENGTH = 7;
 
@@ -134,6 +149,7 @@ export default {
     'el-tabs': ElTabs,
     'el-tab-pane': ElTabPane,
     'el-switch': ElSwitch,
+    'hexagon': Hexagon,
   },
   name: 'LineChart',
   data() {
@@ -401,8 +417,8 @@ export default {
       var confidence = await this.fetchData('/api/confidence');
 
       names = ['default', 'centralized database', 'cpustress', 'distributed database', 'fileio stress', 'memory stress', 'net stress'];
-      
-      for (var i = 0; i < names.length; i++){
+
+      for (var i = 0; i < names.length; i++) {
         this.option.series[0].data[0].value[i] = confidence[names[i]];
       }
 
@@ -413,7 +429,7 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event)
     },
-    async onRegen(){
+    async onRegen() {
       alert('开始生成，需要等待几秒钟');
       await fetch(`/api/flame_graph?${this.regenPID}`);
       const frame = document.getElementById('flame-graph').contentWindow;
@@ -563,7 +579,7 @@ hr {
 .text {
   color: #fff;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 3px;
   margin-left: 2px;
   letter-spacing: 2px;
@@ -661,6 +677,8 @@ hr {
 
 .way {
   display: flex;
+  align-content: space-between;
+  gap: 150px;
 }
 
 .button {
@@ -677,30 +695,48 @@ hr {
 }
 
 .flame-graph-pane {
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .flame-graph {
-display: block;
-height: 670px;
-width: 1210px;
+  display: block;
+  height: 670px;
+  width: 1210px;
 }
 
 .regen-btn {
-display: block;
-height: 60px;
-width: 120px;
-color: white;
-background: radial-gradient(#20306F, #101c7a);
-margin: 20px;
+  display: block;
+  height: 60px;
+  width: 120px;
+  color: white;
+  background: radial-gradient(#20306F, #101c7a);
+  margin: 20px;
 }
 
-
-.regen-pid {
-
+.control {
+  background-color: #090f3b;
+  margin: 20px;
 }
 
+.hexagon-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+}
+
+.hexagon-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  flex-direction: row;
+  gap: 150px;
+  padding: 30px 20px 30px
+}
 </style>
