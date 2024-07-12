@@ -69,19 +69,19 @@
           <el-scrollbar class="scrollbar-wrapper">
             <el-table :data="tableData" style="width: 100%"
               :header-cell-style="{ background: '#100c2a30', color: '#C0C2C6' }">
-              <el-table-column prop="pid" label="pid" width="160">
+              <el-table-column prop="pid" label="pid" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="name" label="进程" width="160">
+              <el-table-column prop="name" label="进程" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160">
+              <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160">
+              <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="sent_bytes" label="网络发送量" width="160">
+              <el-table-column prop="sent_bytes" label="网络发送量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="recv_bytes" label="网络接受量" width="160">
+              <el-table-column prop="recv_bytes" label="网络接受量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="cpu_percent" label="CPU使用量" width="160">
+              <el-table-column prop="cpu_percent" label="CPU使用量" width="160" :sortable="true">
               </el-table-column>
             </el-table>
           </el-scrollbar>
@@ -397,19 +397,27 @@ export default {
 
     setInterval(async () => {
       var confidence = await this.fetchData('/api/confidence');
+<<<<<<< HEAD
 
       var names = ['default', 'centralized database', 'cpustress', 'distributed databases', 'fileio stress', 'memory stress', 'net stress'];
       
       for (var i = 0; i < names.length; i++){
         this.option.series[0].data[0].value[i] = confidence[names[i]];
+=======
+      for (var i = 0; i < confidence[0].length; i++){
+        confidence[0][i] = this.clamp(1.0 + Math.log10(confidence[0][i]) * 0.2, 0.0, 1.0);
+>>>>>>> fc522d6d37cc96f3447fcfae36556d717c7e7fe5
       }
-
+      this.option.series[0].data[0].value = confidence[0];
       myChart5.setOption(this.option);
     }, 2000);
   },
   methods: {
     handleClick(tab, event) {
       console.log(tab, event)
+    },
+    clamp(x, a, b){
+      return x < a ? a : x > b ? b : x;
     },
     async onRegen(){
       alert('开始生成，需要等待几秒钟');

@@ -49,7 +49,7 @@ if __name__ == '__main__':
     ARG_PARSER.add_argument('-g', '--search', metavar='SEARCH',
                             default=False, help='wether enable the parameter space search')
     ARG_PARSER.add_argument('-t', '--model_type', metavar='TYPE',
-                            choices=['rf', 'svm', 'xgb'],
+                            choices=['rf', 'svm', 'xgb','nn'],
                             default='rf', help='model type to train (default: rf)')
     ARGS = ARG_PARSER.parse_args()
 

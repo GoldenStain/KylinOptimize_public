@@ -2,8 +2,11 @@ import joblib
 import os
 import subprocess
 import re
+import torch
 import pandas as pd
 import numpy as np
+import torch.nn as nn
+import torch.optim as optim
 
 from sklearn.preprocessing import MinMaxScaler
 
@@ -31,6 +34,8 @@ perf_indicator = ['PERF.STAT.IPC', 'PERF.STAT.CACHE-MISS-RATIO', 'PERF.STAT.MPKI
                         'PERF.STAT.ITLB-LOAD-MISS-RATIO', 'PERF.STAT.DTLB-LOAD-MISS-RATIO',
                         'PERF.STAT.SBPI', 'PERF.STAT.SBPC', ]
 
+
+
 def consider_perf_detection():
     output = subprocess.check_output("perf stat -a -e cycles --interval-print 1000 --interval-count 1".split(),
                                         stderr=subprocess.STDOUT)
@@ -44,28 +49,59 @@ def consider_perf_detection():
 consider_perf = consider_perf_detection()
 
 
-def get_consider_perf(consider_perf):
-    if not consider_perf:
-        features = [item for item in data_features if item not in perf_indicator]
-    else:
-        features = data_features
-    return features
 
+class NeuralNetwork(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size):
+        super(NeuralNetwork, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, output_size)
+        self.softmax = nn.Softmax(dim=1)
+        
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        out = self.softmax(out)
+        return out
 
-# 加载模型
+class AppCharacterization:
+    def __init__(self, model_path):
+        self.model_path = model_path
+        self.tencoder, self.aencoder, self.scaler = self.load_scaler_encoder()
+        self.dict_param, self.app_model_feat = self.load_nn_model()
+
+    def load_scaler_encoder(self):
+        tencoder_path = os.path.join(self.model_path, "tencoder.pkl")
+        aencoder_path = os.path.join(self.model_path, "aencoder.pkl")
+        scaler_path = os.path.join(self.model_path, "scaler.pkl")
+
+        tencoder = joblib.load(tencoder_path)
+        aencoder = joblib.load(aencoder_path)
+        scaler = joblib.load(scaler_path)
+
+        return tencoder, aencoder, scaler
+
+    def load_nn_model(self):
+        app_feature = os.path.join(self.model_path, "app_feature.m")
+        app_model_path = os.path.join(self.model_path, 'app_nn_clf.m')
+        app_model_feat = joblib.load(app_feature)
+        dict_param = torch.load(app_model_path)
+        
+        return dict_param,app_model_feat
+    
+    
+    def get_consider_perf(self,consider_perf):
+        if not consider_perf:
+            features = [item for item in data_features if item not in perf_indicator]
+        else:
+            features = data_features
+        return features
+
 model_path = "./program/analysis/models"
-tencoder_path = os.path.join(model_path, "tencoder.pkl")
-aencoder_path = os.path.join(model_path, "aencoder.pkl")
-scaler_path = os.path.join(model_path, "scaler.pkl")
-app_model_path = os.path.join(model_path, 'app_rf_clf.m')
-app_feature_path = os.path.join(model_path, "app_feature.m")
+app_char = AppCharacterization(model_path)
 
-scaler = joblib.load(scaler_path)
-tencoder = joblib.load(tencoder_path)
-aencoder = joblib.load(aencoder_path)
-app_model_clf = joblib.load(app_model_path)
-app_model_feat = joblib.load(app_feature_path)
-
+data_features = app_char.get_consider_perf(consider_perf)
 
 class BottleneckCharacterization:
         
