@@ -26,9 +26,25 @@ def identify(data, data_features=data_features, scaler=app_char.scaler,
     app_data_tensor = torch.tensor(app_data, dtype=torch.float32)
     with torch.no_grad():
         app_result = neural_network(app_data_tensor)
+        
+    N = 7
+    tags = aencoder.inverse_transform([i for i in range(N)])
+    pos = {
+        "default": 0,
+        "centralized database": 1,
+        "cpustress": 2,
+        "distributed databases": 3,
+        "fileio stress": 4,
+        "memory stress": 5,
+        "net stress": 6,
+    }
+    result = [0 for i in range(N)]
+    
+    for i in range(N):
+        result[pos[tags[i]]] = app_result[0, i].item()
 
     # 返回每个应用限制的置信度
-    return app_result.tolist()
+    return result
 
 
 import pandas as pd
