@@ -5,9 +5,9 @@ path=$(
 
 installation="mysql"
 sysbench_cfg="--with-mysql-libs=/usr/local/mysql/lib/ --with-mysql-includes=/usr/local/mysql/include/"
-cmd_service_link="ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld"
+cmd_service_link="ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql"
 cmd_add_path="export PATH=`echo $PATH`:/usr/local/mysql/bin"
-
+new_password=123456
 
 echo "install MySQL..."
 # yum install -y $installation
@@ -23,7 +23,7 @@ cp my.cnf /etc
 kill -9 `pidof mysqld`
 rm -rf /usr/local/mysql/data/*
 eval $cmd_add_path
-mysqld --initialize --user=mysql
+mysqld --user=root --initialize-insecure
 
 
 echo "start MySQL..."
@@ -31,19 +31,10 @@ systemctl daemon-reload
 taskset -c 0,1 systemctl restart mysql
 
 
-echo -n "Enter current root password for MySQL: "
-read -s current_password
-echo    # move to a new line after inputting password
 
-echo -n "Enter new root password for MySQL(123456): "
-read -s new_password
-echo    # move to a new line after inputting password
-
-# Use mysqladmin to set the new password
-mysqladmin -uroot -p"${current_password}" password "${new_password}"
-
-echo "create database..."
-mysql -uroot -p"${new_password}" << EOF
+echo "set root password and create database..."
+mysql -uroot << EOF
+ALTER USER 'root'@'localhost' IDENTIFIED BY '${new_password}';
 flush privileges;
 use mysql;
 update user set host='%' where user='root';
@@ -87,9 +78,8 @@ sed -i "s#PATH#$path#g" $path/mysql_sysbench_benchmark.sh
 
 
 
-sed -i "s#startworkload:.*#startworkload: \"taskset -c 0,1 systemctl start mysql\" #g" $path/server.yaml
-sed -i "s#stopworkload:.*#stopworkload: \"systemctl stop mysql\" #g" $path/server.yaml
-
+sed -i "s#startworkload:.*#startworkload: \"taskset -c 0,1 systemctl start mysql\" #g" $path/mysql_sysbench_server.yaml
+sed -i "s#stopworkload:.*#stopworkload: \"systemctl stop mysql\" #g" $path/mysql_sysbench_server.yaml
 
 echo "Setting the executable path of the MySQL database"
 if [ -f /usr/bin/mysql ]; then
@@ -102,3 +92,8 @@ else
 	echo "Setting failed! No available mysql executable file is found."
 	exit 1
 fi
+
+echo "copy the server yaml file to /etc/atuned/tuning/"
+rm -rf /etc/atuned/tuning/mysql_sysbench_server.yaml
+sed -i "s#PATH#$path#g" $path/server.yaml
+cp $path/server.yaml /etc/atuned/tuning/mysql_sysbench_server.yaml

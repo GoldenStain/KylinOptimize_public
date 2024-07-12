@@ -1,11 +1,13 @@
 import collections
-from . import app_model_feat,app_model_clf,aencoder,scaler,get_consider_perf
+import torch
+from . import app_char,NeuralNetwork,data_features
 
 
-def identify(data, consider_perf=True, get_consider_perf_func=get_consider_perf, 
-             scaler=scaler, aencoder=aencoder, app_model_clf=app_model_clf, app_model_feat=app_model_feat, feature_selection=True, model='rf'):
+def identify(data, data_features=data_features, scaler=app_char.scaler,
+              aencoder=app_char.aencoder, app_model_feat=app_char.app_model_feat,
+              feature_selection=True,dict_param=app_char.dict_param):
     # 获取考虑的性能特征
-    data_features = get_consider_perf_func(consider_perf)
+    data_features = data_features
     
     # 筛选数据特征
     data = data[data_features]
@@ -19,19 +21,29 @@ def identify(data, consider_perf=True, get_consider_perf_func=get_consider_perf,
     else:
         app_data = data
     
+    input_size = app_data.shape[1]
+    neural_network = NeuralNetwork(input_size=input_size, hidden_size=64, output_size=7)
+    neural_network.load_state_dict(dict_param)
+    neural_network.eval()
     # 预测
-    app_result = app_model_clf.predict(app_data)
+    app_data_tensor = torch.tensor(app_data, dtype=torch.float32)
+    with torch.no_grad():
+        app_result = neural_network(app_data_tensor)
+        app_result = torch.argmax(app_result, dim=1).numpy()
+        
     app_result = aencoder.inverse_transform(app_result)
     
-    # 统计每个应用限制的出现次数
-    app_counts = collections.Counter(app_result)
+    # 计算每个应用限制的置信度
+    app_confidences = {}
     
-    # 获取所有可能的应用限制
     all_applications = aencoder.classes_
     
-    # 计算每个应用限制的置信度
-    app_confidences = {app: app_counts.get(app, 0) / len(app_result) for app in all_applications}
-    
+    # 计算每种应用限制的置信度，考虑多种可能性同时出现的情况
+    for app in all_applications:
+        app_confidence = sum(1 for result in app_result if app in result) / len(app_result)
+        app_confidences[app] = app_confidence
+
+    # 返回每个应用限制的置信度
     return app_confidences
 
 
