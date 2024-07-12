@@ -69,19 +69,19 @@
           <el-scrollbar class="scrollbar-wrapper">
             <el-table :data="tableData" style="width: 100%"
               :header-cell-style="{ background: '#100c2a30', color: '#C0C2C6' }">
-              <el-table-column prop="pid" label="pid" width="160">
+              <el-table-column prop="pid" label="pid" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="name" label="进程" width="160">
+              <el-table-column prop="name" label="进程" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160">
+              <el-table-column prop="disk_read_bytes" label="磁盘读取量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160">
+              <el-table-column prop="disk_write_bytes" label="磁盘写入量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="sent_bytes" label="网络发送量" width="160">
+              <el-table-column prop="sent_bytes" label="网络发送量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="recv_bytes" label="网络接受量" width="160">
+              <el-table-column prop="recv_bytes" label="网络接受量" width="160" :sortable="true">
               </el-table-column>
-              <el-table-column prop="cpu_percent" label="CPU使用量" width="160">
+              <el-table-column prop="cpu_percent" label="CPU使用量" width="160" :sortable="true">
               </el-table-column>
             </el-table>
           </el-scrollbar>
