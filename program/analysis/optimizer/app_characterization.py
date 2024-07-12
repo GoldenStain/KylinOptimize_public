@@ -216,6 +216,7 @@ class AppCharacterization(WorkloadCharacterization):
         self.parsing(data_path, data_features)
         
         x = self.dataset.iloc[:, :-1]
+        
         self.scaler.fit_transform(x)
         x = self.scaler.transform(x)
 
@@ -229,7 +230,6 @@ class AppCharacterization(WorkloadCharacterization):
             app_x = self.feature_selection(x, app_y, data_features, app_feature)
         else:
             app_x = x
-
 
         if model == 'rf':
             LOGGER.info('app model start training')
