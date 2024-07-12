@@ -204,7 +204,6 @@ class AppCharacterization(WorkloadCharacterization):
             
         data_features = self.get_consider_perf(consider_perf)
     
-      
         tencoder_path = os.path.join(self.model_path, "tencoder.pkl")
         aencoder_path = os.path.join(self.model_path, "aencoder.pkl")
         scaler_path = os.path.join(self.model_path, "scaler.pkl")
