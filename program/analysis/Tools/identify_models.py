@@ -31,5 +31,5 @@ data = pd.read_csv(model_path)
 
 
 # 调用 identify 函数
-applimit, app_confidence = app_char.identify(data, feature_selection=True, model='rf',consider_perf=True)
+applimit, app_confidence = app_char.identify(data, feature_selection=True, model='nn',consider_perf=True)
 

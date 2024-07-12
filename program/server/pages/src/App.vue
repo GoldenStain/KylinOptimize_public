@@ -316,11 +316,9 @@ export default {
       },
       option: {
         title: {
-          text: '调优策略'
+          text: '场景分析'
         },
-        tooltip: {
-
-        },
+        tooltip: {},
         legend: {
           type: 'scroll',
           width: '20%',
@@ -415,19 +413,19 @@ export default {
 
     setInterval(async () => {
       var confidence = await this.fetchData('/api/confidence');
-
-      names = ['default', 'centralized database', 'cpustress', 'distributed database', 'fileio stress', 'memory stress', 'net stress'];
-
-      for (var i = 0; i < names.length; i++) {
-        this.option.series[0].data[0].value[i] = confidence[names[i]];
+      for (var i = 0; i < confidence[0].length; i++){
+        confidence[i] = this.clamp(1.0 + Math.log10(confidence[i]) * 0.2, 0.0, 1.0);
       }
-
+      this.option.series[0].data[0].value = confidence;
       myChart5.setOption(this.option);
     }, 2000);
   },
   methods: {
     handleClick(tab, event) {
       console.log(tab, event)
+    },
+    clamp(x, a, b){
+      return x < a ? a : x > b ? b : x;
     },
     async onRegen() {
       alert('开始生成，需要等待几秒钟');
