@@ -214,7 +214,7 @@ def CPU_stress():
     with stress_lock:
         stress_process = subprocess.Popen(commands[0], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
-def start_collect_atune(arg_json_path):
+def start_collect_atune():
     current_user = os.getlogin()
     # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
     # if arg_json_path:
