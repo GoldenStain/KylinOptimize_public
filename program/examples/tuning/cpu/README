@@ -1,0 +1,6 @@
+1. 准备环境
+sh prepare.sh
+2. 开始调优
+atune-adm tuning --project cpu_tuning --detail tuning_cpu_client.yaml
+3. 恢复环境
+atune-adm tuning --restore cpu_tuning
