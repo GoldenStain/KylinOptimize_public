@@ -1,0 +1,27 @@
+project: "cpu_tuning"
+engine: "gbrt"
+iterations: 20
+random_starts: 10
+
+benchmark: "cd cpu_benchmark/; make; ./benchmark"
+evaluations:
+  - name: "integer_operations"
+    info:
+      get: "echo '$out' | grep 'Integer Operations' | awk '{print $3}'"
+      type: "positive"
+      weight: 25
+  - name: "floating_point_operations"
+    info:
+      get: "echo '$out' | grep 'Floating Point Operations' | awk '{print $3}'"
+      type: "positive"
+      weight: 25
+  - name: "memory_bandwidth"
+    info:
+      get: "echo '$out' | grep 'Memory Bandwidth' | awk '{print $3}'"
+      type: "positive"
+      weight: 25
+  - name: "cpu_utilization"
+    info:
+      get: "echo '$out' | grep 'CPU Utilization' | awk '{print $3}'"
+      type: "negative"
+      weight: 25
