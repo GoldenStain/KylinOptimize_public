@@ -237,8 +237,8 @@ def start_collect_atune():
         print("start to collect data...")
 
         # stress test !!!
-        stress_thread = threading.Thread(target=CPU_stress)
-        stress_thread.start()
+        # stress_thread = threading.Thread(target=CPU_stress)
+        # stress_thread.start()
 
         with open(os.path.join(path, file_name), "w") as csvfile:
             writer = csv.writer(csvfile)
@@ -248,12 +248,12 @@ def start_collect_atune():
             for _ in range(collect_num):
                 data = collector.collect_data()
                 str_data = [str(round(value, 3)) for value in data]
-                str_data.insert(0, time.strftime("%H:%M:%S"))
+                # str_data.insert(0, time.strftime("%H:%M:%S"))
                 writer.writerow(str_data)
                 csvfile.flush()
-                with stress_lock:
-                    if stress_process.poll() is not None:
-                        break
+                # with stress_lock:
+                #     if stress_process.poll() is not None:
+                #         break
                 # print(" ".join(str_data))
         print("finish to collect data, csv path is %s" % os.path.join(path, file_name))
 
