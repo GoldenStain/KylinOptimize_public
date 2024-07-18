@@ -2,10 +2,10 @@
   "network": "p4p1",
   "block": "nvme0n1",
   "application": "",
-  "sample_num": 200,
+  "sample_num": 400,
   "interval": 1,
   "output_dir": "./program/a_tune_collector_toolkit/collect_data",
-  "workload_type": "default",
+  "workload_type": "fileio_stress",
   "collection_items": [
     {
       "name": "cpu",
