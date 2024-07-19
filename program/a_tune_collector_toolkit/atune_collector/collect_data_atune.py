@@ -14,12 +14,12 @@
 """
 The main function for collecting data.
 """
-import argparse
-import json
+
 import os
 import time
 import traceback
 import csv
+import signal
 import subprocess
 import sys
 import threading
@@ -90,10 +90,10 @@ class Collector:
         float_data = [float(num) for num in raw_data]
         return float_data
 
-TABLE_SIZE = '100000'
+TABLE_SIZE = '1000000'
 
 commands = [
-    ['sysbench', 'cpu', '--cpu-max-prime=20000000', '--threads=16', '--time=90', 'run'],
+    ['sysbench', 'cpu', '--cpu-max-prime=200000000', '--threads=16', '--time=400', 'run'],
     [
         'sysbench',
         '--db-driver=mysql',
@@ -113,8 +113,8 @@ commands = [
         '--mysql-password=mysql123456',
         '--table-size=' + TABLE_SIZE,
         '--tables=10',
-        '--threads=14',
-        '--time=120',
+        '--threads=16',
+        '--time=400',
         '/usr/share/sysbench/oltp_read_write.lua',
         'run'
     ],
@@ -131,24 +131,24 @@ commands = [
     [
 		'/home/xjbo/桌面/inch/inch',
     	'-b', '1000',
-    	'-c', '14',
+        '-c', '4',
     	'-db', 'Stress',
     	'-host', 'http://localhost:8086',
     	'-p', '1000',
     	'-m', '5',
-    	'-t', '100,10',
+    	'-t', '100,245',
         '-f', '3',
     	'-token', 'bvYd9DG4n5IlVLUKLIeay7zJkxrhJRFVXmCIbuJPaff_5cHknvUPKmaK6urdRQLRDRVHsXFh2Umuwro6lb4I6g==',
     	'-vhosts', '8',
     	'-v', '--v2',
-        '-time', '600s',
+        '-time', '30s',
         '-shard-duration', '1h'
 	],# 4
-    ['stress-ng', '--vm', '2', '--vm-bytes', '8G', '--vm-method', 'all', '--verify', '-t', '90s'],
-    ['sysbench', 'fileio', '--file-total-size=10G', 'prepare'],
-    ['sysbench', 'fileio', '--file-total-size=10G', '--file-test-mode=rndrw', '--time=120', '--max-requests=0', 'run'],
-    ['sysbench', 'fileio', '--file-total-size=10G', 'cleanup'],#8
-    ['iperf3', '-c', '127.0.0.1', '-b', '10000M', '-t', '120']
+    ['stress-ng', '--vm', '2', '--vm-bytes', '10G', '--vm-method', 'all', '-t', '400s'],
+    ['sysbench', 'fileio', '--file-total-size=16G', 'prepare'],
+    ['sysbench', 'fileio', '--file-total-size=16G', '--file-test-mode=rndrw', '--time=400', 'run'],
+    ['sysbench', 'fileio', '--file-total-size=16G', 'cleanup'],#8
+    ['iperf3', '-c', '127.0.0.1', '-b', '10000M', '-t', '400']
 ]
 
 stress_process = None
@@ -160,9 +160,6 @@ def start_stress():
 
 def mySQL_stress():
     global stress_process
-    # 启动 prepare_process 并等待其结束
-    prepare_process = subprocess.Popen(commands[1], stdout=sys.stdout, stderr=sys.stderr, text=True)
-    prepare_process.wait()
     # 启动 stress_process
     with stress_lock:
         stress_process = subprocess.Popen(commands[2], stdout=sys.stdout, stderr=sys.stderr, text=True)
@@ -170,17 +167,10 @@ def mySQL_stress():
     subprocess.run(commands[3], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
 def mySQL_prepare():
-    global stress_process
-    # 预先创建一个占位的 subprocess 对象
-    with stress_lock:
-        stress_process = subprocess.Popen(['sleep', 'infinity'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
-    stress_thread = threading.Thread(target=mySQL_stress)
-    stress_thread.start()
+    subprocess.run(commands[1], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
 def fileio_stress():
     global stress_process
-    prepare_process = subprocess.Popen(commands[6], stdout=sys.stdout, stderr=sys.stderr, text=True)
-    prepare_process.wait()
     # 启动 stress_process
     with stress_lock:
         stress_process = subprocess.Popen(commands[7], stdout=sys.stdout, stderr=sys.stderr, text=True)
@@ -188,16 +178,18 @@ def fileio_stress():
     subprocess.run(commands[8], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
 def fileio_prepare():
-    global stress_process
-    with stress_lock:
-        stress_process = subprocess.Popen(['sleep', 'infinity'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
-    stress_thread = threading.Thread(target=fileio_stress)
-    stress_thread.start()
+    subprocess.run(commands[6], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
 def influxDB_stress():
     global stress_process
-    with stress_lock:
-        stress_process = subprocess.Popen(commands[4], stdout=sys.stdout, stderr=sys.stderr, text=True)
+    try:
+        with stress_lock:
+            stress_process = subprocess.Popen(commands[4], stdout=sys.stdout, stderr=sys.stderr, text=True)
+        stress_process.communicate(timeout = 501)
+    except subprocess.TimeoutExpired:
+        print("influxDB timeout")
+        stress_process.terminate()
+        os.kill(os.getpid(), signal.SIGTERM)
     
 def memory_stress():
     global stress_process
@@ -214,7 +206,7 @@ def CPU_stress():
     with stress_lock:
         stress_process = subprocess.Popen(commands[0], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
-def start_collect_atune():
+def atune_collect_data():
     current_user = os.getlogin()
     # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
     # if arg_json_path:
@@ -236,10 +228,6 @@ def start_collect_atune():
         print("csv fields: %s" % " ".join(collector.field_name))
         print("start to collect data...")
 
-        # stress test !!!
-        stress_thread = threading.Thread(target=CPU_stress)
-        stress_thread.start()
-
         with open(os.path.join(path, file_name), "w") as csvfile:
             writer = csv.writer(csvfile)
             output_fields = ["TimeStamp"] + collector.field_name
@@ -251,16 +239,27 @@ def start_collect_atune():
                 str_data.insert(0, time.strftime("%H:%M:%S"))
                 writer.writerow(str_data)
                 csvfile.flush()
-                with stress_lock:
-                    if stress_process.poll() is not None:
-                        break
+                # with stress_lock:
+                #     if stress_process.poll() is not None:
+                #         break
                 # print(" ".join(str_data))
         print("finish to collect data, csv path is %s" % os.path.join(path, file_name))
 
     except KeyboardInterrupt:
         print("user stop collect data")
-
+    
     subprocess.run(['chown', current_user, f'{path}/{file_name}'], capture_output=False)
+
+def start_collect_atune():
+    collect_thread = threading.Thread(target=atune_collect_data)
+    stress_thread = threading.Thread(target=fileio_prepare)
+    stress_thread.start()
+    stress_thread.join()
+    stress_thread = threading.Thread(target=fileio_stress)
+    collect_thread.start()
+    stress_thread.start()
+    collect_thread.join()
+    stress_thread.join()
 
 from . import shared
 

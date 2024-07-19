@@ -80,6 +80,7 @@ class MemBandwidth(Monitor):
     @staticmethod
     def __get_theory_bandwidth():
         max_bandwidth = 76800 # 以MB/s为单位
+        dmi_command = ""
         return max_bandwidth
 
     def __read_counters(self, perf_output):
@@ -117,5 +118,5 @@ class MemBandwidth(Monitor):
                 continue
 
         for field in fields:
-            ret = ret + " {:.2f}".format(self.__cnt.get(field, 0))
+            ret = ret + " {:.3f}".format(self.__cnt.get(field, 0))
         return ret

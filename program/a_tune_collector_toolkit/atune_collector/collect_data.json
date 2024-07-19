@@ -1,11 +1,11 @@
 {
-  "network": "enp0s20f0u4",
+  "network": "p4p1",
   "block": "nvme0n1",
   "application": "",
-  "sample_num": 1000,
+  "sample_num": 400,
   "interval": 1,
   "output_dir": "./program/a_tune_collector_toolkit/collect_data",
-  "workload_type": "CPU stress",
+  "workload_type": "fileio_stress",
   "collection_items": [
     {
       "name": "cpu",

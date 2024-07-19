@@ -413,8 +413,8 @@ export default {
 
     setInterval(async () => {
       var confidence = await this.fetchData('/api/confidence');
-      for (var i = 0; i < confidence[0].length; i++){
-        confidence[i] = this.clamp(1.0 + Math.log10(confidence[i]) * 0.2, 0.0, 1.0);
+      for (var i = 0; i < confidence.length; i++){
+        confidence[i] = this.clamp(1.0 + Math.log(confidence[i]) * 0.2, 0.0, 1.0);
       }
       this.option.series[0].data[0].value = confidence;
       myChart5.setOption(this.option);
