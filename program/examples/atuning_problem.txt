@@ -1,0 +1,5 @@
+/usr/lib/python3.7/site-packages/skopt/learning/gbrt.py sklearn.externals.joblib 修改为 joblib
+/usr/lib/python3.7/site-packages/skopt/optimizer/optimizer.py  sklearn.externals.joblib 修改为 joblib
+/usr/lib/python3.7/site-packages/skopt/utils.py    sklearn.externals.joblib 修改为 joblib
+/usr/lib/python3.7/site-packages/skopt/searchcv.py  sklearn.externals.joblib 修改为 joblib
+/usr/lib/python3.7/site-packages/skopt/searchcv.py  sklearn.metrics.scorer 修改为 sklearn.metrics
