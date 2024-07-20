@@ -9,30 +9,28 @@ cmd_service_link="ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/
 cmd_add_path="export PATH=`echo $PATH`:/usr/local/mysql/bin"
 new_password=123456
 
-echo "install MySQL..."
-# yum install -y $installation
-rm -rf /etc/init.d/mysql
+
 eval $cmd_service_link
 mkdir -p /usr/local/mysql/{data,tmp,run,log}
 chown -R mysql:mysql /usr/local/mysql
 
-
-echo "initializing MySQL..."
-rm -rf /etc/my.cnf
-cp my.cnf /etc
+if [ -f /etc/my.cnf ]; then
+  read -p "/etc/my.cnf 文件已存在，是否删除？ (y/n): " confirm
+  if [ "$confirm" = "y" ]; then
+    rm -rf /etc/my.cnf
+    cp my.cnf /etc
+  else
+    echo "/etc/my.cnf 文件保留，继续执行脚本。"
+  fi
+fi
 kill -9 `pidof mysqld`
-rm -rf /usr/local/mysql/data/*
 eval $cmd_add_path
 mysqld --user=root --initialize-insecure
 
 
-echo "start MySQL..."
 systemctl daemon-reload
 taskset -c 0,1 systemctl restart mysql
 
-
-
-echo "set root password and create database..."
 mysql -uroot << EOF
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${new_password}';
 flush privileges;
@@ -47,17 +45,6 @@ if [ ! -f /usr/lib64/libmysqlclient.so.* ]; then
     echo "ln libmysqlclient.so.24 to /usr/lib64"
     ln -s /usr/local/mysql/lib/libmysqlclient.so.24 /usr/lib64
 fi
-
-
-echo "install sysbench..."
-yum install -y git
-git clone --depth=1 https://github.com/akopytov/sysbench.git -b 1.0.20
-cd sysbench
-yum install -y automake libtool
-./autogen.sh
-./configure $sysbench_cfg
-make -j
-make install
 
 
 echo "checking sysbench..."
