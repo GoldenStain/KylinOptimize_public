@@ -8,7 +8,7 @@ installation="mysql"
 sysbench_cfg="--with-mysql-libs=/usr/local/mysql/lib/ --with-mysql-includes=/usr/local/mysql/include/"
 cmd_service_link="ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql"
 cmd_add_path="export PATH=`echo $PATH`:/usr/local/mysql/bin"
-new_password=123456
+new_password=mysql123456
 
 
 if [ ! -L /etc/init.d/mysql ]; then

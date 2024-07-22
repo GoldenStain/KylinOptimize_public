@@ -7,8 +7,8 @@ object :
     name : "GOGC"
     info :
         desc : ""
-        get : "cat /home/wsw/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh | grep 'GOGC' | awk -F '=' '{print $2}'"
-        set : "sed -i 's/GOGC\\s*=\\s*[0-9]*/GOGC=$value/g' /home/wsw/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh"
+        get : "cat /home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh | grep 'GOGC' | awk -F '=' '{print $2}'"
+        set : "sed -i 's/GOGC\\s*=\\s*[0-9]*/GOGC=$value/g' /home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh"
         needrestart : "false"
         type : "discrete"
         scope :
@@ -20,8 +20,8 @@ object :
     name : "GOMAXPROCS"
     info :
         desc : ""
-        get : "cat /home/wsw/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh | grep 'GOMAXPROCS' | awk -F '=' '{print $2}'"
-        set : "sed -i 's/GOMAXPROCS\\s*=\\s*[0-9]*/GOMAXPROCS=$value/g' /home/wsw/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh"
+        get : "cat /home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh | grep 'GOMAXPROCS' | awk -F '=' '{print $2}'"
+        set : "sed -i 's/GOMAXPROCS\\s*=\\s*[0-9]*/GOMAXPROCS=$value/g' /home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh"
         needrestart : "false"
         type : "discrete"
         scope :

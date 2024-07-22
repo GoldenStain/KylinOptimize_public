@@ -99,7 +99,7 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
-        '--mysql-password=mysql123456',
+        '--mysql-password=123456',
         '--table-size=' + TABLE_SIZE,
         '--tables=10',
         '/usr/share/sysbench/oltp_read_write.lua',
@@ -110,7 +110,7 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
-        '--mysql-password=mysql123456',
+        '--mysql-password=123456',
         '--table-size=' + TABLE_SIZE,
         '--tables=10',
         '--threads=16',
@@ -123,7 +123,7 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
-        '--mysql-password=mysql123456',
+        '--mysql-password=123456',
         '--tables=10',
         '/usr/share/sysbench/oltp_read_write.lua',
         'cleanup'
@@ -251,6 +251,8 @@ def atune_collect_data():
     subprocess.run(['chown', current_user, f'{path}/{file_name}'], capture_output=False)
 
 def start_collect_atune():
+    subprocess.run(['mysql', '--version'])
+    exit(0)
     collect_thread = threading.Thread(target=atune_collect_data)
     stress_thread = threading.Thread(target=fileio_prepare)
     stress_thread.start()
