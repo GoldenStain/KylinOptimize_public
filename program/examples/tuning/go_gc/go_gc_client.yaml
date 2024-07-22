@@ -9,6 +9,20 @@ evaluations :
     name: "ns/op"
     info:
         get: "echo '$out' | awk '{print $3}' | awk '{if($1!~/s$/)print}' | awk '{sum+=$1}END{print sum/3}'"
-        type: "positive"
+        type: "negative"
         weight: 100
+        threshold: 100
+  -
+    name: "B/op"
+    info:
+        get: "echo '$out' | awk '{print $6}' | awk '{if($1!~/B$/)print}' | awk '{sum+=$1}END{print sum/3}'"
+        type: "negative"
+        weight: 50
+        threshold: 100
+  -
+    name: "allocs/op"
+    info:
+        get: "echo '$out' | awk '{print $9}' | awk '{if($1!~/allocs$/)print}' | awk '{sum+=$1}END{print sum/3}'"
+        type: "negative"
+        weight: 50
         threshold: 100
