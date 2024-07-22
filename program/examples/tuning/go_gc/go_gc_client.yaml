@@ -3,7 +3,7 @@ engine : "bayes"
 iterations : 50
 random_starts : 20
 
-benchmark : "sh /home/wsw/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh 3"
+benchmark : "sh /home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/go_gc/go_gc.sh 3"
 evaluations :
   -
     name: "ns/op"

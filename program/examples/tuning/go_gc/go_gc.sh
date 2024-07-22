@@ -17,7 +17,7 @@ fi
 
 ITERATION=$1
 
-export GOGC=1440
+export GOGC=1970
 export GOMAXPROCS=56
 for ((i = 0; i < ITERATION; i++)); do
   echo 3 >/proc/sys/vm/drop_caches
