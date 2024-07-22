@@ -1,5 +1,5 @@
-TABLES=5
-TABLE_SIZE=10000
+TABLES=10
+TABLE_SIZE=5000
 
 log_file="/home/wsw/桌面/KylinDBOptimize/program/examples/tuning/mysql_sysbench/sysbench_debug.log"
 
