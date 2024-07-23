@@ -3,6 +3,7 @@ path=$(
   pwd
 )
 
+
 installation="mysql"
 sysbench_cfg="--with-mysql-libs=/usr/local/mysql/lib/ --with-mysql-includes=/usr/local/mysql/include/"
 cmd_service_link="ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql"
@@ -10,36 +11,15 @@ cmd_add_path="export PATH=`echo $PATH`:/usr/local/mysql/bin"
 new_password=mysql123456
 
 
-eval $cmd_service_link
+if [ ! -L /etc/init.d/mysql ]; then
+  eval $cmd_service_link
+fi
 mkdir -p /usr/local/mysql/{data,tmp,run,log}
 chown -R mysql:mysql /usr/local/mysql
 
-if [ -f /etc/my.cnf ]; then
-  read -p "/etc/my.cnf 文件已存在，是否删除？ (y/n): " confirm
-  if [ "$confirm" = "y" ]; then
-    rm -rf /etc/my.cnf
-    cp my.cnf /etc
-  else
-    echo "/etc/my.cnf 文件保留，继续执行脚本。"
-  fi
-fi
-kill -9 `pidof mysqld`
 eval $cmd_add_path
-mysqld --user=root --initialize-insecure
 
 
-systemctl daemon-reload
-taskset -c 0,1 systemctl restart mysql
-
-mysql -uroot << EOF
-ALTER USER 'root'@'localhost' IDENTIFIED BY '${new_password}';
-flush privileges;
-use mysql;
-update user set host='%' where user='root';
-flush privileges;
-create database sbtest;
-quit
-EOF
 
 if [ ! -f /usr/lib64/libmysqlclient.so.* ]; then
     echo "ln libmysqlclient.so.24 to /usr/lib64"
