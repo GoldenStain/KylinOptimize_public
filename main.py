@@ -6,6 +6,7 @@ from program.ebpf import flame_graph, data_sample
 from program.tools import bpf_data
 import argparse
 import time
+import subprocess
 from program.a_tune_collector_toolkit.atune_collector import collect_data_atune
 
 parser = argparse.ArgumentParser(description="eBPF based Database System Optimizer")
@@ -22,6 +23,15 @@ is_verbose = args.verbose
 port = args.port
 pid = args.pid
 
+def IO_monitor():
+    subprocess.run(collect_data_atune.commands[1])
+    IO_thread = threading.Thread(target=collect_data_atune.mySQL_stress)
+    flame_thread = threading.Thread(target=flame_graph.gen_flame_graph_perf,args=["program/server/static/flame_graph", 50, 10, [1951, 2278]])
+    IO_thread.start()
+    flame_thread.start()
+    IO_thread.join()
+    flame_thread.join()
+
 if args.atune:
     collect_data_atune.start_collect_atune()
     exit(0)
@@ -37,6 +47,7 @@ if args.data_sample:
 if args.flame_graph:
     #flame_graph.gen_cpu_flame_graph("program/server/static/flame_graph", 50)
     flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
+    # IO_monitor()
     exit(0)
 
 threading.Thread(target=lambda: app.start(port), daemon=True).start()
