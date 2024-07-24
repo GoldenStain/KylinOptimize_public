@@ -80,7 +80,8 @@ class MemBandwidth(Monitor):
     @staticmethod
     def __get_theory_bandwidth():
         max_bandwidth = 76800 # 以MB/s为单位
-        dmi_command = ""
+        output = subprocess.check_output("dmidecode -t memory").split("\n")
+        print(output)
         return max_bandwidth
 
     def __read_counters(self, perf_output):
