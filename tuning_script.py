@@ -1,4 +1,4 @@
-# backend_script.py
+# tuning_script.py
 
 from program.optimize import set_memory, get_memory,set_mysql,get_mysql
 
