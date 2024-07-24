@@ -90,7 +90,7 @@ class Collector:
         float_data = [float(num) for num in raw_data]
         return float_data
 
-TABLE_SIZE = '1000000'
+TABLE_SIZE = '1000'
 
 commands = [
     ['sysbench', 'cpu', '--cpu-max-prime=200000000', '--threads=16', '--time=400', 'run'],
@@ -99,7 +99,7 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
-        '--mysql-password=123456',
+        '--mysql-password=mysql123456',
         '--table-size=' + TABLE_SIZE,
         '--tables=10',
         '/usr/share/sysbench/oltp_read_write.lua',
@@ -110,7 +110,7 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
-        '--mysql-password=123456',
+        '--mysql-password=mysql123456',
         '--table-size=' + TABLE_SIZE,
         '--tables=10',
         '--threads=16',
@@ -123,7 +123,7 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
-        '--mysql-password=123456',
+        '--mysql-password=mysql123456',
         '--tables=10',
         '/usr/share/sysbench/oltp_read_write.lua',
         'cleanup'
