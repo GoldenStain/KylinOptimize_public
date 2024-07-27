@@ -199,8 +199,8 @@ def start():
 
     while True:
         delta_time = time.time() - t
-        if delta_time < 1.0:
-            time.sleep(1.0 - delta_time)
+        if delta_time < globals.TIME_INTERVAL:
+            time.sleep(globals.TIME_INTERVAL - delta_time)
         t = time.time()
 
         pid_dict = get_proc_sum(dict_data)
