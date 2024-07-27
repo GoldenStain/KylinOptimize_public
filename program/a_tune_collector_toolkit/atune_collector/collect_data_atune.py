@@ -206,7 +206,7 @@ def CPU_stress():
     with stress_lock:
         stress_process = subprocess.Popen(commands[0], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
-def atune_collect_data():
+def collector_collect_data():
     current_user = os.getlogin()
     # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
     # if arg_json_path:
@@ -253,7 +253,7 @@ def atune_collect_data():
 def start_collect_atune():
     subprocess.run(['mysql', '--version'])
     exit(0)
-    collect_thread = threading.Thread(target=atune_collect_data)
+    collect_thread = threading.Thread(target=collector_collect_data)
     stress_thread = threading.Thread(target=fileio_prepare)
     stress_thread.start()
     stress_thread.join()

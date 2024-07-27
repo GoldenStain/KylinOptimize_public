@@ -79,8 +79,36 @@ class MemBandwidth(Monitor):
 # 待完善
     @staticmethod
     def __get_theory_bandwidth():
-        max_bandwidth = 76800 # 以MB/s为单位
-        dmi_command = ""
+        max_bandwidth = 0 # 以MB/s为单位
+        output = subprocess.check_output(["dmidecode", "-t", "memory"], universal_newlines=True)
+        speed_pattern = r'^\s*(Speed):\s*(\d+)\s*\w+/s'
+        data_width_pattern = r'^\s*(Data Width):\s*(\d+)\s*bits'
+        
+        # 合并两个模式
+        combined_pattern = f"{speed_pattern}|{data_width_pattern}"
+        
+        # 查找所有匹配的行
+        matches = re.finditer(combined_pattern, output, re.MULTILINE)
+        
+        Speed = []
+        Bit = []
+        count = 0
+        
+        for match in matches:
+            count += 1
+            if "Speed" in match.group():
+                   speed = match.group(2)
+                   Speed.append(int(speed))
+            elif "Data" in match.group():
+                   bit = match.group(4)
+                   Bit.append(int(bit))
+
+        count = int(count/2)
+        for i in range(count):
+               max_bandwidth += Speed[i] * Bit[i]
+
+        max_bandwidth = max_bandwidth / 8
+
         return max_bandwidth
 
     def __read_counters(self, perf_output):
