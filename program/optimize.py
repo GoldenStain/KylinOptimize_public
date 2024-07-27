@@ -1,5 +1,6 @@
-# 调优策略文件
+#调优策略文件
 from bcc import BPF, BPFProgType
+from . import TuningManager
 
 NUMA = None
 def set_numa(flag):
@@ -19,6 +20,33 @@ def set_ebpf_loopback(flag):
 
 def get_ebpf_loopback():
     return not (EBPF_LOOPBACK is None)
+
+tuning_memory = TuningManager("stream","program/examples/tuning/memory/tuning_stream_client.yaml","program/tuning_log/tuning_memory.log")
+def set_memory(flag):
+    if flag == 0:
+        pass
+    elif flag == 1:
+        tuning_memory.set_tuning()
+    elif flag == 2:
+        tuning_memory.restore_environment()
+        
+        
+def get_memory():
+    return tuning_memory.get_tuning_result()
+
+tuning_mysql = TuningManager("mysql_sysbench","program/examples/tuning/mysql_sysbench/mysql_sysbench_client.yaml","program/tuning_log/tuning_mysql.log")
+def set_mysql(flag):
+    if flag == 0:
+        pass
+    elif flag == 1:
+        tuning_mysql.set_tuning()
+    elif flag == 2:
+        tuning_mysql.restore_environment()
+        
+        
+def get_mysql():
+    return tuning_mysql.get_tuning_result()
+
 
 # 一个bool数组
 def set_policy_flags(arr):
