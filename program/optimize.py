@@ -1,4 +1,5 @@
 #调优策略文件
+import subprocess
 from bcc import BPF, BPFProgType
 from . import TuningManager
 
@@ -20,6 +21,23 @@ def set_ebpf_loopback(flag):
 
 def get_ebpf_loopback():
     return not (EBPF_LOOPBACK is None)
+
+TUNING_ONLINE = None
+def set_tuning_online(flag):
+    global TUNING_ONLINE
+    if flag and TUNING_ONLINE is None:
+        try:
+            subprocess.run(["sudo", "atune-adm", "analysis"], check=True)
+            TUNING_ONLINE = True
+        except subprocess.CalledProcessError as e:
+            TUNING_ONLINE = None
+        except Exception as e:
+            TUNING_ONLINE = None
+    elif not flag:
+        TUNING_ONLINE = None
+        
+def get_tuning_online():
+    return not (TUNING_ONLINE is None)
 
 tuning_memory = TuningManager("stream","program/examples/tuning/memory/tuning_stream_client.yaml","program/tuning_log/tuning_memory.log")
 def set_memory(flag):
@@ -46,6 +64,8 @@ def set_mysql(flag):
         
 def get_mysql():
     return tuning_mysql.get_tuning_result()
+
+
 
 
 # 一个bool数组
