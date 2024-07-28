@@ -90,15 +90,16 @@ class Collector:
         float_data = [float(num) for num in raw_data]
         return float_data
 
-TABLE_SIZE = '1000'
+TABLE_SIZE = '500'
 
 commands = [
-    ['sysbench', 'cpu', '--cpu-max-prime=200000000', '--threads=16', '--time=400', 'run'],
+    ['sysbench', 'cpu', '--cpu-max-prime=20000000', '--threads=16', '--time=200', 'run'],
     [
         'sysbench',
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
+        '--mysql-socket=/tmp/mysql.sock',
         '--mysql-password=mysql123456',
         '--table-size=' + TABLE_SIZE,
         '--tables=10',
@@ -110,11 +111,12 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
+        '--mysql-socket=/tmp/mysql.sock',
         '--mysql-password=mysql123456',
         '--table-size=' + TABLE_SIZE,
         '--tables=10',
-        '--threads=16',
-        '--time=400',
+        '--threads=10',
+        '--time=40',
         '/usr/share/sysbench/oltp_read_write.lua',
         'run'
     ],
@@ -123,6 +125,7 @@ commands = [
         '--db-driver=mysql',
         '--mysql-db=sbtest',
         '--mysql-user=root',
+        '--mysql-socket=/tmp/mysql.sock',
         '--mysql-password=mysql123456',
         '--tables=10',
         '/usr/share/sysbench/oltp_read_write.lua',
@@ -144,7 +147,7 @@ commands = [
         '-time', '30s',
         '-shard-duration', '1h'
 	],# 4
-    ['stress-ng', '--vm', '2', '--vm-bytes', '10G', '--vm-method', 'all', '-t', '400s'],
+    ['stress-ng', '--vm', '2', '--vm-bytes', '10G', '--vm-method', 'all', '-t', '180s'],
     ['sysbench', 'fileio', '--file-total-size=16G', 'prepare'],
     ['sysbench', 'fileio', '--file-total-size=16G', '--file-test-mode=rndrw', '--time=400', 'run'],
     ['sysbench', 'fileio', '--file-total-size=16G', 'cleanup'],#8
@@ -206,6 +209,13 @@ def CPU_stress():
     with stress_lock:
         stress_process = subprocess.Popen(commands[0], stdout=sys.stdout, stderr=sys.stderr, text=True)
 
+def print_env():
+    try:
+        result = subprocess.run(['env'], capture_output=True, text=True, check=True)
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing env command: {e}")
+
 def collector_collect_data():
     current_user = os.getlogin()
     # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
@@ -251,16 +261,10 @@ def collector_collect_data():
     subprocess.run(['chown', current_user, f'{path}/{file_name}'], capture_output=False)
 
 def start_collect_atune():
-    subprocess.run(['mysql', '--version'])
-    exit(0)
     collect_thread = threading.Thread(target=collector_collect_data)
-    stress_thread = threading.Thread(target=fileio_prepare)
+    mySQL_prepare()
+    stress_thread = threading.Thread(target=mySQL_stress)
     stress_thread.start()
-    stress_thread.join()
-    stress_thread = threading.Thread(target=fileio_stress)
-    collect_thread.start()
-    stress_thread.start()
-    collect_thread.join()
     stress_thread.join()
 
 from . import shared

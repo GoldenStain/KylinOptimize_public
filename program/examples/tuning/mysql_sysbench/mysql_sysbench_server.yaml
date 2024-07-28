@@ -1,7 +1,7 @@
 project: "mysql_sysbench"
 maxiterations: 2048
-startworkload: "taskset -c 0,1 systemctl start mysql" 
-stopworkload: "systemctl stop mysql" 
+startworkload: ""
+stopworkload: ""
 object : 
   -
     name : "kernel.numa_balancing"
@@ -9,20 +9,6 @@ object :
         desc : "Specifies whether to enable NUMA automatic balancing."
         get : "sysctl -n kernel.numa_balancing"
         set : "sysctl -w kernel.numa_balancing=$value"
-        needrestart : "false"
-        type : "discrete"
-        options :
-          - "0"
-          - "1"
-        dtype : "string"
-  -
-    name : "kernel.sched_autogroup_enabled"
-    info :
-        desc : "When enabled, the kernel creates task groups to optimize desktop program scheduling.
-0: disabled
-1: enabled"
-        get : "sysctl -n kernel.sched_autogroup_enabled"
-        set : "sysctl -w kernel.sched_autogroup_enabled=$value"
         needrestart : "false"
         type : "discrete"
         options :

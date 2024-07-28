@@ -14,11 +14,8 @@ new_password=mysql123456
 if [ ! -L /etc/init.d/mysql ]; then
   eval $cmd_service_link
 fi
-mkdir -p /usr/local/mysql/{data,tmp,run,log}
-chown -R mysql:mysql /usr/local/mysql
 
 eval $cmd_add_path
-
 
 
 if [ ! -f /usr/lib64/libmysqlclient.so.* ]; then
