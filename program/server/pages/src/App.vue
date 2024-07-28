@@ -92,8 +92,8 @@
         <iframe class="flame-graph" id="flame-graph" :src="url"></iframe>
         <div style="display: flex; flex-direction: row; align-items: center; gap:5px">
           <button class="regen-btn" @click="onRegen">重新生成</button>
-          <span style="color: white;">目标进程PID:</span>
-          <input type="text" class="regen-pid" v-model="regenPID">
+          <span style="color: white;">测试指令(例如mysql --user=root --password=mysql123456 -e 'SELECT * FROM mysql.user;' 可测单次IO):</span>
+          <input type="text" class="regen-cmd" v-model="regenCMD">
         </div>
       </el-tab-pane>
 
@@ -108,13 +108,9 @@
                 <el-switch v-model="optimizers[1]" />
                 <div class="text">本地网络回环流量优化</div>
                 <el-switch v-model="optimizers[2]" />
-                <div class="text">策略三</div>
-                <el-switch v-model="optimizers[3]" />
-                <div class="text">策略四</div>
-                <el-switch v-model="optimizers[4]" />
-                <div class="text">策略五</div>
+                <div class="text">ATune自动调优</div>
               </div>
-              <div class="hexagon-block">
+              <!-- <div class="hexagon-block">
                 <div class="hexagon-display">
                   <hexagon content="50%" title="NONE"></hexagon>
                   <hexagon></hexagon>
@@ -125,7 +121,7 @@
                   <hexagon></hexagon>
                   <hexagon></hexagon>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -154,9 +150,9 @@ export default {
   name: 'LineChart',
   data() {
     return {
-      optimizers: [false, false, false, false, false],
+      optimizers: [false, false, false],
       activeName: 'first',
-      regenPID: '',
+      regenCMD: '',
       url: '/static/flame_graph.svg',
       tableData: [
       ],
@@ -409,6 +405,17 @@ export default {
       myChart2.setOption(this.echartsOption2);
       myChart3.setOption(this.echartsOption3);
       myChart4.setOption(this.echartsOption4);
+
+      var opt = await this.fetchData('/api/optimize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          flag: this.optimizers
+        })
+      });
+      this.optimizers = opt;
     }, 1000);
 
     setInterval(async () => {
@@ -429,7 +436,11 @@ export default {
     },
     async onRegen() {
       alert('开始生成，需要等待几秒钟');
-      await fetch(`/api/flame_graph?${this.regenPID}`);
+      if (this.regenCMD == '') {
+        await fetch(`/api/flame_graph`);
+      } else {
+        await fetch(`/api/flame_graph?cmd=${encodeURIComponent(this.regenCMD)}`);
+      }
       const frame = document.getElementById('flame-graph').contentWindow;
       frame.location.reload();
       alert("生成已完成");
