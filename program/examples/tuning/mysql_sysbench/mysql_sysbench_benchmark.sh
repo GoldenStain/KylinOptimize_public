@@ -14,18 +14,18 @@
 # Create: 2021-05-24
 
 
-TABLES=
-TABLE_SIZE=
+TABLES=5
+TABLE_SIZE=1000
 
-log_file="PATH/sysbench_oltp_read_write.log"
+log_file="/home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/mysql_sysbench/sysbench_oltp_read_write.log"
 
 # Prepare phase
 sysbench --config-file=sysbench_config.cfg /usr/share/sysbench/oltp_read_write.lua --tables=$TABLES --table-size=$TABLE_SIZE prepare
 
 # Run phase
 
-# taskset -c 2,3 sysbench --config-file=sysbench_config.cfg /usr/share/sysbench/oltp_read_write.lua --tables=$TABLES --table-size=$TABLE_SIZE --time=100 --mysql-ignore-errors=8005 run > $log_file 2>&1
-sysbench --config-file=sysbench_config.cfg /usr/share/sysbench/oltp_read_write.lua --tables=$TABLES --table-size=$TABLE_SIZE --time=100 --mysql-ignore-errors=8005 run > $log_file 2>&1
+taskset -c 2,3 sysbench --config-file=sysbench_config.cfg /usr/share/sysbench/oltp_read_write.lua --tables=$TABLES --table-size=$TABLE_SIZE --time=100 --mysql-ignore-errors=8005 run > $log_file 2>&1
+# sysbench --config-file=sysbench_config.cfg /usr/share/sysbench/oltp_read_write.lua --tables=$TABLES --table-size=$TABLE_SIZE --time=100 --mysql-ignore-errors=8005 run > $log_file 2>&1
 ret=$?
 if [ $ret -ne 0 ]; then
     echo "Sysbench run phase failed with return code $ret."

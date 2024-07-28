@@ -9,8 +9,8 @@ do
     sleep $i
 
     # Check if the log file exists and contains the desired line
-    if [ -f "PATH/sysbench_oltp_read_write.log" ]; then
-        QPS=$(grep 'queries:' PATH/sysbench_oltp_read_write.log | awk -F '(' '{print $2}' | awk -F ' ' '{print $1}')
+    if [ -f "/home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/mysql_sysbench/sysbench_oltp_read_write.log" ]; then
+        QPS=$(grep 'queries:' /home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/mysql_sysbench/sysbench_oltp_read_write.log | awk -F '(' '{print $2}' | awk -F ' ' '{print $1}')
         
         # Check if QPS is a valid number
         if [[ ! -z "$QPS" ]] && [[ "$QPS" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then

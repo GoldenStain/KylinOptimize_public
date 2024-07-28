@@ -8,7 +8,6 @@ installation="mysql"
 sysbench_cfg="--with-mysql-libs=/usr/local/mysql/lib/ --with-mysql-includes=/usr/local/mysql/include/"
 cmd_service_link="ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql"
 cmd_add_path="export PATH=`echo $PATH`:/usr/local/mysql/bin"
-new_password=mysql123456
 
 
 if [ ! -L /etc/init.d/mysql ]; then
@@ -31,6 +30,7 @@ if [ $? -ne 0 ]; then
     exit 1;   
 fi
 
+real_password=$(grep 'mysql-password=' $path/sysbench_config.cfg | cut -d '=' -f 2-)
 read -p "enter table_num of sysbench to used:" tables
 read -p "enter table_size of sysbench to used:" table_size
 echo "update the client and server yaml files"
@@ -39,6 +39,8 @@ sed -i "s#PATH#$path#g" $path/get_eval.sh
 sed -i "s#TABLES=.*#TABLES=$tables#g" $path/mysql_sysbench_benchmark.sh
 sed -i "s#TABLE_SIZE=.*#TABLE_SIZE=$table_size#g" $path/mysql_sysbench_benchmark.sh
 sed -i "s#PATH#$path#g" $path/mysql_sysbench_benchmark.sh
+# replace the real password
+sed -i "s#-p[^ ]*#-p$real_password#g" $path/set_params.sh
 
 
 

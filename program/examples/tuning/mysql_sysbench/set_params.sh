@@ -1,6 +1,6 @@
 params=$1
 value=$2
-MySQL_EXEC_PATH -uroot -pmysql123456 << EOF
+/usr/local/mysql/bin/mysql -uroot -pmysql123456 << EOF
 set GLOBAL $params = $2;
 quit
 EOF

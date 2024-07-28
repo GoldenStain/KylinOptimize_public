@@ -20,6 +20,8 @@ sed -i 's|/usr/bin/mysql|MySQL_EXEC_PATH|g' $path/server.yaml
 sed -i 's/\/usr\/local\/mysql\/bin\/mysql/MySQL_EXEC_PATH/g' $path/set_params.sh
 sed -i 's|/usr/local/mysql/bin/mysql|MySQL_EXEC_PATH|g' $path/server.yaml
 sed -i "s#$path#PATH#g" $path/server.yaml
+#restore the password
+sed -i "s#-p[^ ]*#-pPASSWORD#g" $path/set_params.sh
 
 # 删除软链接，如果存在
 if [ -L /etc/init.d/mysql ]; then
