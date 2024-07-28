@@ -14,10 +14,10 @@
 # Create: 2021-05-24
 
 
-TABLES=5
-TABLE_SIZE=1000
+TABLES=
+TABLE_SIZE=
 
-log_file="/home/xjbo/桌面/KylinDBOptimize/program/examples/tuning/mysql_sysbench/sysbench_oltp_read_write.log"
+log_file="PATH/sysbench_oltp_read_write.log"
 
 # Prepare phase
 sysbench --config-file=sysbench_config.cfg /usr/share/sysbench/oltp_read_write.lua --tables=$TABLES --table-size=$TABLE_SIZE prepare
