@@ -3,7 +3,8 @@
         "bitset": "c",
         "chrono": "c",
         "algorithm": "c",
-        "*.inc": "c"
+        "*.inc": "c",
+        "random": "c"
     },
     "python.analysis.extraPaths": [
         "./program/ebpf/BCCSource/src/python"
