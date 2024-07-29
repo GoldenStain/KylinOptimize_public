@@ -1,5 +1,5 @@
 import json
-import globals
+from . import globals
 import time
 
 config = json.load(open("config.json"))
