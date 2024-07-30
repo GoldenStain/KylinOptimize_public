@@ -1,5 +1,6 @@
 {
     "time_interval": 1.0,
     "log_path": "log/",
-    "log_level": "DEBUG"
+    "log_level": "DEBUG",
+    "enable_performance_display": true
 }

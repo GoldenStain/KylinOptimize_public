@@ -92,8 +92,10 @@
         <iframe class="flame-graph" id="flame-graph" :src="url"></iframe>
         <div style="display: flex; flex-direction: row; align-items: center; gap:5px">
           <button class="regen-btn" @click="onRegen">重新生成</button>
-          <span style="color: white;">测试指令(例如mysql --user=root --password=mysql123456 -e 'SELECT * FROM mysql.user;' 可测单次IO):</span>
+          <span style="color: orange;">测试指令(例如mysql --user=root --password=mysql123456 -e 'SELECT * FROM mysql.user;' 可测单次IO):</span>
           <input type="text" class="regen-cmd" v-model="regenCMD">
+          <span style="color: orange;">目标进程名(例如mysqld)</span>
+          <input type="text" class="regen-cmd" v-model="regenName">
         </div>
       </el-tab-pane>
 
@@ -103,12 +105,16 @@
           <div class="back">
             <div class="control">
               <div class="button">
-                <el-switch v-model="optimizers[0]" />
+                <el-switch v-model="optimizer0" />
                 <div class="text">NUMA节点适配</div>
-                <el-switch v-model="optimizers[1]" />
+                <el-switch v-model="optimizer1" />
                 <div class="text">本地网络回环流量优化</div>
-                <el-switch v-model="optimizers[2]" />
+                <el-switch v-model="optimizer2" />
                 <div class="text">ATune自动调优</div>
+                <el-switch v-model="optimizer3" />
+                <div class="text">内存调优</div>
+                <el-switch v-model="optimizer4" />
+                <div class="text">mysql参数调优</div>
               </div>
               <!-- <div class="hexagon-block">
                 <div class="hexagon-display">
@@ -134,8 +140,15 @@
 import * as echarts from 'echarts';
 import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar, ElSwitch } from 'element-plus';
 import Hexagon from './components/Hexagon.vue';
+import { ref } from 'vue';
 
 const DATA_LENGTH = 7;
+
+const optimizer0 = ref(false);
+const optimizer1 = ref(false);
+const optimizer2 = ref(false);
+const optimizer3 = ref(false);
+const optimizer4 = ref(false);
 
 export default {
   components: {
@@ -150,8 +163,8 @@ export default {
   name: 'LineChart',
   data() {
     return {
-      optimizers: [false, false, false],
       activeName: 'first',
+      regenName: '',
       regenCMD: '',
       url: '/static/flame_graph.svg',
       tableData: [
@@ -377,7 +390,9 @@ export default {
       },
     }
   },
-  mounted() {
+  async mounted() {
+  //   var config = await this.fetchData('/static/data/config.json');
+
     let myChart1 = echarts.init(document.getElementById("myChart1"), 'dark'); // 初始化echarts, theme为dark
     myChart1.setOption(this.echartsOption1)   // echarts设置选项
     let myChart2 = echarts.init(document.getElementById("myChart2"), 'dark'); // 初始化echarts, theme为dark
@@ -405,27 +420,21 @@ export default {
       myChart2.setOption(this.echartsOption2);
       myChart3.setOption(this.echartsOption3);
       myChart4.setOption(this.echartsOption4);
-
-      var opt = await this.fetchData('/api/optimize', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          flag: this.optimizers
-        })
-      });
-      this.optimizers = opt;
-    }, 1000);
+      
+      let optimizers = [optimizer0, optimizer1, optimizer2, optimizer3, optimizer4].map(v => v.value);
+      console.log(optimizers);
+      var opt = await this.fetchData(`/api/optimize?flag=[${optimizers}]`);
+    }, 2000);
 
     setInterval(async () => {
       var confidence = await this.fetchData('/api/confidence');
+      //TODO confidence 为 null
       for (var i = 0; i < confidence.length; i++){
         confidence[i] = this.clamp(1.0 + Math.log(confidence[i]) * 0.2, 0.0, 1.0);
       }
       this.option.series[0].data[0].value = confidence;
       myChart5.setOption(this.option);
-    }, 2000);
+    }, 4000);
   },
   methods: {
     handleClick(tab, event) {
@@ -439,7 +448,7 @@ export default {
       if (this.regenCMD == '') {
         await fetch(`/api/flame_graph`);
       } else {
-        await fetch(`/api/flame_graph?cmd=${encodeURIComponent(this.regenCMD)}`);
+        await fetch(`/api/flame_graph?name=${encodeURIComponent(this.regenName)}&cmd=${encodeURIComponent(this.regenCMD)}`);
       }
       const frame = document.getElementById('flame-graph').contentWindow;
       frame.location.reload();

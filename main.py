@@ -8,6 +8,7 @@ import argparse
 import time
 import subprocess
 from program.a_tune_collector_toolkit.atune_collector import collect_data_atune
+from program.server import logger
 
 parser = argparse.ArgumentParser(description="eBPF based Database System Optimizer")
 parser.add_argument('-d', '--data-sample', action='store_true', default=False, help='sample data only')
@@ -51,8 +52,11 @@ if args.flame_graph:
     exit(0)
 
 threading.Thread(target=lambda: app.start(port), daemon=True).start()
+logger.log_info('Server Started')
 threading.Thread(target=lambda: client.start(port)).start()
+logger.log_info('Client Started')
 threading.Thread(target=lambda: data_sample.start(), daemon=True).start()
+logger.log_info('Data Sampler Started')
 
 print("按下Ctrl+C终止程序")
 try:
@@ -61,4 +65,5 @@ try:
         pass
 except KeyboardInterrupt:
     print("程序终止")
+    logger.log_info('Program Stopped')
 

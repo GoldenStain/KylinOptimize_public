@@ -15,9 +15,10 @@ def gen_flame_graph_perf(out_name, freq=50, time=10, pid=[]):
 	os.system(f"./program/ebpf/FlameGraph/flamegraph.pl --color=java --bgcolors '#101070' < {out_name}.stacks02 > {out_name}.svg")
 	os.system(f"sed -i '13s/rgb(0,0,0)/rgb(255,255,255)/' {out_name}.svg")
 
-def gen_flame_graph_mysql(out_name, cmd, freq=50):
-	app = cmd.split(' ')[0]
-	os.system(f"perf record --call-graph dwarf,32 -F {freq} -g -p $(pgrep -x {app}) -- {cmd}")
+def gen_flame_graph_cmd(out_name, name, cmd, freq=50):
+	line = f"perf record --call-graph dwarf,32 -F {freq} -g -p $(pgrep -x {name}) -- {cmd}"
+	print(line)
+	os.system(line)
 	os.system(f"perf script -i perf.data > {out_name}.stacks01")
 	os.system(f"./program/ebpf/FlameGraph/stackcollapse-perf.pl {out_name}.stacks01 > {out_name}.stacks02")
 	os.system(f"./program/ebpf/FlameGraph/flamegraph.pl --color=java --bgcolors '#101070' < {out_name}.stacks02 > {out_name}.svg")
