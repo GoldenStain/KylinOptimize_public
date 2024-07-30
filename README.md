@@ -2,7 +2,7 @@ python版本3.7.9，从源代码编译安装
 参考教程 https://blog.csdn.net/qq_42571592/article/details/122902266 1-4步骤
 
 yum安装的库:
-bcc-tools clang llvm llvm-devel llvm-static clang clang-devel clang-libs elfutils-devel elfutils-debuginfod elfutils-debuginfod-client-devel luajit-devel mesa-libGL atune atune-engine
+bcc-tools clang llvm llvm-devel llvm-static clang clang-devel clang-libs elfutils-devel elfutils-debuginfod elfutils-debuginfod-client-devel luajit-devel mesa-libGL
 
 额外依赖工具：
 perf numad perl

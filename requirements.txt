@@ -1,5 +1,4 @@
 aniso8601==9.0.1
-atune-collector==1.2.0
 catfish==1.4.13
 cffi==1.15.1
 click==8.1.7
@@ -41,7 +40,6 @@ pyparted==3.11.4
 pytest==7.4.4
 python-dateutil==2.9.0.post0
 python-meh==0.50.1
-pytz==2024.1scik
 shiboken6==6.2.4
 six==1.16.0
 slip==0.6.5
