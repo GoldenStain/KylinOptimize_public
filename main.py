@@ -11,7 +11,7 @@ from program.a_tune_collector_toolkit.atune_collector import collect_data_atune
 from program.server import logger
 import os
 
-useable_workload = ['centralized database', 'CPUstress', 'default', 'distributed databases', 'fileio stress', 'memory stress', 'net stress']
+useable_workload = ['centralized database', 'cpustress', 'default', 'distributed databases', 'fileio stress', 'memory stress', 'net stress']
 
 parser = argparse.ArgumentParser(description="eBPF based Database System Optimizer")
 parser.add_argument('-d', '--data-sample', action='store_true', default=False, help='sample data only')
