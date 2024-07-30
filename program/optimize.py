@@ -72,9 +72,15 @@ def get_mysql():
 def set_policy_flags(arr):
     set_numa(arr[0])
     set_ebpf_loopback(arr[1])
+    set_tuning_online(arr[2])
+    set_memory(arr[3])
+    set_mysql(arr[4])
 
 def get_policy_flags():
     arr = []
     arr.append(get_numa())
     arr.append(get_ebpf_loopback())
+    arr.append(get_tuning_online())
+    arr.append(get_memory())
+    arr.append(get_mysql())
     return arr

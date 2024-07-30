@@ -104,7 +104,7 @@ class MemBandwidth(Monitor):
                    Bit.append(int(bit))
 
         count = int(count/2)
-        for i in range(count):
+        for i in range(len(Speed)):
                max_bandwidth += Speed[i] * Bit[i]
 
         max_bandwidth = max_bandwidth / 8

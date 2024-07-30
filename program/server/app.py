@@ -15,16 +15,20 @@ def index():
 
 @app.route('/api/perf')
 def api_perf():
+    if not globals.ENABLE_PERFORMANCE_DISPLAY:
+        return {}, 403
     return json.dumps(globals.SYSTEM_INFO)
 
 @app.route('/api/proc')
 def api_proc():
+    if not globals.ENABLE_PERFORMANCE_DISPLAY:
+        return json.dumps([])
     return json.dumps(globals.PROCESS_INFO)
 
 @app.route('/api/flame_graph')
 def api_flame_graph():
-    if request.args.__contains__("cmd"):
-        flame_graph.gen_flame_graph_mysql("program/server/static/flame_graph", request.args["cmd"], 50)
+    if request.args.__contains__("cmd") and request.args.__contains__("name"):
+        flame_graph.gen_flame_graph_cmd("program/server/static/flame_graph", request.args["name"], request.args["cmd"], 50)
     else:
         flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
     return redirect('/static/flame_graph.svg', code=302, Response=None)
@@ -33,11 +37,11 @@ def api_flame_graph():
 def api_confidence():
     return json.dumps(get_data_return_confidence())
 
-@app.route('/api/optimize', methods=['POST'])
+@app.route('/api/optimize')
 def api_optimize():
-    data = request.get_json()
-    if data.__contains__("flag"):
-        optimize.set_policy_flags(data["flag"])
+    if request.args.__contains__("flag"):
+        o = json.loads(request.args["flag"])
+        optimize.set_policy_flags(o)
     return json.dumps(optimize.get_policy_flags())
 
 def start(port):
