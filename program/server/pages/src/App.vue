@@ -105,15 +105,15 @@
           <div class="back">
             <div class="control">
               <div class="button">
-                <el-switch v-model="optimizer0" />
+                <input type="checkbox" v-model="optimizer0">
                 <div class="text">NUMA节点适配</div>
-                <el-switch v-model="optimizer1" />
+                <input type="checkbox" v-model="optimizer1">
                 <div class="text">本地网络回环流量优化</div>
-                <el-switch v-model="optimizer2" />
+                <input type="checkbox" v-model="optimizer2">
                 <div class="text">ATune自动调优</div>
-                <el-switch v-model="optimizer3" />
+                <input type="checkbox" v-model="optimizer3">
                 <div class="text">内存调优</div>
-                <el-switch v-model="optimizer4" />
+                <input type="checkbox" v-model="optimizer4">
                 <div class="text">mysql参数调优</div>
               </div>
               <!-- <div class="hexagon-block">
