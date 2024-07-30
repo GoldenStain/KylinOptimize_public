@@ -129,6 +129,9 @@
                 </div>
               </div> -->
             </div>
+            <div v-if="optimizers[0]" class="numa-status-container" style="margin-top: 30px;">
+              <numa-status></numa-status>
+            </div>
           </div>
         </div>
       </el-tab-pane>
@@ -141,6 +144,7 @@ import * as echarts from 'echarts';
 import { ElTable, ElTableColumn, ElTabs, ElTabPane, ElScrollbar, ElSwitch } from 'element-plus';
 import Hexagon from './components/Hexagon.vue';
 import { ref } from 'vue';
+import NumaStatus from './components/NumaStatus.vue';
 
 const DATA_LENGTH = 7;
 
@@ -153,6 +157,7 @@ export default {
     'el-tab-pane': ElTabPane,
     'el-switch': ElSwitch,
     'hexagon': Hexagon,
+    NumaStatus
   },
   name: 'LineChart',
   data() {
@@ -436,6 +441,40 @@ export default {
     }, 4000);
   },
   methods: {
+    async toggleNuma(optimizer){
+      try {
+        const response = await fetch('/api/toggle-numa', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ enable: optimizer }),
+        });
+        const result = await response.json();
+        if (result.success) {
+          console.log(result.message);
+        } else {
+          console.error(result.message);
+        }
+      } catch (error) {
+        console.error('切换 NUMA 状态失败:', error);
+      }
+    },
+    async optimize() {
+      try {
+        const response = await fetch('/api/optimize', {
+          method: 'POST',
+        });
+        const result = await response.json();
+        if (result.success) {
+          console.log(result.message);
+        } else {
+          console.error(result.message);
+        }
+      } catch (error) {
+        console.error('NUMA 优化失败:', error);
+      }
+    },
     handleClick(tab, event) {
       console.log(tab, event)
     },
@@ -511,6 +550,9 @@ export default {
 </script>
 
 <style scoped>
+.numa-status-container {
+    margin-top: 30px; 
+}
 .demo-tabs>.el-tabs__content {
   padding: 32px;
   color: #fff;
