@@ -9,7 +9,7 @@ class NumadManager:
 
     def start_numad(self):
         command = ['numad', '-S', str(self.scan_type)]
-        self.numad_process = subprocess.run(command)
+        self.numad_process = subprocess.Popen(command, shell=True)
     
     def stop_numad(self):
         self.numad_process.kill()

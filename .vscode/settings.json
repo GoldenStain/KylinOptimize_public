@@ -4,7 +4,8 @@
         "chrono": "c",
         "algorithm": "c",
         "*.inc": "c",
-        "random": "c"
+        "random": "c",
+        "perf_event.h": "c"
     },
     "python.analysis.extraPaths": [
         "./program/ebpf/BCCSource/src/python"

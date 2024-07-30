@@ -9,6 +9,7 @@ import time
 import subprocess
 from program.a_tune_collector_toolkit.atune_collector import collect_data_atune
 from program.server import logger
+import os
 
 useable_workload = ['centralized database', 'CPUstress', 'default', 'distributed databases', 'fileio stress', 'memory stress', 'net stress']
 
@@ -58,6 +59,9 @@ if args.flame_graph:
     flame_graph.gen_flame_graph_perf("program/server/static/flame_graph", 50)
     # IO_monitor()
     exit(0)
+
+if not os.path.exists('tmp'):
+    os.mkdir('tmp')
 
 threading.Thread(target=lambda: app.start(port), daemon=True).start()
 logger.log_info('Server Started')
