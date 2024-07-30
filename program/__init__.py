@@ -2,6 +2,7 @@ import os
 import time
 from subprocess import run, PIPE
 from subprocess import run, CalledProcessError
+# coding=utf-8
 
 class TuningManager:
     def __init__(self, project_name, config_file, log_file="tuning_result.log"):
