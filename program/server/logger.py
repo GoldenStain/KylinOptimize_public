@@ -1,4 +1,4 @@
-import globals
+from . import globals
 import time
 
 def log_debug(msg):
