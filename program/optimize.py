@@ -2,24 +2,33 @@
 import subprocess
 from bcc import BPF, BPFProgType
 from . import TuningManager
+from .tools.numad import NumadManager
 
 NUMA = None
 def set_numa(flag):
-    pass
+    global NUMA
+    if flag and NUMA is None:
+        NUMA = NumadManager()
+        NUMA.start_numad()
+    elif not flag and not (NUMA is None):
+        NUMA.stop_numad()
+        NUMA = None
 
 def get_numa():
-    return False
+    global NUMA
+    return not (EBPF_LOOPBACK is None)
 
 EBPF_LOOPBACK = None
 def set_ebpf_loopback(flag):
+    global EBPF_LOOPBACK
     if flag and EBPF_LOOPBACK is None:
         EBPF_LOOPBACK = BPF(src_file="program/ebpf/bpf_sockmap.c")
-        EBPF_LOOPBACK.load_func("bpf_redir", BPFProgType.SK_MSG)
-        EBPF_LOOPBACK.load_func("bpf_sockops_handler", BPFProgType.SOCK_OPS)
+        EBPF_LOOPBACK.load_func("sock_ops_prog", BPFProgType.SOCK_OPS)
     elif not flag:
         EBPF_LOOPBACK = None
 
 def get_ebpf_loopback():
+    global EBPF_LOOPBACK
     return not (EBPF_LOOPBACK is None)
 
 

@@ -105,15 +105,15 @@
           <div class="back">
             <div class="control">
               <div class="button">
-                <input type="checkbox" v-model="optimizer0">
+                <input type="checkbox" class="policy-switch" v-model="optimizer0">
                 <div class="text">NUMA节点适配</div>
-                <input type="checkbox" v-model="optimizer1">
+                <input type="checkbox" class="policy-switch" v-model="optimizer1">
                 <div class="text">本地网络回环流量优化</div>
-                <input type="checkbox" v-model="optimizer2">
+                <input type="checkbox" class="policy-switch" v-model="optimizer2">
                 <div class="text">ATune自动调优</div>
-                <input type="checkbox" v-model="optimizer3">
+                <input type="checkbox" class="policy-switch" v-model="optimizer3">
                 <div class="text">内存调优</div>
-                <input type="checkbox" v-model="optimizer4">
+                <input type="checkbox" class="policy-switch" v-model="optimizer4">
                 <div class="text">mysql参数调优</div>
               </div>
               <!-- <div class="hexagon-block">
@@ -144,12 +144,6 @@ import { ref } from 'vue';
 
 const DATA_LENGTH = 7;
 
-const optimizer0 = ref(false);
-const optimizer1 = ref(false);
-const optimizer2 = ref(false);
-const optimizer3 = ref(false);
-const optimizer4 = ref(false);
-
 export default {
   components: {
     'el-scrollbar': ElScrollbar,
@@ -166,6 +160,11 @@ export default {
       activeName: 'first',
       regenName: '',
       regenCMD: '',
+      optimizer0: false,
+      optimizer1: false,
+      optimizer2: false,
+      optimizer3: false,
+      optimizer4: false,
       url: '/static/flame_graph.svg',
       tableData: [
       ],
@@ -421,7 +420,7 @@ export default {
       myChart3.setOption(this.echartsOption3);
       myChart4.setOption(this.echartsOption4);
       
-      let optimizers = [optimizer0, optimizer1, optimizer2, optimizer3, optimizer4].map(v => v.value);
+      let optimizers = [this.optimizer0, this.optimizer1, this.optimizer2, this.optimizer3, this.optimizer4];
       console.log(optimizers);
       var opt = await this.fetchData(`/api/optimize?flag=[${optimizers}]`);
     }, 2000);
@@ -755,6 +754,12 @@ hr {
   margin-left: 0;
   flex-direction: row;
   gap: 150px;
-  padding: 30px 20px 30px
+  padding: 30px 20px 30px;
+}
+
+.policy-switch {
+  height: 20px;
+  width: 20px;
+  margin-top: 10px;
 }
 </style>
