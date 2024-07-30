@@ -33,7 +33,7 @@ def IO_monitor():
     flame_thread.join()
 
 if args.atune:
-    collect_data_atune.start_collect_atune()
+    collect_data_atune.collector_collect_data()
     exit(0)
 
 if args.confidence:

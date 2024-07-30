@@ -262,10 +262,6 @@ def collector_collect_data():
 
 def start_collect_atune():
     collect_thread = threading.Thread(target=collector_collect_data)
-    mySQL_prepare()
-    stress_thread = threading.Thread(target=mySQL_stress)
-    stress_thread.start()
-    stress_thread.join()
 
 from . import shared
 
