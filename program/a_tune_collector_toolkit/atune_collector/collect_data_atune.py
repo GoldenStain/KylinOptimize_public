@@ -241,6 +241,7 @@ def collector_collect_data():
         with open(os.path.join(path, file_name), "w") as csvfile:
             writer = csv.writer(csvfile)
             output_fields = ["TimeStamp"] + collector.field_name
+            output_fields = output_fields + ["WorkloadType"]
             writer.writerow(output_fields)
             csvfile.flush()
             for _ in range(collect_num):
