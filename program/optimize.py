@@ -2,16 +2,16 @@
 import subprocess
 from bcc import BPF, BPFProgType
 from . import TuningManager
-from .tools.numad import NumadManager
+from .tools.numa_tuning import NumadManager
 
 NUMA = None
 def set_numa(flag):
     global NUMA
     if flag and NUMA is None:
         NUMA = NumadManager()
-        NUMA.start_numad()
+        NUMA.run_numad()
     elif not flag and not (NUMA is None):
-        NUMA.stop_numad()
+        NUMA.close_numad()
         NUMA = None
 
 def get_numa():
