@@ -216,7 +216,7 @@ def print_env():
     except subprocess.CalledProcessError as e:
         print(f"Error executing env command: {e}")
 
-def collector_collect_data(work_type):
+def collector_collect_data(work_type = "default"):
     current_user = os.getlogin()
     # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
     # if arg_json_path:
