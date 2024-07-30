@@ -1,11 +1,11 @@
 {
-  "network": "lo",
+  "network": "p4p1",
   "block": "sda",
   "application": "",
-  "sample_num": 400,
+  "sample_num": 20,
   "interval": 1,
   "output_dir": "./program/a_tune_collector_toolkit/collect_data",
-  "workload_type": "fileio_stress",
+  "workload_type": "test",
   "collection_items": [
     {
       "name": "cpu",

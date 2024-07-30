@@ -10,6 +10,8 @@ import subprocess
 from program.a_tune_collector_toolkit.atune_collector import collect_data_atune
 from program.server import logger
 
+useable_workload = ['centralized database', 'CPUstress', 'default', 'distributed databases', 'fileio stress', 'memory stress', 'net stress']
+
 parser = argparse.ArgumentParser(description="eBPF based Database System Optimizer")
 parser.add_argument('-d', '--data-sample', action='store_true', default=False, help='sample data only')
 parser.add_argument('-v', '--verbose', action='store_true', default=False, help='show more information')
@@ -18,11 +20,13 @@ parser.add_argument('-p', '--port', type=int, default=80, help='local HTTP serve
 parser.add_argument('--pid', type=int, default=0, help='target pid to sample data')
 parser.add_argument('-a', '--atune', action='store_true', default=False, help='collect data for Atune')
 parser.add_argument('-c', '--confidence', action='store_true', default=False, help='calculate confidence')
+parser.add_argument('--type', type=str, default=None, help = 'specify the workload type')
 args = parser.parse_args()
 
 is_verbose = args.verbose
 port = args.port
 pid = args.pid
+work_type = args.type
 
 def IO_monitor():
     subprocess.run(collect_data_atune.commands[1])
@@ -33,8 +37,12 @@ def IO_monitor():
     IO_thread.join()
     flame_thread.join()
 
+if work_type is not None and work_type not in useable_workload:
+    print('请输入合法的work_type')
+    exit(1)
+
 if args.atune:
-    collect_data_atune.collector_collect_data()
+    collect_data_atune.collector_collect_data(work_type)
     exit(0)
 
 if args.confidence:

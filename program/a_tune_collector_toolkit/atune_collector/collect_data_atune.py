@@ -216,7 +216,7 @@ def print_env():
     except subprocess.CalledProcessError as e:
         print(f"Error executing env command: {e}")
 
-def collector_collect_data():
+def collector_collect_data(work_type):
     current_user = os.getlogin()
     # json_path = "./program/a_tune_collector_toolkit/atune_collector/collect_data.json"
     # if arg_json_path:
@@ -241,13 +241,14 @@ def collector_collect_data():
         with open(os.path.join(path, file_name), "w") as csvfile:
             writer = csv.writer(csvfile)
             output_fields = ["TimeStamp"] + collector.field_name
-            output_fields = output_fields + ["WorkloadType"]
+            output_fields = output_fields + ["workload.appname"]
             writer.writerow(output_fields)
             csvfile.flush()
             for _ in range(collect_num):
                 data = collector.collect_data()
                 str_data = [str(round(value, 3)) for value in data]
                 str_data.insert(0, time.strftime("%H:%M:%S"))
+                str_data.append(work_type)
                 writer.writerow(str_data)
                 csvfile.flush()
                 # with stress_lock:
