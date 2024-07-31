@@ -9,8 +9,8 @@ def main():
     # 添加命令行参数
     parser.add_argument('action', choices=['set_memory', 'get_memory','set_mysql','get_mysql'], 
                         help='要执行的操作: set (启动调优或恢复环境), get (获取调优结果)')
-    parser.add_argument('--flag', type=int, choices=[0, 1, 2], default=0, 
-                        help='控制操作的标志: 0 (不做处理), 1 (启动调优), 2 (恢复环境)')
+    parser.add_argument('--flag', type=bool, choices=[True,False], default=0, 
+                        help='控制操作的标志: False (不做处理), True (启动调优)')
 
     # 解析命令行参数
     args = parser.parse_args()

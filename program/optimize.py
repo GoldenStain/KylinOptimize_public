@@ -50,27 +50,23 @@ def get_tuning_online():
     return not (TUNING_ONLINE is None)
 
 
-tuning_memory = TuningManager("stream","program/examples/tuning/memory/tuning_stream_client.yaml","program/tuning_log/tuning_memory.log")
+tuning_memory = TuningManager("stream","A-Tune/examples/tuning/memory/tuning_stream_client.yaml","program/tuning_log/tuning_memory.log")
 def set_memory(flag):
-    if flag == 0:
-        pass
-    elif flag == 1:
+    if flag:
         tuning_memory.set_tuning()
-    elif flag == 2:
-        tuning_memory.restore_environment()
+    elif not flag:
+         pass
 
 
 def get_memory():
     return tuning_memory.get_tuning_result()
 
-tuning_mysql = TuningManager("mysql_sysbench","program/examples/tuning/mysql_sysbench/mysql_sysbench_client.yaml","program/tuning_log/tuning_mysql.log")
+tuning_mysql = TuningManager("mysql_sysbench","A-Tune/examples/tuning/mysql_sysbench/mysql_sysbench_client.yaml","program/tuning_log/tuning_mysql.log")
 def set_mysql(flag):
-    if flag == 0:
-        pass
-    elif flag == 1:
+    if flag:
         tuning_mysql.set_tuning()
-    elif flag == 2:
-        tuning_mysql.restore_environment()
+    elif not flag:
+     pass
 
 
 def get_mysql():
