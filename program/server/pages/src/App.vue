@@ -129,7 +129,7 @@
                 </div>
               </div> -->
             </div>
-            <div v-if="optimizers[0]" class="numa-status-container" style="margin-top: 30px;">
+            <div v-if="optimizer0" class="numa-status-container" style="margin-top: 30px;">
               <numa-status></numa-status>
             </div>
           </div>
