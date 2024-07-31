@@ -5,7 +5,8 @@ from subprocess import run, CalledProcessError
 # coding=utf-8
 
 class TuningManager:
-    def __init__(self, project_name, config_file, log_file="tuning_result.log"):
+    def __init__(self,tuning_dir,project_name, config_file, log_file="tuning_result.log"):
+        self.tuning_dir = tuning_dir
         self.project_name = project_name
         self.config_file = config_file
         self.log_file = log_file
@@ -14,7 +15,12 @@ class TuningManager:
         """
         启动调优过程，并等待调优结束。
         """
-        command = f"sudo atune-adm tuning --project {self.project_name} --detail {self.config_file}"
+        full_config_path = os.path.join(self.tuning_dir,self.config_file)
+        if not os.path.exists(full_config_path):
+            print(f"配置文件不存在：{full_config_path}")
+            return
+        
+        command = f"cd {self.tuning_dir} && sudo atune-adm tuning --project {self.project_name} --detail {self.config_file}"
         try:
             with open(self.log_file, "w") as log:
                 result = run(command, shell=True, stdout=log, stderr=log, text=True, check=True)
@@ -41,7 +47,7 @@ class TuningManager:
         """
         恢复环境。
         """
-        command = f"sudo atune-adm tuning --restore --project {self.project_name}"
+        command = f"cd {self.tuning_dir} && sudo atune-adm tuning --restore --project {self.project_name}"
         try:
             result = run(command, shell=True, capture_output=True, text=True, check=True)
             print("环境恢复成功")
