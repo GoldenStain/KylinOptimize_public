@@ -1,0 +1,14 @@
+1.  
+File "/home/wsw/桌面/KylinDBOptimize/program/server/app.py", line 4, in <module>
+    from .. import optimize
+File "/home/wsw/桌面/KylinDBOptimize/program/optimize.py", line 5, in <module>
+    from bcc import BPF, BPFProgType
+File "program/ebpf/BCCSource/src/python/bcc/__init__.py", line 26, in <module>
+    from .libbcc import lib, bcc_symbol, bcc_symbol_option, bcc_stacktrace_build_id, _SYM_CB_TYPE
+File "program/ebpf/BCCSource/src/python/bcc/libbcc.py", line 29, in <module>
+    lib.bpf_module_rw_engine_enabled.restype = ct.c_bool
+File "/usr/lib64/python3.7/ctypes/__init__.py", line 372, in __getattr__
+    func = self.__getitem__(name)
+File "/usr/lib64/python3.7/ctypes/__init__.py", line 377, in __getitem__
+    func = self._FuncPtr((name_or_ordinal, self))
+AttributeError: /usr/lib64/libbcc.so.0: undefined symbol: bpf_module_rw_engine_enabled
