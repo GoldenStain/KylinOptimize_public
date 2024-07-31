@@ -22,3 +22,56 @@ CPU使用量
 网络有问题时尝试:
 nmcli n on
 
+**A-Tune编译安装**
+
+仓库git链接：
+
+<https://github.com/GoldenStain/A-Tune-Collector.git>
+
+速览编译安装步骤:
+
+#### 1、安装依赖系统软件包
+```bash
+yum install -y golang-bin python3 perf sysstat hwloc-gui lshw
+```
+
+#### 2、安装python依赖包  
+
+#### 2.1 安装A-Tune服务的依赖包
+```bash
+yum install -y python3-dict2xml python3-flask-restful python3-pandas python3-scikit-optimize python3-xgboost python3-pyyaml
+```
+或
+```bash
+pip3 install dict2xml Flask-RESTful pandas scikit-optimize xgboost scikit-learn pyyaml
+```
+#### 2.2、安装数据库依赖包（可选）
+如用户已安装数据库应用，并需要将A-Tune的采集和调优数据存储到数据库中，可以安装以下依赖包：
+```bash
+yum install -y python3-sqlalchemy python3-cryptography
+```
+或
+```bash
+pip3 install sqlalchemy cryptography
+```
+同时，请参照下表，根据对应的数据库应用任选一种方式进行依赖安装。
+| **数据库** | **yum安装** | **pip安装** |
+| ------------------------------ | ---------- | ------------ |
+| PostgreSQL | yum install -y python3-psycopg2 | pip3 install psycopg2 |
+
+#### 4、编译
+```bash
+cd A-Tune
+make
+```
+
+#### 5、安装
+```bash
+make collector-install
+make install
+```
+
+请在初次使用前，完成配置文件的编辑，否则可能导致运行失败。
+
+
+
