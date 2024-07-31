@@ -162,4 +162,4 @@ cython_debug/
 
 perf.data
 perf.data.old
-program/a_tune_collector_toolkit/atune_collector/collect_data.json
+tmp.py
