@@ -129,7 +129,7 @@
                 </div>
               </div> -->
             </div>
-            <div v-if="optimizers[0]" class="numa-status-container" style="margin-top: 30px;">
+            <div v-if="optimizers0" class="numa-status-container" style="margin-top: 30px;">
               <numa-status></numa-status>
             </div>
           </div>
@@ -426,7 +426,7 @@ export default {
       myChart4.setOption(this.echartsOption4);
       
       let optimizers = [this.optimizer0, this.optimizer1, this.optimizer2, this.optimizer3, this.optimizer4];
-      console.log(optimizers);
+      //console.log(optimizers);
       var opt = await this.fetchData(`/api/optimize?flag=[${optimizers}]`);
     }, 2000);
 
