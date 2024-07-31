@@ -1,6 +1,6 @@
 {
-  "network": "lo",
-  "block": "sda",
+  "network": "p4p1",
+  "block": "nvme0n1",
   "application": "",
   "sample_num": 100,
   "interval": 1,
