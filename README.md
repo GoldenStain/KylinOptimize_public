@@ -26,7 +26,7 @@ nmcli n on
 
 仓库git链接：
 
-<https://gitee.com/goldenstain/A-Tune.git>
+<https://github.com/GoldenStain/A-Tune-Collector.git>
 
 速览编译安装步骤:
 
